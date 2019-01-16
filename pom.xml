@@ -19,14 +19,16 @@
         <java.version>11</java.version>
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
+        <dockerfile-maven-version>1.4.10</dockerfile-maven-version>
+        <dockerfile.build.pullNewerImage>false</dockerfile.build.pullNewerImage>
     </properties>
 
     <modules>
         <module>platform</module>
         <module>apps</module>
     </modules>
-    
-        <dependencyManagement>
+
+    <dependencyManagement>
         <dependencies>
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
@@ -37,13 +39,4 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
-    
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-            </plugin>
-        </plugins>
-    </build>
 </project>
