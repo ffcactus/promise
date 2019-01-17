@@ -1,7 +1,12 @@
 spring:
   application:
     name: registry
-    
+  cloud:
+    config:
+      uri: http://192.168.206.130:8888
+      fail-fast: true
+      password: ${CONFIG_SERVICE_PASSWORD}
+      username: user
 eureka:
   instance:
     prefer-ip-address: true
@@ -9,4 +14,4 @@ eureka:
     registerWithEureka: false
     fetchRegistry: false
     server:
-      waitTimeInMsWhenSyncEmpty: 0    
+      waitTimeInMsWhenSyncEmpty: 0

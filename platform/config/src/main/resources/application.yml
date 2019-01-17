@@ -1,10 +1,16 @@
-server:
-  port: 8888
-
 spring:
+  application:
+    name: config
   cloud:
     config:
       server:
-        git:
-          uri: file:///${user.home}/config-repo
-          
+        native:
+          search-locations: classpath:/shared
+  profiles:
+     active: native
+  security:
+    user:
+      password: CONFIG_SERVICE_PASSWORD
+
+server:
+  port: 8888

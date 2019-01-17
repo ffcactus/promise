@@ -5,4 +5,4 @@ ARG JAR_FILE
 ADD ./target/${JAR_FILE} /app/application.jar
 CMD ["java", "-Xmx200m", "-jar", "/app/application.jar"]
 
-#EXPOSE 8761
+EXPOSE 8761
