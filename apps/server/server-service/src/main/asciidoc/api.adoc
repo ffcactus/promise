@@ -1,0 +1,27 @@
+
+= Server Management API Specification
+{project-version}
+:doctype: book
+:toc: left
+:sectnums:
+
+== Initialize a server.
+A `POST` request is used to set the information to initialize a server.
+
+operation::init-server[snippets='curl-request,http-request,request-body,request-fields,http-response,response-body,response-fields']
+
+== Get server collection
+A `GET` request is used to get the server collection. The result can be pageable and ordered.
+
+operation::get-server-collection[snippets='curl-request,http-request,request-body,http-response,response-body,response-fields']
+
+== Get a server by ID.
+A `GET` request is used to get the server by ID.
+
+operation::get-server-by-id[snippets='curl-request,http-request,path-parameters,request-body,http-response,response-body,response-fields']
+
+== Remove a server by ID.
+A `DELETE` request is used to remove the server by ID.
+
+operation::remove-server-by-id[snippets='curl-request,http-request,path-parameters,request-body,http-response,response-body,response-fields']
+

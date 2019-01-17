@@ -1,4 +1,4 @@
-FROM openjdk:11
+FROM openjdk:11-jre
 MAINTAINER Bai, Bin <ffcactus@me.com>
 
 ARG JAR_FILE

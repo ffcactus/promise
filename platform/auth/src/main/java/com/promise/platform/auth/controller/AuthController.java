@@ -13,17 +13,15 @@ import com.promise.platform.auth.dto.LoginRequest;
  */
 @Controller
 @RequestMapping("/rest/v1/auth")
-public class AuthController
-{
-    /**
-     * Login controller handle login process.
-     *
-     * @param request The login request.
-     * @return The authentication.
-     */
-    @PostMapping("/login")
-    public ResponseEntity<Void> login(@RequestBody LoginRequest request)
-    {
-        return null;
-    }
+public class AuthController {
+	/**
+	 * Login controller handle login process.
+	 *
+	 * @param request The login request.
+	 * @return The authentication.
+	 */
+	@PostMapping("/login")
+	public ResponseEntity<Void> login(@RequestBody LoginRequest request) {
+		return null;
+	}
 }

@@ -10,10 +10,9 @@ import lombok.NoArgsConstructor;
  */
 @Data
 @NoArgsConstructor
-public class User
-{
-    public String username;
-    public String password;
-    public String email;
-    public Set<String> role;
+public class User {
+	public String username;
+	public String password;
+	public String email;
+	public Set<String> role;
 }

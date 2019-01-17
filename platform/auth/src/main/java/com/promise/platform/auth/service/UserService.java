@@ -11,14 +11,12 @@ import com.promise.platform.auth.repository.UserRepository;
  * User service.
  */
 @Service
-public class UserService
-{
-    @Autowired
-    private UserRepository userRepository;
+public class UserService {
+	@Autowired
+	private UserRepository userRepository;
 
-    public User getUser(String username)
-    {
-        Assert.hasText(username, "username must not be empty");
-        return userRepository.findByUsername(username).get();
-    }
+	public User getUser(String username) {
+		Assert.hasText(username, "username must not be empty");
+		return userRepository.findByUsername(username).get();
+	}
 }

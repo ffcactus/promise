@@ -9,9 +9,8 @@ import com.promise.platform.auth.model.User;
 /**
  * User repository interface.
  */
-public interface UserRepository extends MongoRepository<User, String>
-{
-    Optional<User> findByUsername(String username);
+public interface UserRepository extends MongoRepository<User, String> {
+	Optional<User> findByUsername(String username);
 
-    Optional<User> findByToken(String token);
+	Optional<User> findByToken(String token);
 }
