@@ -2,25 +2,9 @@ spring:
   profiles:
     include: db
   application:
-    name: server
+    name: promise-apps-server
   jackson:
     mapper:
       ACCEPT_CASE_INSENSITIVE_PROPERTIES: true     
     serialization:
-      FAIL_ON_EMPTY_BEANS: false 
-  data:
-    mongodb:
-      host: 100.101.64.180
-      port: 27017
-      database: server    
-          
-#server:
-#  port: 0
-#eureka:
-#  client:
-#    serviceUrl:
-#      defaultZone: ${EUREKA_URI:http://localhost:8761/eureka}
-#  instance:
-#    preferIpAddress: true
-#    
-
+      FAIL_ON_EMPTY_BEANS: false

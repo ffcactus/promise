@@ -6,8 +6,8 @@ spring:
       ACCEPT_CASE_INSENSITIVE_PROPERTIES: true
   data:
     mongodb:
-      host: 100.101.64.180
-      port: 27017
+      host: ${MONGODB_HOST}
+      port: ${MONGODB_PORT}
       database: task
 server:
   port: 0

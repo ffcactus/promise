@@ -1,0 +1,7 @@
+eureka:
+  client:
+    instanceId: ${spring.application.name}:${spring.application.instance_id:${random.value}}
+  instance:
+    instanceId: ${spring.application.name}:${random.int}
+server:
+  port: 9001
