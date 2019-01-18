@@ -1,0 +1,12 @@
+version: "3.5"
+
+services:
+  promise-platform-config:
+    env_file:
+      - test.env
+  promise-platform-registry:
+    env_file:
+      - test.env
+  promise-platform-task:
+    env_file:
+      - test.env  

@@ -48,7 +48,7 @@
                     </execution>
                 </executions>
                 <configuration>
-                    <repository>${project.name}</repository>
+                    <repository>promise-platform-registry</repository>
                     <tag>${project.version}</tag>
                     <buildArgs>
                         <JAR_FILE>${project.build.finalName}.jar</JAR_FILE>

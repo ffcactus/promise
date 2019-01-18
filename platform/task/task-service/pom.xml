@@ -1,23 +1,72 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-    <modelVersion>4.0.0</modelVersion>
-    <groupId>com.promise.platform.task.service</groupId>
-    <artifactId>promise-platform-task-service</artifactId>
-    <name>promise-platform-task-service</name>
-    <packaging>jar</packaging>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.promise.platform.task.service</groupId>
+	<artifactId>promise-platform-task-service</artifactId>
+	<name>promise-platform-task-service</name>
+	<packaging>jar</packaging>
 
-    <parent>
-        <groupId>com.promise.platform.task</groupId>
-        <artifactId>promise-platform-task</artifactId>
-        <version>1.0.0</version>
-    </parent>
-    <dependencies>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
-    </dependencies>
+	<parent>
+		<groupId>com.promise.platform.task</groupId>
+		<artifactId>promise-platform-task</artifactId>
+		<version>1.0.0</version>
+	</parent>
+	<dependencies>
+		<!-- Promise -->
+		<dependency>
+			<groupId>com.promise.platform.sdk</groupId>
+			<artifactId>promise-platform-sdk</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.promise.platform.task.sdk</groupId>
+			<artifactId>promise-platform-task-sdk</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		<!-- Non Spring -->
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-core</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+		</dependency>
+
+		<!-- Spring -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-mongodb</artifactId>
+		</dependency>
+
+		<!-- Spring Cloud -->
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-config</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-actuator</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-netflix-hystrix</artifactId>
+		</dependency>
+	</dependencies>
 
 	<build>
 		<plugins>
@@ -38,11 +87,10 @@
 					</execution>
 				</executions>
 				<configuration>
-					<repository>${project.name}</repository>
+					<repository>promise-platform-task</repository>
 					<tag>${project.version}</tag>
 					<buildArgs>
 						<JAR_FILE>${project.build.finalName}.jar</JAR_FILE>
-						<PORT>9001</PORT>
 					</buildArgs>
 				</configuration>
 			</plugin>

@@ -1,17 +1,13 @@
 spring:
   application:
-    name: registry
+    name: promise-platform-registry
   cloud:
     config:
-      uri: http://192.168.206.130:8888
+      uri: ${CONFIG_SERVICE_URL:http://localhost:8888}
       fail-fast: true
-      password: ${CONFIG_SERVICE_PASSWORD}
-      username: user
 eureka:
   instance:
     prefer-ip-address: true
   client:
     registerWithEureka: false
     fetchRegistry: false
-    server:
-      waitTimeInMsWhenSyncEmpty: 0

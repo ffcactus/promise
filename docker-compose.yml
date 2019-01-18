@@ -1,9 +1,7 @@
 version: "3.5"
 
 services:
-  config:
-    environment:
-      CONFIG_SERVICE_PASSWORD: CONFIG_SERVICE_PASSWORD
+  promise-platform-config:
     image: promise-platform-config:1.0.0
     ports:
       - 8888:8888
@@ -13,9 +11,15 @@ services:
       options:
         max-size: "10m"
         max-file: "10"
-  registry:
+  promise-platform-registry:
     image: promise-platform-registry:1.0.0
     ports:
       - 8761:8761
+    network_mode: host
+    restart: always
+  promise-platform-task:
+    image: promise-platform-task:1.0.0
+    ports:
+      - 9001:9001
     network_mode: host
     restart: always
