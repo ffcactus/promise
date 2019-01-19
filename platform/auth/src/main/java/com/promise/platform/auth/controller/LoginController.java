@@ -17,17 +17,30 @@ import com.promise.platform.auth.dto.GetUserResponse;
 import com.promise.platform.auth.dto.LoginRequest;
 import com.promise.platform.auth.model.User;
 import com.promise.platform.auth.service.LoginService;
+import com.promise.platform.sdk.controller.ExceptionController;
 import com.promise.platform.sdk.model.JwtUser;
 import com.promise.platform.sdk.util.JwtTokenGenerator;
 
+/**
+ * The controller for login and logout.
+ *
+ */
 @RestController
-public class LoginController {
-	@Value("${jwt.secret}")
+public class LoginController extends ExceptionController {
+
+	@Value("${self.jwt.secret}")
 	private String secret;
 
 	@Autowired
 	LoginService service;
 
+	/**
+	 * Handle login process.
+	 * 
+	 * @param request The login request
+	 * @return The HTTP response that includes the access token in the head and
+	 *         access token information in the response body.
+	 */
 	@PostMapping("/login")
 	public ResponseEntity<Void> login(@RequestBody final LoginRequest request) {
 		JwtUser jwtUser = service.Login(request);

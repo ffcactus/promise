@@ -13,7 +13,7 @@ import io.jsonwebtoken.impl.TextCodec;
 @Component
 public class JwtTokenValidator {
 
-	@Value("${jwt.secret}")
+	@Value("${self.jwt.secret}")
 	private String secret;
 
 	/**

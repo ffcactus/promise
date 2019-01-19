@@ -10,7 +10,7 @@ import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.impl.TextCodec;
 
 public class JwtTokenGenerator {
-	@Value("${jwt.secret}")
+	@Value("${self.jwt.secret}")
 	private String secret;
 
 	/**

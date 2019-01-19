@@ -10,6 +10,7 @@ import com.promise.platform.sdk.auth.provider.JwtAuthenticationProvider;
 
 @Component
 public class JwtAuthenticationManager extends ProviderManager {
+	
 	@Autowired
 	public JwtAuthenticationManager(JwtAuthenticationProvider provider) {
 		super(Collections.singletonList(provider));

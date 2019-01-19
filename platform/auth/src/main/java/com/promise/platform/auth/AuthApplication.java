@@ -10,20 +10,20 @@ import com.promise.platform.auth.model.User;
 import com.promise.platform.auth.repository.UserRepository;
 
 @SpringBootApplication
-public class AaApplication implements CommandLineRunner {
+public class AuthApplication implements CommandLineRunner {
 	@Autowired
 	private UserRepository userRepository;
 
-	@Value("${app.recreateDbOnStartup}")
-	private boolean recreateDbOnStartup;
+	@Value("${self.db.recreate}")
+	private boolean recreate;
 
 	public static void main(String args[]) {
-		SpringApplication.run(AaApplication.class, args);
+		SpringApplication.run(AuthApplication.class, args);
 	}
 
 	@Override
 	public void run(String... args) throws Exception {
-		if (recreateDbOnStartup) {
+		if (recreate) {
 			userRepository.deleteAll();
 			String adminAuthorities = "ROLE_ADMIN";
 			String managerAuthorities = "ROLE_MANAGER";

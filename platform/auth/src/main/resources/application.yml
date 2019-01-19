@@ -1,0 +1,5 @@
+self:
+  db:
+    recreate: true
+  jwt:
+    secret: Yn2kjibddFAWtnPJ2AFlL8WXmohJMCvigQggaEypa5E=

@@ -7,4 +7,4 @@ spring:
     mongodb:
       host: ${MONGODB_HOST}
       port: ${MONGODB_PORT}
-      database: task
+      database: auth
