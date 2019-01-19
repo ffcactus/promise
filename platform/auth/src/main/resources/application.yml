@@ -1,4 +1,0 @@
-server:
-  application:
-    name: auth
-  port: 0
