@@ -15,6 +15,11 @@ services:
     ports:
       - 8761:8761
     restart: always
+  promise-platform-gateway:
+    image: promise-platform-gateway:1.0.0
+    ports:
+      - 80:80
+    restart: always
   promise-platform-task:
     image: promise-platform-task:1.0.0
     ports:

@@ -5,17 +5,27 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.client.circuitbreaker.EnableCircuitBreaker;
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
+import org.springframework.cloud.netflix.hystrix.dashboard.EnableHystrixDashboard;
+import org.springframework.cloud.openfeign.EnableFeignClients;
+import org.springframework.context.annotation.ComponentScan;
 
 import com.huawei.skywalker.server.repository.ServerRepository;
+import com.promise.platform.sdk.client.TaskServiceClient;
 
 @SpringBootApplication
+@ComponentScan(basePackages = { "com.promise.platform.sdk" })
+@EnableFeignClients(basePackages = {"com.promise.platform"})
+@EnableDiscoveryClient
+@EnableCircuitBreaker
+@EnableHystrixDashboard
 public class ServerApplication implements CommandLineRunner
 {
-    //    @Autowired
-    //    @Lazy
-    //    private EurekaClient eurekaClient;
+	@Autowired
+	private TaskServiceClient taskClient;
 
-    @Value("${db.recreate}")
+    @Value("${self.db.recreate}")
     private Boolean reCreateDB;
 
     @Autowired
@@ -30,6 +40,12 @@ public class ServerApplication implements CommandLineRunner
     public void run(String... args)
             throws Exception
     {
+    	try {
+    		var task = taskClient.getTaskById("1");
+    		System.out.println(task);
+    	} catch (RuntimeException e) {
+    		System.out.println(e);
+    	}    	
         if (reCreateDB)
         {
             repository.deleteAll();

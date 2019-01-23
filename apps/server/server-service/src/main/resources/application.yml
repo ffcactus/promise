@@ -8,3 +8,22 @@ spring:
       ACCEPT_CASE_INSENSITIVE_PROPERTIES: true     
     serialization:
       FAIL_ON_EMPTY_BEANS: false
+  data:
+    mongodb:
+      host: ${MONGODB_HOST}
+      port: ${MONGODB_PORT}
+      database: promise-apps-server
+      
+logging:
+  level:
+    com.promise.platform.sdk.client.TaskServiceClient: DEBUG
+    
+#eureka:
+#  client:
+#    shouldFetchRegistry: true  
+    
+self:
+  db:
+    recreate: true
+  jwt:
+    secret: Yn2kjibddFAWtnPJ2AFlL8WXmohJMCvigQggaEypa5E=      

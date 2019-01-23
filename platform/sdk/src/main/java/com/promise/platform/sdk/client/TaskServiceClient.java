@@ -15,7 +15,7 @@ import com.promise.platform.sdk.task.dto.GetTaskResponseV1;
 import com.promise.platform.sdk.task.dto.UpdateTaskRequestV1;
 import com.promise.platform.sdk.task.dto.UpdateTaskStepRequestV1;
 
-@FeignClient(name = "task-service")
+@FeignClient(name = "promise-platform-task")
 @RequestMapping("/api/v1/tasks")
 public interface TaskServiceClient
 {

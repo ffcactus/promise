@@ -1,8 +1,2 @@
-spring:
-  cloud:
-    gateway:
-      routes:
-      - id: host_route
-        uri: http://example.org
-        predicates:
-        - Path=/api/v1/login,/api/v1/logout
+server:
+  port: 80
