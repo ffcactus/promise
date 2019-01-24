@@ -5,9 +5,9 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.promise.platform.auth.dto.LoginRequest;
 import com.promise.platform.auth.model.User;
 import com.promise.platform.auth.repository.UserRepository;
+import com.promise.platform.sdk.dto.auth.LoginRequestV1;
 import com.promise.platform.sdk.exception.InvalidRequestBodyException;
 import com.promise.platform.sdk.exception.LoginFailureException;
 import com.promise.platform.sdk.model.JwtUser;
@@ -23,7 +23,7 @@ public class LoginService {
 	 * @param request The login request.
 	 * @return The login response in which token is included.
 	 */
-	public JwtUser Login(LoginRequest request) {
+	public JwtUser Login(LoginRequestV1 request) {
 		Optional<User> user = userRepository.findByUsername(request.getUsername());
 		if (user.isEmpty()) {
 			throw new InvalidRequestBodyException();

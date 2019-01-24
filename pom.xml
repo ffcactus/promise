@@ -25,6 +25,7 @@
 
     <modules>
         <module>platform</module>
+        <module>platform-integrationtest</module>
         <module>apps</module>
     </modules>
 

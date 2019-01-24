@@ -2,7 +2,6 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>com.promise.platform.auth</groupId>
     <artifactId>promise-platform-auth</artifactId>
     <name>promise-platform-auth</name>
     <packaging>jar</packaging>
@@ -16,14 +15,15 @@
     <dependencies>
         <!-- Promise -->
         <dependency>
-            <groupId>com.promise.platform.sdk</groupId>
+            <groupId>com.promise.platform</groupId>
             <artifactId>promise-platform-sdk</artifactId>
-            <version>1.0.0</version>
+            <version>${project.version}</version>
         </dependency>
         <!-- Non Spring -->
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
+            <scope>provided</scope>
         </dependency>
         <!-- Spring -->
         <dependency>

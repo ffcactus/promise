@@ -10,10 +10,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.promise.platform.sdk.task.dto.CreateTaskRequestV1;
-import com.promise.platform.sdk.task.dto.GetTaskResponseV1;
-import com.promise.platform.sdk.task.dto.UpdateTaskRequestV1;
-import com.promise.platform.sdk.task.dto.UpdateTaskStepRequestV1;
+import com.promise.platform.sdk.dto.task.CreateTaskRequestV1;
+import com.promise.platform.sdk.dto.task.GetTaskResponseV1;
+import com.promise.platform.sdk.dto.task.UpdateTaskRequestV1;
+import com.promise.platform.sdk.dto.task.UpdateTaskStepRequestV1;
 
 @FeignClient(name = "promise-platform-task")
 @RequestMapping("/api/v1/tasks")

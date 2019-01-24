@@ -13,11 +13,11 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.promise.platform.auth.dto.GetUserResponse;
-import com.promise.platform.auth.dto.LoginRequest;
 import com.promise.platform.auth.model.User;
 import com.promise.platform.auth.service.LoginService;
 import com.promise.platform.sdk.controller.ExceptionController;
+import com.promise.platform.sdk.dto.auth.GetUserResponseV1;
+import com.promise.platform.sdk.dto.auth.LoginRequestV1;
 import com.promise.platform.sdk.model.JwtUser;
 import com.promise.platform.sdk.util.JwtTokenGenerator;
 
@@ -42,7 +42,7 @@ public class LoginController extends ExceptionController {
 	 *         access token information in the response body.
 	 */
 	@PostMapping("/login")
-	public ResponseEntity<Void> login(@RequestBody final LoginRequest request) {
+	public ResponseEntity<Void> login(@RequestBody final LoginRequestV1 request) {
 		JwtUser jwtUser = service.Login(request);
 		final HttpHeaders responseHeaders = new HttpHeaders();
 		responseHeaders.set("Authorization", "Bearer " + JwtTokenGenerator.generateToken(jwtUser, secret));
@@ -55,12 +55,12 @@ public class LoginController extends ExceptionController {
 	}
 
 	@GetMapping("/info")
-	public ResponseEntity<GetUserResponse> info(@RequestHeader("promise-token") String token) {
+	public ResponseEntity<GetUserResponseV1> info(@RequestHeader("promise-token") String token) {
 		Optional<User> user = service.info(token);
 		if (user.isEmpty()) {
-			return new ResponseEntity<GetUserResponse>(HttpStatus.NOT_FOUND);
+			return new ResponseEntity<GetUserResponseV1>(HttpStatus.NOT_FOUND);
 		}
 
-		return new ResponseEntity<GetUserResponse>(new GetUserResponse(user.get()), HttpStatus.OK);
+		return new ResponseEntity<GetUserResponseV1>(user.get().toResponseV1(), HttpStatus.OK);
 	}
 }

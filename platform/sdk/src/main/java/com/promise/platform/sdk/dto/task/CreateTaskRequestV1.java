@@ -1,4 +1,4 @@
-package com.promise.platform.sdk.task.dto;
+package com.promise.platform.sdk.dto.task;
 
 import java.util.ArrayList;
 import java.util.List;
