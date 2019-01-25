@@ -14,10 +14,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import com.promise.platform.sdk.controller.ExceptionController;
-import com.promise.platform.sdk.task.dto.CreateTaskRequestV1;
-import com.promise.platform.sdk.task.dto.GetTaskResponseV1;
-import com.promise.platform.sdk.task.dto.UpdateTaskRequestV1;
-import com.promise.platform.sdk.task.dto.UpdateTaskStepRequestV1;
+import com.promise.platform.sdk.dto.task.CreateTaskRequestV1;
+import com.promise.platform.sdk.dto.task.GetTaskResponseV1;
+import com.promise.platform.sdk.dto.task.UpdateTaskRequestV1;
+import com.promise.platform.sdk.dto.task.UpdateTaskStepRequestV1;
 import com.promise.platform.task.service.exception.TaskStepNotFoundException;
 import com.promise.platform.task.service.service.TaskService;
 

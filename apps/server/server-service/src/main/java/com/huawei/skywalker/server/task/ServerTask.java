@@ -2,8 +2,8 @@ package com.huawei.skywalker.server.task;
 
 import java.util.Arrays;
 
-import com.promise.platform.sdk.task.dto.CreateTaskRequestV1;
-import com.promise.platform.sdk.task.dto.CreateTaskStepRequestV1;
+import com.promise.platform.sdk.dto.task.CreateTaskRequestV1;
+import com.promise.platform.sdk.dto.task.CreateTaskStepRequestV1;
 
 /**
  * Includes all kinds of server task information.

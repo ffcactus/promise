@@ -1,9 +1,9 @@
 package com.promise.platform.task.service.model;
 
+import com.promise.platform.sdk.dto.task.ExecutionResultStateV1;
+import com.promise.platform.sdk.dto.task.GetExecutionResultResponseV1;
+import com.promise.platform.sdk.dto.task.UpdateExecutionResultRequestV1;
 import com.promise.platform.sdk.model.ErrorMessage;
-import com.promise.platform.sdk.task.dto.ExecutionResultStateV1;
-import com.promise.platform.sdk.task.dto.GetExecutionResultResponseV1;
-import com.promise.platform.sdk.task.dto.UpdateExecutionResultRequestV1;
 
 public class ExecutionResult
 {

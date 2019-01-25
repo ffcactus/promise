@@ -1,5 +1,6 @@
 package com.promise.platform.auth.model;
 
+import java.util.List;
 import java.util.UUID;
 
 import org.springframework.data.annotation.Id;
@@ -36,11 +37,11 @@ public class User extends PromiseUserDetails
             String username,
             String password,
             String email,
-            String partition,
-            String scope,
-            String role)
+            String company,
+            List<String> roles,
+            List<String> organizations)
     {
-        super(username, partition, scope, role, password);
+        super(username, company, roles, organizations, password);
         this.setPassword(password);
         this.id = id;
         this.email = email;
@@ -53,9 +54,9 @@ public class User extends PromiseUserDetails
                 request.username,
                 request.password,
                 request.email,
-                request.partition,
-                request.scope,
-                request.authorities);
+                request.company,
+                request.roles,
+                request.organizations);
     }
 
     /**

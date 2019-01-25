@@ -1,5 +1,8 @@
 package com.promise.platform.auth;
 
+import java.util.Collections;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.CommandLineRunner;
@@ -8,6 +11,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import com.promise.platform.auth.model.User;
 import com.promise.platform.auth.repository.UserRepository;
+
 
 @SpringBootApplication
 public class AuthApplication implements CommandLineRunner {
@@ -25,42 +29,46 @@ public class AuthApplication implements CommandLineRunner {
 	public void run(String... args) throws Exception {
 		if (recreate) {
 			userRepository.deleteAll();
-			String adminAuthorities = "ROLE_ADMIN";
-			String managerAuthorities = "ROLE_MANAGER";
-			String readerAuthorities = "ROLE_VIEWER";
+
+			List<String> orgnazationA = Collections.singletonList("orgnazationA");
+			List<String> orgnazationB = Collections.singletonList("orgnazationB");
+
+			List<String> adminAuthorities = Collections.singletonList("ROLE_ADMIN");
+			List<String> managerAuthorities = Collections.singletonList("ROLE_MANAGER");
+			List<String> readerAuthorities = Collections.singletonList("ROLE_VIEWER");
 
 			// admin in HP.
 			userRepository.save(new User("id-admin1-hp-scope1", "admin1@hp.com", "password", "admin1@hp.com", "hp",
-					"scope1", adminAuthorities));
+					orgnazationA, adminAuthorities));
 			userRepository.save(new User("id-admin2-hp-scope2", "admin2@hp.com", "password", "admin2@hp.com", "hp",
-					"scope2", adminAuthorities));
+					orgnazationB, adminAuthorities));
 
 			// manager in HP.
 			userRepository.save(new User("id-manager1-hp-scope1", "manager1@hp.com", "password", "manager1@hp.com",
-					"hp", "scope1", managerAuthorities));
+					"hp", orgnazationA, managerAuthorities));
 			userRepository.save(new User("id-manager2-hp-scope1", "manager2@hp.com", "password", "manager2@hp.com",
-					"hp", "scope1", managerAuthorities));
+					"hp", orgnazationB, managerAuthorities));
 			// reader in HP.
 			userRepository.save(new User("id-reader1-hp-scope1", "reader1@hp.com", "password", "reader1@hp.com", "hp",
-					"scope1", readerAuthorities));
+					orgnazationA, readerAuthorities));
 			userRepository.save(new User("id-reader1-hp-scope2", "reader2@hp.com", "password", "reader2@hp.com", "hp",
-					"scope2", readerAuthorities));
+					orgnazationB, readerAuthorities));
 
 			// admin in HW.
 			userRepository.save(new User("id-admin1-hw-scope1", "admin1@hw.com", "password", "admin1@hw.com", "hw",
-					"global", adminAuthorities));
+					orgnazationA, adminAuthorities));
 			userRepository.save(new User("id-admin2-hw-scope2", "admin2@hw.com", "password", "admin2@hw.com", "hw",
-					"global", adminAuthorities));
+					orgnazationB, adminAuthorities));
 			// manager in HW.
 			userRepository.save(new User("id-manager1-hw-scope1", "manager1@hw.com", "password", "manager1@hw.com",
-					"hw", "global", managerAuthorities));
+					"hw", orgnazationA, managerAuthorities));
 			userRepository.save(new User("id-manager2-hw-scope1", "manager2@hw.com", "password", "manager2@hw.com",
-					"hw", "global", managerAuthorities));
+					"hw", orgnazationB, managerAuthorities));
 			// reader in HW.
 			userRepository.save(new User("id-reader1-hw-scope1", "reader1@hw.com", "password", "reader1@hw.com", "hw",
-					"global", readerAuthorities));
+					orgnazationA, readerAuthorities));
 			userRepository.save(new User("id-reader1-hw-scope2", "reader2@hw.com", "password", "reader2@hw.com", "hw",
-					"global", readerAuthorities));
+					orgnazationB, readerAuthorities));
 		}
 
 	}

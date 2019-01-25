@@ -3,13 +3,12 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>com.promise.apps.server.service</groupId>
-	<artifactId>promise-apps-server-service</artifactId>
+	<artifactId>service</artifactId>
 	<name>promise-apps-server-service</name>
 
 	<parent>
-		<groupId>com.promise.apps.server</groupId>
-		<artifactId>promise-apps-server</artifactId>
+		<groupId>com.promise.apps</groupId>
+		<artifactId>server</artifactId>
 		<version>1.0.0</version>
 	</parent>
 
@@ -18,7 +17,18 @@
 	</properties>
 
 	<dependencies>
-		<!-- Basic -->
+		<!-- Promise -->
+		<dependency>
+			<groupId>com.promise.platform</groupId>
+			<artifactId>sdk</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.promise.apps.server</groupId>
+			<artifactId>sdk</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		<!-- Non Spring -->
 		<dependency>
 			<groupId>com.fasterxml.jackson.core</groupId>
 			<artifactId>jackson-core</artifactId>
@@ -36,27 +46,15 @@
 			<artifactId>lombok</artifactId>
 			<scope>provided</scope>
 		</dependency>
-		<!-- Promise -->
-		<dependency>
-			<groupId>com.promise.platform.sdk</groupId>
-			<artifactId>promise-platform-sdk</artifactId>
-			<version>${project.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>com.promise.apps.server.sdk</groupId>
-			<artifactId>promise-apps-server-sdk</artifactId>
-			<version>${project.version}</version>
-		</dependency>
+		<!-- Spring -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
-
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-mongodb</artifactId>
 		</dependency>
-		<!-- Spring Boot -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-actuator</artifactId>
@@ -96,8 +94,8 @@
 		</dependency>
 		<!-- Test -->
 		<dependency>
-			<groupId>com.promise.platform.test</groupId>
-			<artifactId>promise-platform-test</artifactId>
+			<groupId>com.promise.platform</groupId>
+			<artifactId>test</artifactId>
 			<version>${project.version}</version>
 			<scope>test</scope>
 		</dependency>

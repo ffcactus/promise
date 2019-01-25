@@ -23,9 +23,9 @@ public class JwtTokenGenerator {
 	 */
 	public static String generateToken(JwtUser u, String secret) {
 		final Claims claims = Jwts.claims().setSubject(u.getUsername());
-		claims.put("partition", u.getPartition());
-		claims.put("scope", u.getScope());
-		claims.put("role", u.getRole());
+		claims.put("company", u.getCompany());
+		claims.put("roles", u.getRoles());
+		claims.put("organizations", u.getOrganizations());
 		return Jwts.builder().setClaims(claims).signWith(SignatureAlgorithm.HS256, TextCodec.BASE64.decode(secret))
 				.compact();
 	}

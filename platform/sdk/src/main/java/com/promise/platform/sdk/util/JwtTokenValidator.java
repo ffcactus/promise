@@ -1,5 +1,7 @@
 package com.promise.platform.sdk.util;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
@@ -26,6 +28,7 @@ public class JwtTokenValidator {
 	 * @return the User object extracted from specified token or null if a token is
 	 *         invalid.
 	 */
+	@SuppressWarnings("unchecked")
 	public JwtUser parseToken(String token) {
 		JwtUser u = null;
 
@@ -33,8 +36,8 @@ public class JwtTokenValidator {
 			final Claims body = Jwts.parser().setSigningKey(TextCodec.BASE64.decode(secret)).parseClaimsJws(token)
 					.getBody();
 
-			u = new JwtUser(body.getSubject(), String.valueOf(body.get("partition")), String.valueOf(body.get("scope")),
-					String.valueOf(body.get("role")));
+			u = new JwtUser(body.getSubject(), String.valueOf(body.get("company")), (List<String>)body.get("roles"),
+					(List<String>)body.get("organizations"));
 		} catch (final JwtException e) {
 			// Simply print the exception and null will be returned for the userDto
 			e.printStackTrace();

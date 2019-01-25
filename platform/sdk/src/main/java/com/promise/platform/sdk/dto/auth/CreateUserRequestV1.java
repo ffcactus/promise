@@ -1,5 +1,7 @@
 package com.promise.platform.sdk.dto.auth;
 
+import java.util.List;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -13,11 +15,7 @@ public class CreateUserRequestV1 {
 	public String username;
 	public String password;
 	public String email;
-	public String partition;
-	public String scope;
-	public String authorities;
-
-//	public User toModel() {
-//		return new User(UUID.randomUUID().toString(), username, password, email, partition, scope, authorities);
-//	}
+	public String company;
+	public List<String> roles;
+	public List<String> organizations;
 }

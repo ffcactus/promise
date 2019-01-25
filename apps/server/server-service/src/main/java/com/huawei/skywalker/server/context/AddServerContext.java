@@ -10,12 +10,12 @@ import com.huawei.skywalker.server.strategy.DefaultRackServerAddStrategy;
 import com.huawei.skywalker.server.task.ServerTask;
 import com.promise.apps.server.sdk.dto.ServerStateV1;
 import com.promise.platform.sdk.client.TaskServiceClient;
+import com.promise.platform.sdk.dto.task.ExecutionResultStateV1;
+import com.promise.platform.sdk.dto.task.ExecutionStateV1;
+import com.promise.platform.sdk.dto.task.GetTaskResponseV1;
+import com.promise.platform.sdk.dto.task.UpdateExecutionResultRequestV1;
+import com.promise.platform.sdk.dto.task.UpdateTaskStepRequestV1;
 import com.promise.platform.sdk.model.AsynchResult;
-import com.promise.platform.sdk.task.dto.ExecutionResultStateV1;
-import com.promise.platform.sdk.task.dto.ExecutionStateV1;
-import com.promise.platform.sdk.task.dto.GetTaskResponseV1;
-import com.promise.platform.sdk.task.dto.UpdateExecutionResultRequestV1;
-import com.promise.platform.sdk.task.dto.UpdateTaskStepRequestV1;
 
 /**
  * Context for add server. After the client call the <tt>run()</tt> method, it

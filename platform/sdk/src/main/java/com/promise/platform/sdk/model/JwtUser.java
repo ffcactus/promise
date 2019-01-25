@@ -1,5 +1,7 @@
 package com.promise.platform.sdk.model;
 
+import java.util.List;
+
 import javax.validation.constraints.NotNull;
 
 import lombok.AccessLevel;
@@ -16,9 +18,9 @@ public class JwtUser {
 	@NotNull
 	protected String username;
 	@NotNull
-	protected String partition;
+	protected String company;
 	@NotNull
-	protected String scope;
+	protected List<String> roles;
 	@NotNull
-	protected String role;
+	protected List<String> organizations;
 }

@@ -1,9 +1,10 @@
 package com.promise.platform.sdk.model;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.AuthorityUtils;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -29,8 +30,8 @@ public class PromiseUserDetails extends JwtUser implements UserDetails {
 	@Setter
 	protected String token;
 
-	public PromiseUserDetails(String username, String partition, String scope, String role, String password) {
-		super(username, partition, scope, role);
+	public PromiseUserDetails(String username, String company, List<String> roles, List<String> organizations, String password) {
+		super(username, company, roles, organizations);
 		this.password = password;
 	}
 
@@ -59,7 +60,6 @@ public class PromiseUserDetails extends JwtUser implements UserDetails {
 	}
 
 	public List<GrantedAuthority> getAuthorities() {
-		AuthorityUtils.commaSeparatedStringToAuthorityList(role);
-		return AuthorityUtils.commaSeparatedStringToAuthorityList(role);
+		return roles.stream().map(SimpleGrantedAuthority::new).collect(Collectors.toList());
 	}
 }

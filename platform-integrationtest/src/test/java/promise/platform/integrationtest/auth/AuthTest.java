@@ -6,7 +6,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 @SpringBootTest
 public class AuthTest
 {
-	private final RestTemplate restTemplate;
+	// private RestTemplate restTemplate;
 	
 	@BeforeAll
 	public static void beforeAll() {

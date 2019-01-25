@@ -33,8 +33,8 @@ public class LoginService {
 			throw new LoginFailureException();
 		}
 
-		return new JwtUser(savedUser.getUsername(), savedUser.getPartition(), savedUser.getScope(),
-				savedUser.getRole());
+		return new JwtUser(savedUser.getUsername(), savedUser.getCompany(), savedUser.getRoles(),
+				savedUser.getOrganizations());
 	}
 
 	public void logout(String token) {

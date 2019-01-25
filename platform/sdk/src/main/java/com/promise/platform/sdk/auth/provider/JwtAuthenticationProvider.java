@@ -39,8 +39,8 @@ public class JwtAuthenticationProvider extends AbstractUserDetailsAuthentication
 			throw new RuntimeException("JWT token is not valid");
 		}
 
-		PromiseUserDetails userDetails = new PromiseUserDetails(parsedUser.getUsername(), parsedUser.getPartition(),
-				parsedUser.getScope(), parsedUser.getRole(), "");
+		PromiseUserDetails userDetails = new PromiseUserDetails(parsedUser.getUsername(), parsedUser.getCompany(),
+				parsedUser.getRoles(), parsedUser.getOrganizations(), "");
 		return userDetails;
 	}
 }
