@@ -25,7 +25,7 @@ public class TaskService
 
     /**
      * Get task by ID.
-     * 
+     *
      * @param id The task ID.
      * @return The task object if exist.
      */
@@ -36,13 +36,13 @@ public class TaskService
 
     /**
      * Create task.
-     * 
+     *
      * @param request The create task request.
      * @return The created task.
      */
     public Task createTask(CreateTaskRequestV1 request)
     {
-        var task = new Task();
+        final var task = new Task();
         BasicResource.Init(task, TaskApplicationConfig.TaskRootUri, request.name);
         task.messageId = request.messageId;
         task.description = request.description;
@@ -54,10 +54,10 @@ public class TaskService
         task.percentage = 0;
         task.result.state = ExecutionResultStateV1.Unknown;
         task.expectedDuration = 0;
-        for (var stepRequest : request.steps)
+        for (final var stepRequest : request.steps)
         {
             task.expectedDuration += stepRequest.expectedDuration;
-            var step = new TaskStep(stepRequest);
+            final var step = new TaskStep(stepRequest);
             task.steps.add(step);
         }
         return repository.save(task);
@@ -65,36 +65,36 @@ public class TaskService
 
     /**
      * Delete task by ID.
-     * 
+     *
      * @param id The task ID.
      * @return The task deleted.
      */
     @Transactional(isolation = Isolation.SERIALIZABLE)
     public Task deleteTaskById(String id)
     {
-        var ret = repository.findById(id).get();
+        final var ret = repository.findById(id).get();
         repository.deleteById(id);
         return ret;
     }
 
     /**
      * Update task by ID.
-     * 
-     * @param id The task ID.
+     *
+     * @param id      The task ID.
      * @param request The update task request.
      * @return The updated task.
      */
     public Task updateTask(String id, UpdateTaskRequestV1 request)
     {
-        var task = repository.findById(id).get();
+        final var task = repository.findById(id).get();
         task.update(request);
         return repository.save(task);
     }
 
     /**
      * Update task step by task ID.
-     * 
-     * @param id The task ID.
+     *
+     * @param id      The task ID.
      * @param request The update task step request.
      * @return The updated task.
      * @throws TaskStepNotFoundException When task step not found.
@@ -102,7 +102,7 @@ public class TaskService
     public Task updateTaskStep(String id, UpdateTaskStepRequestV1 request)
             throws TaskStepNotFoundException
     {
-        var task = repository.findById(id).get();
+        final var task = repository.findById(id).get();
         task.updateStep(request);
         return repository.save(task);
     }

@@ -21,5 +21,6 @@
         <module>auth</module>
         <module>event</module>
         <module>task</module>
+        <module>company</module>
     </modules>
 </project>

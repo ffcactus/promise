@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: promise-platform-company
+  cloud:
+    config:
+      uri: ${CONFIG_SERVICE_URL:http://localhost:8888}
+      fail-fast: true
+management:
+  endpoint:
+    health:
+      show-details: always
+  endpoints:
+    web:
+      exposure:
+        include: hystrix.stream

@@ -1,4 +1,4 @@
-package com.promise.platform.auth.model;
+package com.promise.platform.company.model;
 
 import com.promise.platform.sdk.dto.auth.CreateCompanyRequestV1;
 import com.promise.platform.sdk.dto.auth.GetCompanyResponseV1;

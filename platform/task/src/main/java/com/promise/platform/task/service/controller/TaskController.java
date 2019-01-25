@@ -2,7 +2,6 @@ package com.promise.platform.task.service.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -38,11 +37,7 @@ public class TaskController extends ExceptionController
      * @param request The create task request body.
      * @return The HTTP response with the created task.
      */
-    @PostMapping(consumes = {
-            MediaType.APPLICATION_JSON_UTF8_VALUE
-    }, produces = {
-            MediaType.APPLICATION_JSON_UTF8_VALUE
-    })
+    @PostMapping
     @HystrixCommand(fallbackMethod = "createTaskFallback")
     public ResponseEntity<GetTaskResponseV1> createTask(@RequestBody CreateTaskRequestV1 request)
     {
@@ -62,9 +57,7 @@ public class TaskController extends ExceptionController
      * @param id The ID of the task.
      * @return The HTTP response with the task.
      */
-    @GetMapping(path = "/{id}", produces = {
-            MediaType.APPLICATION_JSON_UTF8_VALUE
-    })
+    @GetMapping(path = "/{id}")
     public ResponseEntity<GetTaskResponseV1> getTaskById(@PathVariable String id)
     {
         return new ResponseEntity<>(
@@ -78,9 +71,7 @@ public class TaskController extends ExceptionController
      * @param id The ID of the task.
      * @return The HTTP response with the deleted task.
      */
-    @DeleteMapping(path = "/{id}", produces = {
-            MediaType.APPLICATION_JSON_UTF8_VALUE
-    })
+    @DeleteMapping(path = "/{id}")
     public ResponseEntity<GetTaskResponseV1> deleteTaskById(@PathVariable String id)
     {
         return new ResponseEntity<>(
@@ -94,9 +85,7 @@ public class TaskController extends ExceptionController
      * @param id The ID of the task.
      * @return The HTTP response with the task updated.
      */
-    @PostMapping(path = "/{id}/actions/update-task", produces = {
-            MediaType.APPLICATION_JSON_UTF8_VALUE
-    })
+    @PostMapping(path = "/{id}/actions/update-task")
     public ResponseEntity<GetTaskResponseV1> updateTask(@PathVariable String id, @RequestBody UpdateTaskRequestV1 request)
     {
         return new ResponseEntity<>(
@@ -111,9 +100,7 @@ public class TaskController extends ExceptionController
      * @return The HTTP response with the task updated.
      * @throws TaskStepNotFoundException When task step not found.
      */
-    @PostMapping(path = "/{id}/actions/update-task-step", produces = {
-            MediaType.APPLICATION_JSON_UTF8_VALUE
-    })
+    @PostMapping(path = "/{id}/actions/update-task-step")
     public ResponseEntity<GetTaskResponseV1> updateTaskStep(@PathVariable String id, @RequestBody UpdateTaskStepRequestV1 request)
             throws TaskStepNotFoundException
     {

@@ -7,8 +7,10 @@ import lombok.Data;
  *
  */
 @Data
-public class GetUserResponseV1 {
-	public String id;
-	public String username;
-	public String email;
+public class GetUserResponseV1
+{
+    public String id;
+    public String username;
+    public String email;
+    public String companyUri;
 }
