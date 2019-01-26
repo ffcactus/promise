@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestHeader;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.promise.platform.auth.model.User;
@@ -26,7 +27,8 @@ import com.promise.platform.sdk.util.JwtTokenGenerator;
  *
  */
 @RestController
-public class LoginController extends ExceptionController {
+@RequestMapping("/api/v1/session/")
+public class SessionController extends ExceptionController {
 
 	@Value("${self.jwt.secret}")
 	private String secret;
@@ -60,7 +62,6 @@ public class LoginController extends ExceptionController {
 		if (user.isEmpty()) {
 			return new ResponseEntity<GetUserResponseV1>(HttpStatus.NOT_FOUND);
 		}
-
 		return new ResponseEntity<GetUserResponseV1>(user.get().toResponseV1(), HttpStatus.OK);
 	}
 }

@@ -10,7 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.promise.platform.company.model.Company;
 import com.promise.platform.company.repository.CompanyRepository;
-import com.promise.platform.sdk.dto.auth.CreateCompanyRequestV1;
+import com.promise.platform.sdk.dto.company.CreateCompanyRequestV1;
 import com.promise.platform.sdk.exception.ResourceAlreadyExistException;
 
 /**

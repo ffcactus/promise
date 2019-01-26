@@ -19,8 +19,9 @@ import org.springframework.web.context.request.ServletRequestAttributes;
 import com.promise.platform.company.model.Company;
 import com.promise.platform.company.service.CompanyService;
 import com.promise.platform.sdk.dto.CollectionResponseV1;
-import com.promise.platform.sdk.dto.auth.CreateCompanyRequestV1;
-import com.promise.platform.sdk.dto.auth.GetCompanyResponseV1;
+import com.promise.platform.sdk.dto.company.CreateCompanyRequestV1;
+import com.promise.platform.sdk.dto.company.GetCompanyResponseV1;
+import com.promise.platform.sdk.dto.company.PatchCompanyRequestV1;
 
 /**
  * The root controller is used to create the company and the first user of the
@@ -87,7 +88,7 @@ public class CompanyController
     }
 
     /**
-     * Handle the request to get the {@link Company} by ID.
+     * Handle the request to get the {@link Company} specified by ID.
      *
      * @param id The ID of the {@link Company}.
      * @return The HTTP response that includes the {@link Company}
@@ -101,7 +102,7 @@ public class CompanyController
     }
 
     /**
-     * Handle the request to delete the {@link Company} by ID.
+     * Handle the request to delete the {@link Company} specified by ID.
      *
      * @param id The ID of the {@link Company}.
      * @return The HTTP response that includes the {@link Company} deleted.
@@ -112,5 +113,15 @@ public class CompanyController
         return new ResponseEntity<>(
                 service.deleteCompanyById(id).toResponseV1(),
                 HttpStatus.OK);
+    }
+    
+    /**
+     * Handle the request to patch the {@link Company} specified by ID.
+     * @param id
+     * @param request
+     * @return
+     */
+    public ResponseEntity<GetCompanyResponseV1> patchCompanyById(@PathVariable String id, @RequestBody PatchCompanyRequestV1 request) {
+    	return null;
     }
 }
