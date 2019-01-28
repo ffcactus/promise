@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.promise.platform.auth.service.UserService;
 import com.promise.platform.sdk.dto.auth.AddUserToCompanyRequestV1;
 import com.promise.platform.sdk.dto.auth.CreateUserRequestV1;
-import com.promise.platform.sdk.dto.auth.GetUserResponseV1;
+import com.promise.platform.sdk.dto.user.GetUserResponseV1;
 
 @RestController
 @RequestMapping("/rest/v1/user")

@@ -1,4 +1,4 @@
-package com.promise.platform.sdk.dto.auth;
+package com.promise.platform.sdk.dto.user;
 
 import lombok.Data;
 

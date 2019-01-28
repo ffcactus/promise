@@ -6,7 +6,7 @@ import java.util.UUID;
 import org.springframework.data.annotation.Id;
 
 import com.promise.platform.sdk.dto.auth.CreateUserRequestV1;
-import com.promise.platform.sdk.dto.auth.GetUserResponseV1;
+import com.promise.platform.sdk.dto.user.GetUserResponseV1;
 import com.promise.platform.sdk.model.PromiseUserDetails;
 import com.sun.istack.NotNull;
 
