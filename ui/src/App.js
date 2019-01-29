@@ -8,10 +8,10 @@ const LoadableApps = Loadable.Map({
     App2: () => import('./components/App2'),
     App3: () => import('./components/App3'),
     App4: () => import('./components/App4'),
-    App5: () => import('./components/App5'),
+    App5: () => import('./components/App5')
   },
   loading() {
-    return <div>Loading...</div>
+    return <div>Loading...</div>;
   },
   render(loaded, props) {
     let App1 = loaded.App1.default;
@@ -19,14 +19,16 @@ const LoadableApps = Loadable.Map({
     let App3 = loaded.App3.default;
     let App4 = loaded.App4.default;
     let App5 = loaded.App5.default;
-    return <div>
-      <App1/>
-      <App2/>
-      <App3/>
-      <App4/>
-      <App5/>
-    </div>;
-  },
+    return (
+      <div>
+        <App1 />
+        <App2 />
+        <App3 />
+        <App4 />
+        <App5 />
+      </div>
+    );
+  }
 });
 
 class App extends Component {
