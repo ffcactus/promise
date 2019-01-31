@@ -1,4 +1,5 @@
 import React from 'react';
+import LoginDialog from './LoginDialog';
 
 class Desktop extends React.Component {
   render() {
@@ -13,7 +14,7 @@ class Desktop extends React.Component {
           left: '0px'
         }}
       >
-        <p>Desktop</p>
+        <LoginDialog />
       </div>
     );
   }
