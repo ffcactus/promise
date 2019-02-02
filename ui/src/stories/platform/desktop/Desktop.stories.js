@@ -1,6 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import Desktop from '../../components/platform/Desktop';
+import Desktop from '../../../components/platform/desktop/Desktop';
 
 const ICLOUD_STYLE = {
   background:

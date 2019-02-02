@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactModal from 'react-modal';
-import Logo from '../platform/images/Logo.png';
+import Logo from './images/Logo.png';
+import styles from './Desktop.css';
 
 const loginStyle = {
   content: {
@@ -31,7 +32,8 @@ class LoginDialog extends React.Component {
     ReactModal.setAppElement('#root');
     return (
       <ReactModal
-        style={loginStyle}
+        className="login-dialog-content"
+        overlayClassName="login-dialog-overlay"
         isOpen={true}
         shouldReturnFocusAfterClose={false}
         shouldCloseOnEsc={false}
@@ -39,7 +41,7 @@ class LoginDialog extends React.Component {
       >
         <img src={Logo} alt="Logo" style={{ width: '100px' }} />
         <h1>Sign in to Promise</h1>
-        <input type="text" />
+        <input className="login-dialog-input" />
       </ReactModal>
     );
   }

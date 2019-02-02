@@ -1,0 +1,47 @@
+.login-dialog-content {
+  top: 50%;
+  left: 50%;
+  right: auto;
+  bottom: auto;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+
+  position: absolute;
+  overflow: hidden;
+
+  outline: none;
+  background-color: transparent;
+  border: 0px;
+  color: white;
+  text-align: center;
+  font-size: 17px;
+  text-rendering: optimizeLegibility;
+  animation: fade-in 500ms ease-in-out;
+  font-weight: normal;
+  font-family: -apple-system, BlinkMacSystemFont, system-ui;
+}
+
+.login-dialog-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: transparent;
+}
+
+.login-dialog-input {
+  display: inline-block;
+  height: 42px;
+  width: 80%;
+  box-sizing: border-box;
+  border: 0;
+  border-radius: 6px;
+  padding-left: 15px;
+  font-size: 17px;
+  line-height: 1.29;
+  font-weight: normal;
+  font-family: -apple-system, BlinkMacSystemFont, system-ui;
+  vertical-align: top;
+  text-align: left;
+}
