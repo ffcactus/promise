@@ -9,19 +9,23 @@ import org.springframework.context.annotation.EnableAspectJAutoProxy;
 
 @SpringBootApplication
 @Configuration
-@EnableAspectJAutoProxy(proxyTargetClass=true)
+@EnableAspectJAutoProxy(proxyTargetClass = true)
 //@ComponentScan(basePackages= {"com.promise.apps.example"})
-public class ExampleApplication implements CommandLineRunner {
+public class ExampleApplication implements CommandLineRunner
+{
 
-	@Autowired
-	private RefreshOperation refresh;
+    @Autowired
+    private RefreshOperation refresh;
 
-	public static void main(String[] args) {
-		SpringApplication.run(ExampleApplication.class, args);
-	}
+    public static void main(String[] args)
+    {
+        SpringApplication.run(ExampleApplication.class, args);
+    }
 
-	@Override
-	public void run(String... args) throws Exception {
-		refresh.Do();
-	}
+    @Override
+    public void run(String... args)
+            throws Exception
+    {
+        refresh.step1();
+    }
 }

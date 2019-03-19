@@ -9,8 +9,12 @@ import java.lang.annotation.Target;
  * Indicate that this method represents a task step.
  *
  */
+
+@Target({
+        ElementType.METHOD
+})
 @Retention(RetentionPolicy.RUNTIME)
-@Target({ElementType.METHOD})
-public @interface Taskstep {
+public @interface Taskstep
+{
 
 }
