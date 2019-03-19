@@ -16,5 +16,6 @@
 
     <modules>
         <module>server</module>
+        <module>example</module>
     </modules>
 </project>
