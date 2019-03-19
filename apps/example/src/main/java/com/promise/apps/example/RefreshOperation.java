@@ -1,10 +1,9 @@
 package com.promise.apps.example;
 
-import org.springframework.core.Ordered;
 import org.springframework.stereotype.Service;
 
 @Service
-public class RefreshOperation implements Ordered
+public class RefreshOperation
 {
     public void Do()
     {
@@ -12,22 +11,15 @@ public class RefreshOperation implements Ordered
         step2();
     }
 
-    @Taskstep
+    @Taskstep(weight = 1)
     public void step1()
     {
         System.out.println("Step1");
     }
 
-    @Taskstep
+    @Taskstep(weight = 2)
     public void step2()
     {
         System.out.println("Step2");
-    }
-
-    @Override
-    public int getOrder()
-    {
-        // TODO Auto-generated method stub
-        return 0;
     }
 }
