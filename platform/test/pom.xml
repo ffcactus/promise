@@ -3,15 +3,14 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>com.promise.platform</groupId>
-	<artifactId>test</artifactId>
+	<artifactId>promise-platform-test</artifactId>
 	<name>promise-platform-test</name>
 
-    <parent>
-        <groupId>com.promise</groupId>
-        <artifactId>platform</artifactId>
-        <version>1.0.0</version>
-    </parent>
+	<parent>
+		<groupId>com.promise.platform</groupId>
+		<artifactId>promise-platform</artifactId>
+		<version>1.0.0</version>
+	</parent>
 
 	<dependencies>
 		<dependency>

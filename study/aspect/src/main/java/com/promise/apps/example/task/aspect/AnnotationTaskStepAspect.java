@@ -1,4 +1,4 @@
-package com.promise.apps.example;
+package com.promise.apps.example.task.aspect;
 
 import java.lang.reflect.Method;
 
@@ -6,14 +6,16 @@ import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.reflect.MethodSignature;
-import org.springframework.context.annotation.Configuration;
+import org.springframework.stereotype.Component;
+
+import com.promise.apps.example.task.annotation.TaskStep;
 
 @Aspect
-@Configuration
-public class TaskAspect
+@Component
+public class AnnotationTaskStepAspect
 {
 
-    @Around("@annotation(com.promise.apps.example.Taskstep)")
+    @Around("@annotation(com.promise.apps.example.task.annotation.TaskStep)")
     public Object aroundTaskStep(ProceedingJoinPoint joinPoint)
             throws Throwable
     {
@@ -23,7 +25,7 @@ public class TaskAspect
         {
             final MethodSignature signature = (MethodSignature) joinPoint.getSignature();
             final Method method = signature.getMethod();
-            final Taskstep annotation = method.getAnnotation(Taskstep.class);
+            final TaskStep annotation = method.getAnnotation(TaskStep.class);
             weight = annotation.weight();
             System.out.printf("Task step weight %d begin.\n", weight);
             ret = joinPoint.proceed();

@@ -2,6 +2,8 @@ package com.promise.apps.example;
 
 import org.springframework.stereotype.Service;
 
+import com.promise.apps.example.task.annotation.TaskStep;
+
 @Service
 public class RefreshOperation
 {
@@ -11,13 +13,13 @@ public class RefreshOperation
         step2();
     }
 
-    @Taskstep(weight = 1)
+    @TaskStep(weight = 1)
     public void step1()
     {
         System.out.println("Step1");
     }
 
-    @Taskstep(weight = 2)
+    @TaskStep(weight = 2)
     public void step2()
     {
         System.out.println("Step2");

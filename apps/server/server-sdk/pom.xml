@@ -3,20 +3,19 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-    <groupId>com.promise.apps.server</groupId>
-	<artifactId>sdk</artifactId>
+	<artifactId>promise-apps-server-sdk</artifactId>
 	<name>promise-apps-server-sdk</name>
 
 	<parent>
-		<groupId>com.promise.apps</groupId>
-		<artifactId>server</artifactId>
+		<groupId>com.promise.apps.server</groupId>
+		<artifactId>promise-apps-server</artifactId>
 		<version>1.0.0</version>
 	</parent>
 
 	<dependencies>
 		<dependency>
 			<groupId>com.promise.platform</groupId>
-			<artifactId>sdk</artifactId>
+			<artifactId>promise-platform-sdk</artifactId>
 			<version>${project.version}</version>
 		</dependency>
 		<dependency>

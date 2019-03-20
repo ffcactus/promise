@@ -28,6 +28,7 @@
 		<module>platform</module>
 		<module>platform-integrationtest</module>
 		<module>apps</module>
+		<module>study</module>
 	</modules>
 
 	<dependencyManagement>

@@ -1,4 +1,4 @@
-package com.promise.apps.example;
+package com.promise.apps.example.task.annotation;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;
@@ -15,7 +15,7 @@ import java.lang.annotation.Target;
 })
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
-public @interface Taskstep
+public @interface TaskStep
 {
     /**
      * The weight of the task step. For example, if a task has 2 task steps and the
