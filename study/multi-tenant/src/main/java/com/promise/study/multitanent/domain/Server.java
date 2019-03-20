@@ -1,4 +1,4 @@
-package com.promise.apps.example.tenantdb.domain;
+package com.promise.study.multitanent.domain;
 
 import lombok.Data;
 

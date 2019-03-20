@@ -1,8 +1,8 @@
-package com.promise.apps.example;
+package com.promise.study.aspect;
 
 import org.springframework.stereotype.Service;
 
-import com.promise.apps.example.task.annotation.TaskStep;
+import com.promise.study.aspect.task.annotation.TaskStep;
 
 @Service
 public class RefreshOperation

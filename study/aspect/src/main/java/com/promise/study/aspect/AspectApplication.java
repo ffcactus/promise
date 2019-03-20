@@ -1,4 +1,4 @@
-package com.promise.apps.example;
+package com.promise.study.aspect;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -6,7 +6,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class ExampleApplication implements CommandLineRunner
+public class AspectApplication implements CommandLineRunner
 {
 
     @Autowired
@@ -14,7 +14,7 @@ public class ExampleApplication implements CommandLineRunner
 
     public static void main(String[] args)
     {
-        SpringApplication.run(ExampleApplication.class, args);
+        SpringApplication.run(AspectApplication.class, args);
     }
 
     @Override

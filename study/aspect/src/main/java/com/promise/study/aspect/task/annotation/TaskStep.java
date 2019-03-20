@@ -1,4 +1,4 @@
-package com.promise.apps.example.task.annotation;
+package com.promise.study.aspect.task.annotation;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;

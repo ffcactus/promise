@@ -1,4 +1,4 @@
-package com.promise.apps.example.task.aspect;
+package com.promise.study.aspect.task;
 
 import java.lang.reflect.Method;
 
@@ -8,14 +8,14 @@ import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.reflect.MethodSignature;
 import org.springframework.stereotype.Component;
 
-import com.promise.apps.example.task.annotation.TaskStep;
+import com.promise.study.aspect.task.annotation.TaskStep;
 
 @Aspect
 @Component
 public class AnnotationTaskStepAspect
 {
 
-    @Around("@annotation(com.promise.apps.example.task.annotation.TaskStep)")
+    @Around("@annotation(com.promise.study.aspect.task.annotation.TaskStep)")
     public Object aroundTaskStep(ProceedingJoinPoint joinPoint)
             throws Throwable
     {

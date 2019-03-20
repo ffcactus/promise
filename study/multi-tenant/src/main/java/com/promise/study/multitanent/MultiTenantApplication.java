@@ -1,26 +1,20 @@
-package com.promise.apps.example;
+package com.promise.study.multitanent;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class ExampleApplication implements CommandLineRunner
+public class MultiTenantApplication implements CommandLineRunner
 {
-
-    @Autowired
-    private RefreshOperation refresh;
-
     public static void main(String[] args)
     {
-        SpringApplication.run(ExampleApplication.class, args);
+        SpringApplication.run(MultiTenantApplication.class, args);
     }
 
     @Override
     public void run(String... args)
             throws Exception
     {
-        refresh.step1();
     }
 }
