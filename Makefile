@@ -23,5 +23,4 @@ undeploy:
 	docker-compose -f docker-compose.yml -f docker-compose.env.yml down
 	
 restart: undeploy deploy
-
 	
