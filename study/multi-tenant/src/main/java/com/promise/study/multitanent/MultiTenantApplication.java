@@ -9,12 +9,14 @@ import org.springframework.boot.autoconfigure.mongo.MongoAutoConfiguration;
 
 import com.promise.study.multitanent.service.DatabaseService;
 
-@SpringBootApplication(exclude = {MongoAutoConfiguration.class, MongoDataAutoConfiguration.class})
+@SpringBootApplication(exclude = {
+        MongoAutoConfiguration.class, MongoDataAutoConfiguration.class
+})
 public class MultiTenantApplication implements CommandLineRunner
 {
-	@Autowired
-	private DatabaseService databaseService;
-	
+    @Autowired
+    private DatabaseService databaseService;
+
     public static void main(String[] args)
     {
         SpringApplication.run(MultiTenantApplication.class, args);
@@ -24,6 +26,6 @@ public class MultiTenantApplication implements CommandLineRunner
     public void run(String... args)
             throws Exception
     {
-    	databaseService.createDatabase("company5", "", "");
+        databaseService.createDatabase("company1", "", "");
     }
 }

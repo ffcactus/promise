@@ -1,4 +1,8 @@
 spring:
+  profiles:
+    active: db
   devtools:
     restart:
       log-condition-evaluation-delta: false
+  application:
+    name: promise-study-multi-tenant
