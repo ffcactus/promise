@@ -1,0 +1,4 @@
+spring:
+  devtools:
+    restart:
+      log-condition-evaluation-delta: false

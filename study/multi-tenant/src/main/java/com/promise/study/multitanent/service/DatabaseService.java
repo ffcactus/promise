@@ -1,5 +1,6 @@
 package com.promise.study.multitanent.service;
 
+import org.bson.Document;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.mongodb.core.MongoOperations;
 import org.springframework.data.mongodb.core.MongoTemplate;
@@ -8,6 +9,7 @@ import org.springframework.stereotype.Service;
 import com.mongodb.MongoClient;
 import com.mongodb.MongoCredential;
 import com.mongodb.ServerAddress;
+import com.mongodb.client.MongoDatabase;
 import com.promise.study.multitanent.domain.CompanyRoot;
 
 /**
@@ -16,18 +18,15 @@ import com.promise.study.multitanent.domain.CompanyRoot;
  */
 @Service
 public class DatabaseService {
-	
+	private static final String ADMIN_DB = "admin";
 	private MongoOperations rootOp;
 	
 	/**
 	 * Default constructor. Since the connection to the root database is fixed, we initialize it here.
 	 */
 	public DatabaseService() {
-		MongoClient client = new MongoClient(
-				new ServerAddress("100.101.64.170", 27017), 
-				MongoCredential.createCredential("mongo-admin", "admin", "iforgot".toCharArray()), 
-				null);
-		rootOp = new MongoTemplate(client, "root");
+//		MongoClient client = new MongoClient(new ServerAddress("100.101.64.170", 27019));
+//		rootOp = new MongoTemplate(client, "root");
 	}
 	
 	/**
@@ -36,8 +35,18 @@ public class DatabaseService {
 	 * @param username The username of the company's database.
 	 * @param password The password of the company's database.
 	 */
-	public void createDatabase(String companyId, String username, String password) {
-		
+	public void createDatabase(String databaseName, String username, String password) {
+		MongoClient client = null;
+		try {
+			client = new MongoClient(new ServerAddress("100.101.64.170", 27019));
+			MongoDatabase db = client.getDatabase(ADMIN_DB);
+			Document result = db.runCommand(new Document("enablesharding", databaseName));
+			System.out.println(result);
+		} finally {
+			if (client != null ) {
+				client.close();
+			}
+		}		
 	}
 	
 	@Cacheable("database")
