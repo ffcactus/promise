@@ -19,13 +19,18 @@ version: "3.5"
 # And check the configuration result by:
 #   docker exec -it mongo-shard1 bash -c "echo 'rs.status()' | mongo"
 #
-# Finally, introduce the shards to the routers by:
+# Finally, add the shards to the routers by:
 #   docker exec -it mongos1 bash -c "echo 'sh.addShard(\"mongo-shard-set/mongo-shard1\")' | mongo "
 #
 # And you can check the setup by:
 #   docker exec -it mongos1 bash -c "echo 'sh.status()' | mongo "
 #
+# Now, let's create database and sharding it.
+#   docker exec -it mongo-shard1 bash -c "echo 'use promise' | mongo"
+#   docker exec -it mongos1 bash -c "echo 'sh.enableSharding(\"promise\")' | mongo "
+#   
 # For now, you can connect to your setup from routers.
+#   mongo --host <your_docker_host> --port 27019
 #
 # This is base on:
 #   https://dzone.com/articles/composing-a-sharded-mongodb-on-docker
@@ -115,7 +120,7 @@ services:
     depends_on:
       - mongo-cfg1
       - mongo-cfg2
-    command: mongos --configdb mongo-conf-set/mongo-cfg1:27017,mongo-cfg2:27017,mongo-cfg3:27017 --port 27017
+    command: mongos --bind_ip_all --configdb mongo-conf-set/mongo-cfg1:27017,mongo-cfg2:27017,mongo-cfg3:27017 --port 27017
     restart: always
     ports:
       - 27019:27017
@@ -129,7 +134,7 @@ services:
     depends_on:
       - mongo-cfg1
       - mongo-cfg2
-    command: mongos --configdb mongo-conf-set/mongo-cfg1:27017,mongo-cfg2:27017,mongo-cfg3:27017 --port 27017
+    command: mongos --bind_ip_all --configdb mongo-conf-set/mongo-cfg1:27017,mongo-cfg2:27017,mongo-cfg3:27017 --port 27017
     restart: always
     ports:
       - 27020:27017
