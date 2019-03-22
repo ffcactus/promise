@@ -6,3 +6,6 @@ spring:
       log-condition-evaluation-delta: false
   application:
     name: promise-study-multi-tenant
+log4j:
+  category:
+    org.springframework.data.mongodb: DEBUG    
