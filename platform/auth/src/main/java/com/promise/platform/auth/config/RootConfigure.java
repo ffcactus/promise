@@ -1,6 +1,7 @@
 package com.promise.platform.auth.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -17,6 +18,7 @@ import com.promise.platform.sdk.auth.RestAuthenticationEntryPoint;
 @Configuration
 @ComponentScan(basePackages = { "com.promise.platform.auth", "com.promise.platform.sdk" })
 @EnableWebSecurity
+@ConditionalOnProperty(name = "eureka.enabled")
 // @EnableGlobalMethodSecurity(prePostEnabled = true, securedEnabled = true)
 public class RootConfigure extends WebSecurityConfigurerAdapter {
 

@@ -52,12 +52,12 @@ public class SessionController extends ExceptionController {
 	}
 
 	@PostMapping("/logout")
-	public void logout(@RequestHeader("promise-token") String token) {
+	public void logout(@RequestHeader("Authorization") String token) {
 		service.logout(token);
 	}
 
 	@GetMapping("/info")
-	public ResponseEntity<GetUserResponseV1> info(@RequestHeader("promise-token") String token) {
+	public ResponseEntity<GetUserResponseV1> info(@RequestHeader("Authorization") String token) {
 		Optional<User> user = service.info(token);
 		if (user.isEmpty()) {
 			return new ResponseEntity<GetUserResponseV1>(HttpStatus.NOT_FOUND);

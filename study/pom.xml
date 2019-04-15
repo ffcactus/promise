@@ -16,5 +16,6 @@
     <modules>
     	<module>aspect</module>
     	<module>multi-tenant</module>
+    	<module>controller-test</module>
     </modules>
 </project>
