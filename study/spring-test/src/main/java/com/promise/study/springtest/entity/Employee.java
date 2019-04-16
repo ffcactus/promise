@@ -1,4 +1,4 @@
-package com.promise.study.controllertest.entity;
+package com.promise.study.springtest.entity;
 
 import javax.validation.constraints.Size;
 
@@ -12,7 +12,7 @@ import lombok.Data;
 public class Employee {
  
     @Id
-    private Long id;
+    private String id;
  
     @Size(min = 3, max = 20)
     private String name;

@@ -16,6 +16,6 @@
     <modules>
     	<module>aspect</module>
     	<module>multi-tenant</module>
-    	<module>controller-test</module>
+    	<module>spring-test</module>
     </modules>
 </project>

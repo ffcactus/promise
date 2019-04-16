@@ -15,8 +15,8 @@ import com.promise.platform.auth.repository.UserRepository;
 
 @SpringBootApplication
 public class AuthApplication implements CommandLineRunner {
-	@Autowired
-	private UserRepository userRepository;
+//	@Autowired
+//	private UserRepository userRepository;
 
 	@Value("${self.db.recreate}")
 	private boolean recreate;
@@ -27,6 +27,7 @@ public class AuthApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
+		/*
 		if (recreate) {
 			userRepository.deleteAll();
 
@@ -68,8 +69,8 @@ public class AuthApplication implements CommandLineRunner {
 			userRepository.save(new User("id-reader1-hw-scope1", "reader1@hw.com", "password", "reader1@hw.com", "hw",
 					orgnazationA, readerAuthorities));
 			userRepository.save(new User("id-reader1-hw-scope2", "reader2@hw.com", "password", "reader2@hw.com", "hw",
-					orgnazationB, readerAuthorities));
+					orgnazationB, readerAuthorities));			
 		}
-
+		*/
 	}
 }
