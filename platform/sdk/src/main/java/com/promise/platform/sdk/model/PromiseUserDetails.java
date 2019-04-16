@@ -26,12 +26,9 @@ public class PromiseUserDetails extends JwtUser implements UserDetails {
 	@Setter
 	@JsonIgnore
 	protected String password;
-	@Getter
-	@Setter
-	protected String token;
 
 	public PromiseUserDetails(String username, String company, List<String> roles, List<String> organizations, String password) {
-		super(username, company, roles, organizations);
+		super(username, null, company, roles, organizations);
 		this.password = password;
 	}
 

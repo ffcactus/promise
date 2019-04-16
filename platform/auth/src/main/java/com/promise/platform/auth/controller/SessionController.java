@@ -3,7 +3,6 @@ package com.promise.platform.auth.controller;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -21,7 +20,6 @@ import com.promise.platform.sdk.controller.ExceptionController;
 import com.promise.platform.sdk.dto.auth.LoginRequestV1;
 import com.promise.platform.sdk.dto.user.GetUserResponseV1;
 import com.promise.platform.sdk.model.JwtUser;
-import com.promise.platform.sdk.util.JwtTokenGenerator;
 
 /**
  * The controller for login and logout.
@@ -30,10 +28,6 @@ import com.promise.platform.sdk.util.JwtTokenGenerator;
 @RestController
 @RequestMapping("/api/v1/session")
 public class SessionController extends ExceptionController {
-
-	@Value("${self.jwt.secret}")
-	private String secret;
-
 	@Autowired
 	LoginService service;
 
@@ -49,7 +43,7 @@ public class SessionController extends ExceptionController {
 		JwtUser jwtUser = service.Login(request);
 		final HttpHeaders responseHeaders = new HttpHeaders();
 		responseHeaders.setContentType(MediaType.APPLICATION_JSON_UTF8);
-		responseHeaders.set("Authorization", "Bearer " + JwtTokenGenerator.generateToken(jwtUser, secret));
+		responseHeaders.set("Authorization", jwtUser.getToken());
 		return ResponseEntity.noContent().headers(responseHeaders).build();
 	}
 

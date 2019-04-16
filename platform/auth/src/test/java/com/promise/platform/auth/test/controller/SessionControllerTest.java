@@ -47,7 +47,8 @@ public class SessionControllerTest {
 		// platform administrator.
 		platformManagerLoginRequest = new LoginRequestV1("platformManager", "platformManager@password");
 		platfromManager = new JwtUser(
-				"platformManager", 
+				"platformManager",
+				"platformManager@token",
 				"Promise",
 				Collections.singletonList("PlatformAdministrator"), 
 				Collections.singletonList("Platform"));

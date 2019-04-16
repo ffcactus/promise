@@ -20,8 +20,8 @@ public class JwtTokenValidator {
 
 	/**
 	 * Tries to parse specified String as a JWT token. If successful, returns User
-	 * object with username, id and role prefilled (extracted from token). If
-	 * unsuccessful (token is invalid or not containing all required user
+	 * object with username, company, roles and organizations filled (extracted from
+	 * token). If unsuccessful (token is invalid or not containing all required user
 	 * properties), simply returns null.
 	 *
 	 * @param token the JWT token to parse
@@ -36,8 +36,14 @@ public class JwtTokenValidator {
 			final Claims body = Jwts.parser().setSigningKey(TextCodec.BASE64.decode(secret)).parseClaimsJws(token)
 					.getBody();
 
-			u = new JwtUser(body.getSubject(), String.valueOf(body.get("company")), (List<String>)body.get("roles"),
+			// @formatter:off
+			u = new JwtUser(
+					body.getSubject(), 
+					token, 
+					String.valueOf(body.get("company")), 
+					(List<String>)body.get("roles"),
 					(List<String>)body.get("organizations"));
+			// @formatter:on
 		} catch (final JwtException e) {
 			// Simply print the exception and null will be returned for the userDto
 			e.printStackTrace();

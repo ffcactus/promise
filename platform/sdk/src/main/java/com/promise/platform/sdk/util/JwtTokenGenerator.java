@@ -11,7 +11,7 @@ import io.jsonwebtoken.impl.TextCodec;
 
 public class JwtTokenGenerator {
 	@Value("${self.jwt.secret}")
-	private String secret;
+	private static String secret;
 
 	/**
 	 * Generates a JWT token containing username as subject, and userId and role as
@@ -21,7 +21,7 @@ public class JwtTokenGenerator {
 	 * @param u the user for which the token will be generated
 	 * @return the JWT token
 	 */
-	public static String generateToken(JwtUser u, String secret) {
+	public static String generateToken(JwtUser u) {
 		final Claims claims = Jwts.claims().setSubject(u.getUsername());
 		claims.put("company", u.getCompany());
 		claims.put("roles", u.getRoles());
