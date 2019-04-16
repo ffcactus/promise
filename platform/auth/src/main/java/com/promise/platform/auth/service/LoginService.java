@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 import com.promise.platform.auth.model.User;
 import com.promise.platform.auth.repository.UserRepository;
 import com.promise.platform.sdk.dto.auth.LoginRequestV1;
-import com.promise.platform.sdk.exception.InvalidRequestBodyException;
 import com.promise.platform.sdk.exception.LoginFailureException;
 import com.promise.platform.sdk.model.JwtUser;
 
@@ -26,7 +25,7 @@ public class LoginService {
 	public JwtUser Login(LoginRequestV1 request) {
 		Optional<User> user = userRepository.findByUsername(request.getUsername());
 		if (user.isEmpty()) {
-			throw new InvalidRequestBodyException();
+			throw new LoginFailureException();
 		}
 		User savedUser = user.get();
 		if (!savedUser.getPassword().equals(request.getPassword())) {

@@ -11,13 +11,13 @@ import com.promise.study.springtest.entity.Employee;
 import com.promise.study.springtest.service.EmployeeService;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/employees")
 public class EmployeeController {
 	
     @Autowired
     private EmployeeService employeeService;
  
-    @GetMapping("/employees")
+    @GetMapping()
     public List<Employee> getAllEmployees() {
         var result = employeeService.getAllEmployees();
         return result;

@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -27,7 +28,7 @@ import com.promise.platform.sdk.util.JwtTokenGenerator;
  *
  */
 @RestController
-@RequestMapping("/api/v1/session/")
+@RequestMapping("/api/v1/session")
 public class SessionController extends ExceptionController {
 
 	@Value("${self.jwt.secret}")
@@ -47,6 +48,7 @@ public class SessionController extends ExceptionController {
 	public ResponseEntity<Void> login(@RequestBody final LoginRequestV1 request) {
 		JwtUser jwtUser = service.Login(request);
 		final HttpHeaders responseHeaders = new HttpHeaders();
+		responseHeaders.setContentType(MediaType.APPLICATION_JSON_UTF8);
 		responseHeaders.set("Authorization", "Bearer " + JwtTokenGenerator.generateToken(jwtUser, secret));
 		return ResponseEntity.noContent().headers(responseHeaders).build();
 	}
