@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Loadable from 'react-loadable';
+import { hot } from 'react-hot-loader/root';
 import './App.css';
 
 const LoadableApps = Loadable.Map({
@@ -25,7 +26,6 @@ const LoadableApps = Loadable.Map({
         <App2 />
         <App3 />
         <App4 />
-        <App5 />
       </div>
     );
   }
@@ -42,4 +42,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default (process.env.NODE_ENV === 'development' ? hot(App) : App);
