@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import ReactModal from 'react-modal';
 import Logo from './images/Logo.png';
 import styled from 'styled-components';
@@ -63,7 +64,12 @@ const LoginInput = styled.input`
   text-align: left;
 `;
 
-class LoginDialog extends React.Component {
+const LoginButton = styled(Button)`
+  display: block;
+  margin: 0 auto;
+`;
+
+class Login extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -72,6 +78,9 @@ class LoginDialog extends React.Component {
       password: ''
     };
     this.OnHostnameChange = this.OnHostnameChange.bind(this);
+    this.OnUsernameChange = this.OnUsernameChange.bind(this);
+    this.OnPasswordChange = this.OnPasswordChange.bind(this);
+    this.OnSubmit = this.OnSubmit.bind(this);
   }
 
   OnHostnameChange(e) {
@@ -112,12 +121,19 @@ class LoginDialog extends React.Component {
       >
         <img src={Logo} alt="Logo" style={{ width: '100px' }} />
         <h1>Sign in to Promise</h1>
-        <LoginInput defaultValue="Username" />
-        <LoginInput defaultValue="Password" type="password" />
-        <Button value="Login" onClick={this.OnSubmit} />
+        <LoginInput />
+        <LoginInput type="password" />
+        <LoginButton value="Login" onClick={this.OnSubmit}>
+          Login
+        </LoginButton>
       </StyledModal>
     );
   }
 }
 
-export default LoginDialog;
+function mapStateToProps(state) {
+  const { session } = state;
+  return { session };
+}
+
+export default connect(mapStateToProps)(Login);

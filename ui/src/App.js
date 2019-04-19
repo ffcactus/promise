@@ -4,9 +4,10 @@ import { Route, Switch } from 'react-router'; // react-router v4/v5
 import { ConnectedRouter } from 'connected-react-router';
 import { ThemeProvider } from 'styled-components';
 import Home from './components/platform/home/Home';
-import LoginDialog from './components/platform/login/LoginDialog';
+import Login from './components/platform/login/Login';
 import Server from './components/app/server/Server';
 import Wallpaper from './components/platform/home/Wallpaper';
+import PrivateRoute from './components/platform/widgets/PrivateRoute';
 
 const theme = {
   backgroundColor: 'red',
@@ -19,9 +20,9 @@ const App = ({ history }) => {
       <Wallpaper>
         <ConnectedRouter history={history}>
           <Switch>
-            <Route exact path="/" render={() => <Home />} />
-            <Route path="/login" render={() => <LoginDialog />} />
-            <Route path="/server" render={() => <Server />} />
+            <PrivateRoute exact path="/" component={Home} />
+            <Route path="/login" component={Login} />
+            <PrivateRoute path="/server" component={Server} />
             <Route render={() => <div>Miss</div>} />
           </Switch>
         </ConnectedRouter>

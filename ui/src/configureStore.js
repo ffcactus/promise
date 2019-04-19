@@ -1,3 +1,4 @@
+import thunk from 'redux-thunk';
 import { createBrowserHistory } from 'history';
 import { applyMiddleware, compose, createStore } from 'redux';
 import { routerMiddleware } from 'connected-react-router';
@@ -13,7 +14,8 @@ export default function configureStore(preloadedState) {
     preloadedState,
     composeEnhancer(
       applyMiddleware(
-        routerMiddleware(history) // for dispatching history actions
+        routerMiddleware(history), // for dispatching history actions
+        thunk // for async actions.
         // ... other middlewares ...
       )
     )
