@@ -2,10 +2,11 @@ all:
 	mvn clean install -DskipTests
 
 config:
-	mvn -pl platform/config clean install
-	
+	mvn -pl platform/config clean install	
 registry:
 	mvn -pl platform/registry clean install
+gateway:
+	mvn -pl platform/gateway clean install
 
 deploy-db:
 	docker-compose -f docker-compose.db.yml up -d

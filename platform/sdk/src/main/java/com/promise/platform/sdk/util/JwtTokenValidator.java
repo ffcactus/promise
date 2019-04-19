@@ -17,7 +17,7 @@ public class JwtTokenValidator {
 
 	@Value("${self.jwt.secret}")
 	private String secret;
-
+	
 	/**
 	 * Tries to parse specified String as a JWT token. If successful, returns User
 	 * object with username, company, roles and organizations filled (extracted from

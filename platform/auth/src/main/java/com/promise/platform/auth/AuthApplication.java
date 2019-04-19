@@ -1,20 +1,21 @@
 package com.promise.platform.auth;
 
-import java.util.Collections;
-import java.util.List;
-
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-
-import com.promise.platform.auth.model.User;
-import com.promise.platform.auth.repository.UserRepository;
+import org.springframework.cloud.client.circuitbreaker.EnableCircuitBreaker;
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
+import org.springframework.cloud.netflix.hystrix.dashboard.EnableHystrixDashboard;
+import org.springframework.cloud.openfeign.EnableFeignClients;
 
 
 @SpringBootApplication
-public class AuthApplication implements CommandLineRunner {
+@EnableDiscoveryClient
+@EnableCircuitBreaker
+@EnableFeignClients
+@EnableHystrixDashboard
+public class AuthApplication implements CommandLineRunner {	
 //	@Autowired
 //	private UserRepository userRepository;
 
@@ -29,7 +30,7 @@ public class AuthApplication implements CommandLineRunner {
 	public void run(String... args) throws Exception {
 		/*
 		if (recreate) {
-			userRepository.deleteAll();
+			userRepository.deleteAll();	
 
 			List<String> orgnazationA = Collections.singletonList("orgnazationA");
 			List<String> orgnazationB = Collections.singletonList("orgnazationB");
@@ -50,7 +51,7 @@ public class AuthApplication implements CommandLineRunner {
 			userRepository.save(new User("id-manager2-hp-scope1", "manager2@hp.com", "password", "manager2@hp.com",
 					"hp", orgnazationB, managerAuthorities));
 			// reader in HP.
-			userRepository.save(new User("id-reader1-hp-scope1", "reader1@hp.com", "password", "reader1@hp.com", "hp",
+			userRepository.save(new User("id-reader1-hp-scope1", "reader1@hp.com"	, "password", "reader1@hp.com", "hp",
 					orgnazationA, readerAuthorities));
 			userRepository.save(new User("id-reader1-hp-scope2", "reader2@hp.com", "password", "reader2@hp.com", "hp",
 					orgnazationB, readerAuthorities));

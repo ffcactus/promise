@@ -1,45 +1,37 @@
-import React, { Component } from 'react';
-import Loadable from 'react-loadable';
-import { hot } from 'react-hot-loader/root';
-import './App.css';
+import React from 'react';
+import PropTypes from 'prop-types';
+import { Route, Switch } from 'react-router'; // react-router v4/v5
+import { ConnectedRouter } from 'connected-react-router';
+import { ThemeProvider } from 'styled-components';
+import Home from './components/platform/home/Home';
+import LoginDialog from './components/platform/login/LoginDialog';
+import Server from './components/app/server/Server';
+import Wallpaper from './components/platform/home/Wallpaper';
 
-const LoadableApps = Loadable.Map({
-  loader: {
-    App1: () => import('./components/App1'),
-    App2: () => import('./components/App2'),
-    App3: () => import('./components/App3'),
-    App4: () => import('./components/App4'),
-    App5: () => import('./components/App5')
-  },
-  loading() {
-    return <div>Loading...</div>;
-  },
-  render(loaded, props) {
-    let App1 = loaded.App1.default;
-    let App2 = loaded.App2.default;
-    let App3 = loaded.App3.default;
-    let App4 = loaded.App4.default;
-    let App5 = loaded.App5.default;
-    return (
-      <div>
-        <App1 />
-        <App2 />
-        <App3 />
-        <App4 />
-      </div>
-    );
-  }
-});
+const theme = {
+  backgroundColor: 'red',
+  color: 'green'
+};
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <p>React loadable</p>
-        <LoadableApps />
-      </div>
-    );
-  }
-}
+const App = ({ history }) => {
+  return (
+    <ThemeProvider theme={theme}>
+      <Wallpaper>
+        <ConnectedRouter history={history}>
+          <Switch>
+            <Route exact path="/" render={() => <Home />} />
+            <Route path="/login" render={() => <LoginDialog />} />
+            <Route path="/server" render={() => <Server />} />
+            <Route render={() => <div>Miss</div>} />
+          </Switch>
+        </ConnectedRouter>
+      </Wallpaper>
+    </ThemeProvider>
+  );
+};
 
-export default (process.env.NODE_ENV === 'development' ? hot(App) : App);
+App.propTypes = {
+  history: PropTypes.object
+};
+
+export default App;

@@ -1,5 +1,6 @@
 package com.promise.platform.auth.config;
 
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -8,6 +9,7 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 
 @Configuration
 // @ComponentScan(basePackages = { "com.promise.platform.auth", "com.promise.platform.sdk" })
+@ComponentScan(basePackages = { "com.promise.platform.sdk" })
 @EnableWebSecurity
 public class SecurityConfigure extends WebSecurityConfigurerAdapter {
 //	@Autowired

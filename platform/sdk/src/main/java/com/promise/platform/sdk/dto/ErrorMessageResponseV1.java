@@ -19,6 +19,7 @@ import lombok.Data;
 public class ErrorMessageResponseV1
 {
 	public static final ResponseEntity<ErrorMessageResponseV1> UNAUTHORIZED;
+	public static final ResponseEntity<ErrorMessageResponseV1> BAD_REQUEST;
     public static final ResponseEntity<ErrorMessageResponseV1> NOT_FOUND;
     public static final ResponseEntity<ErrorMessageResponseV1> INTERNAL_SERVER_ERROR;
     public String errorCode;
@@ -30,6 +31,11 @@ public class ErrorMessageResponseV1
     	responseHeaders.setContentType(MediaType.APPLICATION_JSON_UTF8);
     	UNAUTHORIZED = ResponseEntity.status(HttpStatus.UNAUTHORIZED).headers(responseHeaders).build();
     	NOT_FOUND = ResponseEntity.status(HttpStatus.NOT_FOUND).headers(responseHeaders).build();
+    	
+    	ErrorMessageResponseV1 badrequestMessage = new ErrorMessageResponseV1();
+    	badrequestMessage.errorCode = "platform.error.badrequest";
+    	badrequestMessage.message = "Invalid reqeust.";
+    	BAD_REQUEST = ResponseEntity.status(HttpStatus.BAD_REQUEST).headers(responseHeaders).body(badrequestMessage);
     	INTERNAL_SERVER_ERROR = ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).headers(responseHeaders).build();
     	
     }

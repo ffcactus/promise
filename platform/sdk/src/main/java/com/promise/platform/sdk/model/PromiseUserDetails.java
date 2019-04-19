@@ -10,6 +10,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 /**
@@ -17,6 +18,7 @@ import lombok.Setter;
  * and authorization.
  *
  */
+@NoArgsConstructor
 public class PromiseUserDetails extends JwtUser implements UserDetails {
 	/**
 	 * 

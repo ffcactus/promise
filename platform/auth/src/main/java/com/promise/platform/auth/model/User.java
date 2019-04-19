@@ -11,9 +11,11 @@ import com.promise.platform.sdk.model.PromiseUserDetails;
 import com.sun.istack.NotNull;
 
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.NonNull;
 import lombok.Setter;
 
+@NoArgsConstructor
 public class User extends PromiseUserDetails
 {
 

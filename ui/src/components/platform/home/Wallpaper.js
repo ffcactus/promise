@@ -1,7 +1,6 @@
-import React from 'react';
 import styled from 'styled-components';
 
-const Background = styled.div`
+const Wallpaper = styled.div`
   position: absolute;
   top: 0px;
   right: 0px;
@@ -29,8 +28,4 @@ const Background = styled.div`
   );
 `;
 
-export default class StyledDesktop extends React.Component {
-  render() {
-    return <Background />;
-  }
-}
+export default Wallpaper;

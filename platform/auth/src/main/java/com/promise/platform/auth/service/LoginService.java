@@ -12,15 +12,16 @@ import com.promise.platform.sdk.exception.LoginFailureException;
 import com.promise.platform.sdk.model.JwtUser;
 import com.promise.platform.sdk.util.JwtTokenGenerator;
 
-import io.micrometer.core.instrument.util.StringUtils;
-
 @Service
 public class LoginService {
-	
+
 	@Autowired
 	UserRepository userRepository;
 
-	/**	
+	@Autowired
+	JwtTokenGenerator jwtTokenGenerator;
+
+	/**
 	 * Handle login operation.
 	 * 
 	 * @param request The login request.
@@ -35,14 +36,10 @@ public class LoginService {
 		if (!savedUser.getPassword().equals(request.getPassword())) {
 			throw new LoginFailureException();
 		}
-		// no repeated login allowed.
-		if (StringUtils.isEmpty(savedUser.getToken())) {
-			throw new LoginFailureException();
-		}
 		// set token and update it in DB.
-		savedUser.setToken("Bearer " + JwtTokenGenerator.generateToken(savedUser));		
+		savedUser.setToken("Bearer " + jwtTokenGenerator.generateToken(savedUser));
 		userRepository.save(savedUser);
-		
+
 		return savedUser;
 	}
 

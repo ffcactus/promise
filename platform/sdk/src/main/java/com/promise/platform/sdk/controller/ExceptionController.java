@@ -2,6 +2,7 @@ package com.promise.platform.sdk.controller;
 
 import java.util.NoSuchElementException;
 
+import org.springframework.data.mapping.model.MappingInstantiationException;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
@@ -23,6 +24,9 @@ public class ExceptionController
         }
         if (ex instanceof LoginFailureException) {
         	return ErrorMessageResponseV1.UNAUTHORIZED;
+        }
+        if (ex instanceof MappingInstantiationException) {
+        	return ErrorMessageResponseV1.BAD_REQUEST;
         }
         return ErrorMessageResponseV1.INTERNAL_SERVER_ERROR;
     }

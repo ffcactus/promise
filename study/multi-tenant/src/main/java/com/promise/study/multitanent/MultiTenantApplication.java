@@ -49,29 +49,29 @@ public class MultiTenantApplication implements CommandLineRunner
     	for(String name : companyNames) {
     		databaseService.removeCompanyDatabase(name);
     	}
-    	
-    	for(String name : companyNames) {
-    		var mongoTemplate = databaseService.createCompanyDatabase(name, "", "");
-    		mongoTemplate.insertAll(createCompanyServers(name));    		
-    	}
-    	 
-    	// start test.
-    	var start = System.currentTimeMillis();
-    	for (int i = 0; i < FETCH_COUNT; i++) {
-    		
-    		var r = new Random();
-    		var companyName = "company" + r.nextInt(NUM_OF_COMPANY);
-    		var serverName = "server" + r.nextInt(SERVER_NUM_PER_COMPANY);
-    		var mongoTemplate = databaseService.getCompanyDatabase(companyName);
-    		var result = mongoTemplate.find(query(where("name").is(serverName)), Server.class);
-    		if (result.size() != 1) {
-    			System.out.printf("Failed to fetch %s in %s\n", serverName, companyName);
-    		} else {
-    			System.out.printf("Success on %s %s %d\n", serverName, companyName, i);
-    		}
-    	}
-    	var end = System.currentTimeMillis();
-    	System.out.printf("Total time = %s", (end - start) / 1000.0f);
+//    	
+//    	for(String name : companyNames) {
+//    		var mongoTemplate = databaseService.createCompanyDatabase(name, "", "");
+//    		mongoTemplate.insertAll(createCompanyServers(name));    		
+//    	}
+//    	 
+//    	// start test.
+//    	var start = System.currentTimeMillis();
+//    	for (int i = 0; i < FETCH_COUNT; i++) {
+//    		
+//    		var r = new Random();
+//    		var companyName = "company" + r.nextInt(NUM_OF_COMPANY);
+//    		var serverName = "server" + r.nextInt(SERVER_NUM_PER_COMPANY);
+//    		var mongoTemplate = databaseService.getCompanyDatabase(companyName);
+//    		var result = mongoTemplate.find(query(where("name").is(serverName)), Server.class);
+//    		if (result.size() != 1) {
+//    			System.out.printf("Failed to fetch %s in %s\n", serverName, companyName);
+//    		} else {
+//    			System.out.printf("Success on %s %s %d\n", serverName, companyName, i);
+//    		}
+//    	}
+//    	var end = System.currentTimeMillis();
+//    	System.out.printf("Total time = %s", (end - start) / 1000.0f);
     	
     }
     
