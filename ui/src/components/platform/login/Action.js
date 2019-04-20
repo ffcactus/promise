@@ -1,6 +1,6 @@
 import { ActionType } from './ConstValue';
 import { push } from 'connected-react-router';
-import { doPost } from '../utils/Client';
+import axios from 'axios';
 
 const LOGIN_FAILURE_WAIT_TIME = 3000;
 
@@ -17,12 +17,12 @@ function loginStart() {
 
 /**
  * Login failed.
- * @param {object} info - The json response from server.
+ * @param {object} response - The json response from server.
  */
-function loginFailure(info) {
+function loginFailure(response) {
   return {
     type: ActionType.LOGIN_FAILURE,
-    info
+    info: response
   };
 }
 
@@ -37,15 +37,15 @@ function loginFailureTimeout() {
 
 /**
  * Login success.
- * @param {string} token
+ * @param {String} hostname The hostname of the backend service.
+ * @param {object} response
  */
-function loginSuccess(hostname, username, token) {
+function loginSuccess(hostname, response) {
   return {
     type: ActionType.LOGIN_SUCCESS,
     info: {
       hostname,
-      username,
-      token
+      response
     }
   };
 }
@@ -56,42 +56,40 @@ function loginSuccess(hostname, username, token) {
  * @param {string} password
  * @param {string} afterLoginPath
  */
-function login(hostname, username, password, from) {
+function login(hostname, port, username, password, from) {
   return dispatch => {
     dispatch(loginStart());
-    doPost('http://' + hostname + '/api/v1/session/login', {
-      username,
-      password
-    })
-      .then(response => {
-        if (response.status === 200) {
-          // dispatch(WsAction.createWsConnection(hostname));
-          // TODO
-          // We dispatch login success only on ws connection created.
-          dispatch(loginSuccess(hostname, username, response.response.token));
-          // TODO
-          // Is it good to do redirection in action?
-          // browserHistory.push(afterLoginPath);
-          // dispatch(DesktopAction.setAppCollection());
-          dispatch(push(from));
-          return;
+    axios
+      .post(
+        'api/v1/session/login',
+        {
+          username,
+          password
+        },
+        {
+          baseURL: 'http://' + hostname + ':' + port,
+          timeout: 10000,
+          responseType: 'json',
+          validateStatus: status => status === 204
         }
-        setTimeout(() => {
-          dispatch(loginFailureTimeout());
-        }, LOGIN_FAILURE_WAIT_TIME);
-        dispatch(
-          loginFailure(
-            Array.isArray(response.response)
-              ? response.response[0]
-              : response.response
-          )
-        );
+      )
+      .then(response => {
+        // dispatch(WsAction.createWsConnection(hostname));
+        // TODO
+        // We dispatch login success only on ws connection created.
+        dispatch(loginSuccess(hostname, response));
+        // TODO
+        // Is it good to do redirection in action?
+        // browserHistory.push(afterLoginPath);
+        // dispatch(DesktopAction.setAppCollection());
+        dispatch(push(from));
+        return;
       })
-      .catch(reason => {
+      .catch(response => {
         setTimeout(() => {
           dispatch(loginFailureTimeout());
         }, LOGIN_FAILURE_WAIT_TIME);
-        dispatch(loginFailure(reason.message));
+        dispatch(loginFailure(response));
       });
   };
 }

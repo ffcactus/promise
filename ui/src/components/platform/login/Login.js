@@ -48,9 +48,9 @@ const StyledModal = styled(ReactModalAdapter).attrs({
 `;
 
 const LoginInput = styled.input`
-  display: inline-block;
-  height: 42px;
-  width: 80%;
+  display: block;
+  height: 1.6em;
+  width: 18em;
   box-sizing: border-box;
   border: 0;
   border-radius: 6px;
@@ -60,7 +60,7 @@ const LoginInput = styled.input`
   line-height: 1.29;
   font-weight: normal;
   font-family: -apple-system, BlinkMacSystemFont, system-ui;
-  vertical-align: top;
+  /* vertical-align: top; */
   text-align: left;
 `;
 
@@ -75,7 +75,8 @@ class Login extends React.Component {
     this.state = {
       hostname: window.location.hostname,
       username: '',
-      password: ''
+      password: '',
+      port: 3000
     };
     this.OnHostnameChange = this.OnHostnameChange.bind(this);
     this.OnUsernameChange = this.OnUsernameChange.bind(this);
@@ -105,13 +106,18 @@ class Login extends React.Component {
       ? this.props.location.state.from
       : '/';
     this.props.dispatch(
-      login(this.state.hostname, this.state.username, this.state.password, from)
+      login(
+        this.state.hostname,
+        this.state.port,
+        this.state.username,
+        this.state.password,
+        from
+      )
     );
   }
 
   render() {
     ReactModal.setAppElement('#root');
-    console.info(this.props.theme);
     return (
       <StyledModal
         isOpen={true}
@@ -121,11 +127,28 @@ class Login extends React.Component {
       >
         <img src={Logo} alt="Logo" style={{ width: '100px' }} />
         <h1>Sign in to Promise</h1>
-        <LoginInput />
-        <LoginInput type="password" />
-        <LoginButton value="Login" onClick={this.OnSubmit}>
-          Login
-        </LoginButton>
+        <form onSubmit={this.OnSubmit}>
+          <LoginInput
+            id="hostname"
+            placeholder="hostname"
+            defaultValue={this.state.hostname}
+            onChange={this.OnHostnameChange}
+          />
+          <LoginInput
+            id="username"
+            placeholder="username"
+            onChange={this.OnUsernameChange}
+          />
+          <LoginInput
+            id="password"
+            placeholder="password"
+            type="password"
+            onChange={this.OnPasswordChange}
+          />
+          <LoginButton value="Login" type="submit">
+            Login
+          </LoginButton>
+        </form>
       </StyledModal>
     );
   }
