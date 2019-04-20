@@ -39,7 +39,6 @@ public class JwtTokenValidator {
 			// @formatter:off
 			u = new JwtUser(
 					body.getSubject(), 
-					token, 
 					String.valueOf(body.get("company")), 
 					(List<String>)body.get("roles"),
 					(List<String>)body.get("organizations"));

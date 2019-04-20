@@ -20,8 +20,6 @@ public class JwtUser {
 	@NotNull
 	protected String username;
 	@NotNull
-	protected String token;
-	@NotNull
 	protected String company;
 	@NotNull
 	protected List<String> roles;

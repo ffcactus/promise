@@ -30,7 +30,7 @@ public class PromiseUserDetails extends JwtUser implements UserDetails {
 	protected String password;
 
 	public PromiseUserDetails(String username, String company, List<String> roles, List<String> organizations, String password) {
-		super(username, null, company, roles, organizations);
+		super(username, company, roles, organizations);
 		this.password = password;
 	}
 
