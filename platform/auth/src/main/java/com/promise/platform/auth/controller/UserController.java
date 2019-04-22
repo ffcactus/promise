@@ -10,28 +10,28 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.promise.platform.auth.service.UserService;
 import com.promise.platform.sdk.dto.auth.AddUserToCompanyRequestV1;
-import com.promise.platform.sdk.dto.auth.CreateUserRequestV1;
-import com.promise.platform.sdk.dto.user.GetUserResponseV1;
+import com.promise.platform.sdk.dto.auth.RegisterUserRequestV1;
+import com.promise.platform.sdk.dto.auth.GetUserResponseV1;
 
 @RestController
-@RequestMapping("/rest/v1/user")
+@RequestMapping("/api/v1/users")
 public class UserController
 {
     @Autowired
     UserService userService;
 
     /**
-     * Handle the request to create a user.
+     * hander user registration process.
      *
-     * @param request The {@link CreateUserRequestV1} represents the user to create.
+     * @param request The {@link RegisterUserRequestV1} represents the registration information.
      * @return The HTTP response including the {@link GetUserResponseV1} represents
      *         the user created.
      */
     @PostMapping
-    ResponseEntity<GetUserResponseV1> create(@RequestBody CreateUserRequestV1 request)
+    ResponseEntity<GetUserResponseV1> register(@RequestBody RegisterUserRequestV1 request)
     {
-        final var user = userService.create(request);
-        return new ResponseEntity<>(user.toResponseV1(), HttpStatus.CREATED);
+        userService.register(request);
+        return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
     /**

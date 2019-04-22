@@ -1,7 +1,5 @@
 package com.promise.platform.auth;
 
-import java.util.Collections;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.context.ApplicationListener;
@@ -11,8 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.promise.platform.auth.model.User;
 import com.promise.platform.auth.repository.UserRepository;
-import com.promise.platform.sdk.auth.PromiseUserRole;
-import com.promise.platform.sdk.dto.auth.CreateUserRequestV1;
+import com.promise.platform.sdk.dto.auth.RegisterUserRequestV1;
 
 @Component
 public class ApplicationStartup implements ApplicationListener<ApplicationReadyEvent> {
@@ -28,17 +25,11 @@ public class ApplicationStartup implements ApplicationListener<ApplicationReadyE
 	public void onApplicationEvent(final ApplicationReadyEvent event) {
 		var root = userRepository.findByUsername("root");
 		if (!root.isPresent()) {
-			CreateUserRequestV1 createRoot = new CreateUserRequestV1(
+			RegisterUserRequestV1 createRoot = new RegisterUserRequestV1(
 					"root", 
 					"iforgot", 
-					"root@promise.com", 
-					null,
-					Collections.singletonList(PromiseUserRole.PLATFORM_ADMIN.toString()),
-					Collections.singletonList("ALL"));			
+					"root@promise.com");			
 			userRepository.save(new User(createRoot));
-		}
-		
-		
-	}
-	
+		}				
+	}	
 }

@@ -13,8 +13,7 @@ import org.springframework.context.annotation.Configuration;
 @SpringBootApplication
 @Configuration
 public class UserApplication implements CommandLineRunner {
-	
-    
+	    
 	public static void main(String[] args) {
 		SpringApplication.run(UserApplication.class, args);
 	}

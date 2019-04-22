@@ -7,8 +7,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.promise.platform.sdk.controller.ExceptionController;
-import com.promise.platform.sdk.dto.user.GetUserResponseV1;
-import com.promise.platform.sdk.dto.user.PatchUserRequestV1;
+import com.promise.platform.sdk.dto.auth.GetUserResponseV1;
+import com.promise.platform.sdk.dto.auth.PatchUserRequestV1;
 import com.promise.platform.sdk.dto.user.RegisterUserRequestV1;
 
 /**

@@ -20,8 +20,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.promise.platform.auth.model.User;
 import com.promise.platform.auth.service.SessionService;
 import com.promise.platform.sdk.controller.ExceptionController;
+import com.promise.platform.sdk.dto.auth.GetUserResponseV1;
 import com.promise.platform.sdk.dto.auth.LoginRequestV1;
-import com.promise.platform.sdk.dto.user.GetUserResponseV1;
 import com.promise.platform.sdk.exception.UnauthorizedException;
 
 /**

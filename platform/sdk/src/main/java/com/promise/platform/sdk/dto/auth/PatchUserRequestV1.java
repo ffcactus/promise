@@ -1,4 +1,4 @@
-package com.promise.platform.sdk.dto.user;
+package com.promise.platform.sdk.dto.auth;
 
 import java.util.ArrayList;
 

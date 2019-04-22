@@ -5,8 +5,8 @@ import java.util.UUID;
 
 import org.springframework.data.annotation.Id;
 
-import com.promise.platform.sdk.dto.auth.CreateUserRequestV1;
-import com.promise.platform.sdk.dto.user.GetUserResponseV1;
+import com.promise.platform.sdk.dto.auth.RegisterUserRequestV1;
+import com.promise.platform.sdk.dto.auth.GetUserResponseV1;
 import com.promise.platform.sdk.model.PromiseUserDetails;
 import com.sun.istack.NotNull;
 
@@ -49,16 +49,16 @@ public class User extends PromiseUserDetails
         this.email = email;
     }
 
-    public User(CreateUserRequestV1 request)
+    public User(RegisterUserRequestV1 request)
     {
         this(
                 UUID.randomUUID().toString(),
                 request.username,
                 request.password,
                 request.email,
-                request.company,
-                request.roles,
-                request.organizations);
+                null,
+                null,
+                null);
     }
 
     /**

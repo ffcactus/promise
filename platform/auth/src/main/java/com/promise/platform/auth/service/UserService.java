@@ -5,7 +5,7 @@ import org.springframework.stereotype.Service;
 
 import com.promise.platform.auth.model.User;
 import com.promise.platform.auth.repository.UserRepository;
-import com.promise.platform.sdk.dto.auth.CreateUserRequestV1;
+import com.promise.platform.sdk.dto.auth.RegisterUserRequestV1;
 
 /**
  * The service for user operation.
@@ -16,7 +16,7 @@ public class UserService {
 	@Autowired
 	UserRepository userRepository;
 
-	public User create(CreateUserRequestV1 request) {
-		return userRepository.save(new User(request));
+	public void register(RegisterUserRequestV1 request) {
+		userRepository.save(new User(request));
 	}
 }
