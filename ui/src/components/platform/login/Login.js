@@ -1,8 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import ReactModal from 'react-modal';
-import Logo from './images/Logo.png';
+import LogoIcon from './images/Logo.png';
+import LoginIcon from './images/Login.png';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 import ReactModalAdapter from '../widgets/StyledModal';
 import { login } from './Action';
 import Button from '../widgets/Button';
@@ -47,14 +49,17 @@ const StyledModal = styled(ReactModalAdapter).attrs({
   }
 `;
 
+const Title = styled.h1`
+  font-size: 21px;
+`;
+
 const LoginInput = styled.input`
   display: block;
-  height: 1.6em;
+  height: 36px;
   width: 18em;
   box-sizing: border-box;
   border: 0;
-  border-radius: 6px;
-  margin-bottom: 5px;
+  margin-bottom: 1px;
   padding-left: 15px;
   font-size: 17px;
   line-height: 1.29;
@@ -64,9 +69,45 @@ const LoginInput = styled.input`
   text-align: left;
 `;
 
-const LoginButton = styled(Button)`
-  display: block;
-  margin: 0 auto;
+const UsernameInput = styled(LoginInput)`
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+`;
+
+const PasswordInput = styled(LoginInput)`
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+  background-image: url(${LoginIcon});
+  background-repeat: no-repeat;
+  background-position: 98% 50%;
+  background-size: 30px;
+  padding-right: 40px; /* so that the input won't overlay the login icon. */
+`;
+
+const HelpArea = styled.div`
+  margin-top: 20px;
+  display: flex;
+  flex-direction: row;
+`;
+
+const ForgotPasswordDiv = styled.div`
+  width: 50%;
+`;
+
+const RegisterDiv = styled.div`
+  width: 50%;
+`;
+
+const ForgotPasswordLink = styled(Link)`
+  color: white;
+  margin-right: 10px;
+  float: right;
+`;
+
+const RegisterLink = styled(Link)`
+  color: white;
+  margin-left: 10px;
+  float: left;
 `;
 
 class Login extends React.Component {
@@ -78,15 +119,9 @@ class Login extends React.Component {
       password: '',
       port: 3000
     };
-    this.OnHostnameChange = this.OnHostnameChange.bind(this);
     this.OnUsernameChange = this.OnUsernameChange.bind(this);
     this.OnPasswordChange = this.OnPasswordChange.bind(this);
     this.OnSubmit = this.OnSubmit.bind(this);
-  }
-
-  OnHostnameChange(e) {
-    e.preventDefault();
-    this.setState({ hostname: e.target.value });
   }
 
   OnUsernameChange(e) {
@@ -125,30 +160,32 @@ class Login extends React.Component {
         shouldCloseOnEsc={false}
         contentLabel="Login Dialog"
       >
-        <img src={Logo} alt="Logo" style={{ width: '100px' }} />
-        <h1>Sign in to Promise</h1>
-        <form onSubmit={this.OnSubmit}>
-          <LoginInput
-            id="hostname"
-            placeholder="hostname"
-            defaultValue={this.state.hostname}
-            onChange={this.OnHostnameChange}
-          />
-          <LoginInput
+        <img src={LogoIcon} alt="Logo" style={{ width: '100px' }} />
+        <Title>Sign in to Promise</Title>
+        <form>
+          <UsernameInput
             id="username"
             placeholder="username"
             onChange={this.OnUsernameChange}
           />
-          <LoginInput
+          <PasswordInput
             id="password"
             placeholder="password"
             type="password"
             onChange={this.OnPasswordChange}
+            onSubmit={this.onSubmit}
           />
-          <LoginButton value="Login" type="submit">
-            Login
-          </LoginButton>
         </form>
+        <HelpArea>
+          <ForgotPasswordDiv>
+            <ForgotPasswordLink to="/password-recovery">
+              Forgot Password
+            </ForgotPasswordLink>
+          </ForgotPasswordDiv>
+          <RegisterDiv>
+            <RegisterLink to="/register">Register Account</RegisterLink>
+          </RegisterDiv>
+        </HelpArea>
       </StyledModal>
     );
   }
