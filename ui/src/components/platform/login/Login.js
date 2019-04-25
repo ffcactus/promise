@@ -7,7 +7,6 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import ReactModalAdapter from '../widgets/StyledModal';
 import { login } from './Action';
-import Button from '../widgets/Button';
 
 const StyledModal = styled(ReactModalAdapter).attrs({
   overlayClassName: 'Overlay',
@@ -191,11 +190,9 @@ class Login extends React.Component {
   }
 }
 
-function mapStateToProps(state) {
-  const { session } = state;
-  return { session };
-}
+// function mapStateToProps(state) {
+//   const { session } = state;
+//   return { session };
+// }
 
-export default connect(mapStateToProps)(Login);
-
-export { Login };
+export default connect()(Login);

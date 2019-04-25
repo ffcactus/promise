@@ -8,15 +8,11 @@ import Login from './components/platform/login/Login';
 import Server from './components/app/server/Server';
 import Wallpaper from './components/platform/home/Wallpaper';
 import PrivateRoute from './components/platform/widgets/PrivateRoute';
-
-const theme = {
-  backgroundColor: 'red',
-  color: 'green'
-};
+import defaultTheme from './Theme';
 
 const App = ({ history }) => {
   return (
-    <ThemeProvider theme={theme}>
+    <ThemeProvider theme={defaultTheme}>
       <Wallpaper>
         <ConnectedRouter history={history}>
           <Switch>
