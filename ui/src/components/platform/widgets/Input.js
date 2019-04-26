@@ -1,21 +1,19 @@
-import style from 'styled-components';
+import styled from 'styled-components';
 
-const Input = style.input.attrs(({ size }) => ({
-  // we can define static props
-  type: 'password',
-
-  // or we can define dynamic ones
-  margin: size || '1em',
-  padding: size || '1em'
-}))`
-  color: palevioletred;
-  font-size: 1em;
-  border: 2px solid palevioletred;
-  border-radius: 3px;
-
-  /* here we use the dynamically computed props */
-  margin: ${props => props.margin};
-  padding: ${props => props.padding};
+const Input = styled.input`
+  display: block;
+  height: 36px;
+  width: 18em;
+  box-sizing: border-box;
+  border: 1px solid;
+  border-color: silver;
+  border-radius: ${p => p.theme.boxRadiusPx}px;
+  margin-bottom: ${p => p.theme.boxRadiusPx}px;
+  padding: 0 15px;
+  font-size: 17px;
+  line-height: 1.29;
+  font-weight: normal;
+  font-family: -apple-system, BlinkMacSystemFont, system-ui;
 `;
 
 export default Input;

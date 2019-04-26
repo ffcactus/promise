@@ -7,6 +7,8 @@ import {
   DialogHeaderDiv,
   DialogContentDiv
 } from '../widgets/Dialog';
+import Button from '../widgets/Button';
+import Input from '../widgets/Input';
 
 const TextInput = styled.input`
   display: block;
@@ -35,6 +37,18 @@ const LabelInput = props => {
     </div>
   );
 };
+
+const StyledDialogContentDiv = styled(DialogContentDiv)`
+  display: block;
+  section {
+    margin: 10px;
+  }
+
+  section > p {
+    font-size: 18px;
+    font-weight: bold;
+  }
+`;
 
 class Register extends React.Component {
   constructor(props) {
@@ -74,53 +88,31 @@ class Register extends React.Component {
         contentLabel="Login Dialog"
       >
         <DialogHeaderDiv>Register to Promise</DialogHeaderDiv>
-        <DialogContentDiv>
+        <StyledDialogContentDiv>
           <form>
             <section>
-              <span>Login info</span>
+              <p>Login info</p>
 
               <label for="username">Username</label>
-              <input id="username" required />
+              <Input id="username" required />
 
               <label for="password">Password</label>
-              <input id="username" required type="password" />
+              <Input id="username" required type="password" />
 
               <label for="confirm-password">Confirm password</label>
-              <input id="confirm-password" required type="password" />
+              <Input id="confirm-password" required type="password" />
             </section>
-            <secion>
-              <span>Additional information for account recovery</span>
-            </secion>
-            <LabelInput label="Username" id="username" />
-            <LabelInput label="Password" id="password" type="password" />
+            <section>
+              <p>Additional information for account recovery</p>
+              <label for="email">Email</label>
+              <Input id="email" required type="email" />
+            </section>
+            <section>
+              <Button>Cancel</Button>
+              <Button>Submit</Button>
+            </section>
           </form>
-        </DialogContentDiv>
-        {/* <TitleArea>
-          <span>Register in to Promise</span>
-        </TitleArea>
-        <form>
-          <TextInput
-            id="username"
-            placeholder="username"
-            onChange={this.OnUsernameChange}
-          />
-          <TextInput id="nickname" placeholder="nikename" />
-
-          <TextInput
-            id="password"
-            placeholder="password"
-            type="password"
-            onChange={this.OnPasswordChange}
-          />
-
-          <TextInput
-            id="confirm-password"
-            placeholder="confirm password"
-            type="password"
-            onChange={this.OnPasswordChange}
-          />
-          <TextInput id="email" placeholder="email" type="email" />
-        </form> */}
+        </StyledDialogContentDiv>
       </StyledModal>
     );
   }

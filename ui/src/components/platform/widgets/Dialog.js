@@ -54,7 +54,6 @@ const StyledModal = styled(ReactModalAdapter).attrs({
     background-size: 100% ${p => p.theme.dialog.title.heightPx}px, 100%;
     border: 0px;
     border-radius: ${p => p.theme.boxRadiusPx}px;
-    text-align: center;
     font-size: 17px;
     text-rendering: optimizeLegibility;
     animation: fade-in 500ms ease-in-out;
