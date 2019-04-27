@@ -77,7 +77,15 @@ const DialogHeaderDiv = styled.div`
 
 const DialogContentDiv = styled.div`
   margin: 0px;
-  padding: ${p => p.theme.boxRadiusPx}px;
+  padding: ${p => p.theme.outMostGapPx}px;
 `;
 
-export { StyledModal, DialogHeaderDiv, DialogContentDiv };
+const DialogControlDiv = styled.div`
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  margin: 0px;
+  padding: ${p => p.theme.outMostGapPx}px;
+`;
+
+export { StyledModal, DialogHeaderDiv, DialogContentDiv, DialogControlDiv };

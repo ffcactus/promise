@@ -5,38 +5,13 @@ import styled from 'styled-components';
 import {
   StyledModal,
   DialogHeaderDiv,
-  DialogContentDiv
+  DialogContentDiv,
+  DialogControlDiv
 } from '../widgets/Dialog';
 import Button from '../widgets/Button';
 import Input from '../widgets/Input';
-
-const TextInput = styled.input`
-  display: block;
-  height: 36px;
-  width: 18em;
-  box-sizing: border-box;
-  border: 0;
-  border-radius: 6px;
-  margin-bottom: 1px;
-  padding-left: 15px;
-  font-size: 17px;
-  line-height: 1.29;
-  font-weight: normal;
-  font-family: -apple-system, BlinkMacSystemFont, system-ui;
-  /* vertical-align: top; */
-  text-align: left;
-`;
-
-const LabelInput = props => {
-  return (
-    <div>
-      <label>
-        {props.label}
-        <input {...props} />
-      </label>
-    </div>
-  );
-};
+import { register } from './Action';
+import { RegisterState } from './ConstValue';
 
 const StyledDialogContentDiv = styled(DialogContentDiv)`
   display: block;
@@ -47,6 +22,7 @@ const StyledDialogContentDiv = styled(DialogContentDiv)`
   section > p {
     font-size: 18px;
     font-weight: bold;
+    margin: ${p => p.theme.boxRadius}px 0px;
   }
 `;
 
@@ -54,13 +30,15 @@ class Register extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      hostname: window.location.hostname,
       username: '',
       password: '',
-      port: 3000
+      passwordConfirm: '',
+      email: ''
     };
     this.OnUsernameChange = this.OnUsernameChange.bind(this);
     this.OnPasswordChange = this.OnPasswordChange.bind(this);
+    this.OnPasswordConfirmChange = this.OnPasswordConfirmChange.bind(this);
+    this.OnEmailChange = this.OnEmailChange.bind(this);
     this.OnSubmit = this.OnSubmit.bind(this);
   }
 
@@ -74,8 +52,25 @@ class Register extends React.Component {
     this.setState({ password: e.target.value });
   }
 
+  OnPasswordConfirmChange(e) {
+    e.preventDefault();
+    this.setState({ passwordConfirm: e.target.value });
+  }
+
+  OnEmailChange(e) {
+    e.preventDefault();
+    this.setState({ email: e.target.value });
+  }
+
   OnSubmit(e) {
     e.preventDefault();
+    this.props.dispatch(
+      register({
+        username: this.state.username,
+        password: this.state.password,
+        email: this.state.email
+      })
+    );
   }
 
   render() {
@@ -87,35 +82,50 @@ class Register extends React.Component {
         shouldCloseOnEsc={false}
         contentLabel="Login Dialog"
       >
-        <DialogHeaderDiv>Register to Promise</DialogHeaderDiv>
-        <StyledDialogContentDiv>
-          <form>
+        <form>
+          <DialogHeaderDiv>Register to Promise</DialogHeaderDiv>
+          <StyledDialogContentDiv>
             <section>
               <p>Login info</p>
-
-              <label for="username">Username</label>
+              <label htmlFor="username">Username</label>
               <Input id="username" required />
-
-              <label for="password">Password</label>
+              <label htmlFor="password">Password</label>
               <Input id="username" required type="password" />
-
-              <label for="confirm-password">Confirm password</label>
+              <label htmlFor="confirm-password">Confirm password</label>
               <Input id="confirm-password" required type="password" />
             </section>
             <section>
               <p>Additional information for account recovery</p>
-              <label for="email">Email</label>
+              <label htmlFor="email">Email</label>
               <Input id="email" required type="email" />
             </section>
-            <section>
-              <Button>Cancel</Button>
-              <Button>Submit</Button>
-            </section>
-          </form>
-        </StyledDialogContentDiv>
+            <DialogControlDiv>
+              <section>
+                <Button>Cancel</Button>
+                <Button
+                  type="submit"
+                  primary
+                  disabled={
+                    this.props.register.state === RegisterState.REGISTERING
+                      ? true
+                      : false
+                  }
+                  onClick={this.OnSubmit}
+                >
+                  SUBMIT
+                </Button>
+              </section>
+            </DialogControlDiv>
+          </StyledDialogContentDiv>
+        </form>
       </StyledModal>
     );
   }
 }
 
-export default connect()(Register);
+function mapStateToProps(state) {
+  const { register } = state;
+  return { register };
+}
+
+export default connect(mapStateToProps)(Register);

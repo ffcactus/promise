@@ -9,6 +9,7 @@ import Server from './components/app/server/Server';
 import Wallpaper from './components/platform/home/Wallpaper';
 import PrivateRoute from './components/platform/widgets/PrivateRoute';
 import defaultTheme from './Theme';
+import Register from './components/platform/register/Register';
 
 const App = ({ history }) => {
   return (
@@ -18,6 +19,7 @@ const App = ({ history }) => {
           <Switch>
             <PrivateRoute exact path="/" component={Home} />
             <Route path="/login" component={Login} />
+            <Route path="/register" component={Register} />
             <PrivateRoute path="/server" component={Server} />
             <Route render={() => <div>Miss</div>} />
           </Switch>
