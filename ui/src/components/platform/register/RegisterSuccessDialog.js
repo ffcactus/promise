@@ -2,7 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 import ReactModal from 'react-modal';
 import { Link } from 'react-router-dom';
-import { push } from 'connected-react-router';
 
 import {
   StyledModal,

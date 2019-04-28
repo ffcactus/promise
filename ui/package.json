@@ -53,7 +53,8 @@
       "pre-commit": "lint-staged"
     }
   },
-  "proxy": "http://100.101.64.180",
+  "proxy1": "http://100.101.64.180",
+  "proxy": "http://192.168.206.130",
   "browserslist": [
     ">0.2%",
     "not dead",
