@@ -59,11 +59,4 @@ public class SessionService {
 		}
 	}
 
-	public Optional<User> info(String token) {
-		Optional<User> user = userRepository.findByToken(token);
-		if (user.isEmpty()) {
-			throw new UnauthorizedException();
-		}
-		return user;
-	}
 }

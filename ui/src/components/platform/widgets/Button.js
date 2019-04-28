@@ -32,6 +32,8 @@ const Button = styled.button`
   justify-content: center;
   align-items: center;
   user-select: none;
+  cursor: pointer;
+  text-decoration: none; /* To remove the underlink if the a link is rendered as a button */
 `;
 
 export default Button;

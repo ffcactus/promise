@@ -1,7 +1,10 @@
 import { ActionType, LoginState } from './ConstValue';
 
 const defaultSessionState = {
-  hostname: null,
+  hostname:
+    process.env.NODE_ENV === 'development'
+      ? window.location.hostname + ':3000'
+      : window.location.hostname,
   state: LoginState.LOGOUT,
   token: null,
   loginFailureInfo: null

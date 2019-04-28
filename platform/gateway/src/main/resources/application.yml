@@ -5,13 +5,22 @@ spring:
         locator:
           enabled: true
       routes:
-        - uri: lb://promise-platform-auth
+        - id: platform-auth-route          
+          uri: lb://promise-platform-auth
           predicates:
-            - Path=/api/v1/session/**
-        - uri: lb://promise-platform-task
+            - Path=/api/v1/session/**,/api/v1/users/**
+        - id: platform-task-route
+          uri: lb://promise-platform-task
           predicates:
             - Path=/api/v1/tasks/**
-        - uri: lb://promise-apps-server
+        - id: apps-server-route
+          uri: lb://promise-apps-server
           predicates:
             - Path=/api/v1/servers/**
-    
+logging:
+  level:
+    org.springframework.cloud.gateway: TRACE
+    org.springframework.http.server.reactive: DEBUG
+    org.springframework.web.reactive: DEBUG
+    reactor.ipc.netty: DEBUG
+    reactor.netty: DEBUG    

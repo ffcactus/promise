@@ -48,6 +48,7 @@ function registerSuccess() {
 function register({ username, password, email }) {
   return (dispatch, getStore) => {
     dispatch(registerStart());
+    console.info(getStore());
     axios
       .post(
         'api/v1/users',
