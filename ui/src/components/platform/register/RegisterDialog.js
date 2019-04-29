@@ -6,12 +6,13 @@ import {
   StyledModal,
   DialogHeaderDiv,
   DialogContentDiv,
-  DialogControlDiv
+  DialogControlDiv,
+  DialogForm,
+  DialogMessageDiv
 } from '../widgets/Dialog';
 import Button from '../widgets/Button';
 import Input from '../widgets/Input';
 import { register } from './Action';
-import { RegisterState } from './ConstValue';
 
 const StyledDialogContentDiv = styled(DialogContentDiv)`
   display: block;
@@ -82,8 +83,8 @@ class RegisterDialog extends React.Component {
         shouldCloseOnEsc={false}
         contentLabel="Register to Promise"
       >
-        <form>
-          <DialogHeaderDiv>Register to Promise</DialogHeaderDiv>
+        <DialogHeaderDiv>Register to Promise</DialogHeaderDiv>
+        <DialogForm>
           <StyledDialogContentDiv>
             <section>
               <p>Login info</p>
@@ -114,17 +115,16 @@ class RegisterDialog extends React.Component {
                 onChange={this.OnEmailChange}
               />
             </section>
+            <DialogMessageDiv>
+              <p>{this.props.register.message}</p>
+            </DialogMessageDiv>
             <DialogControlDiv>
               <section>
                 <Button>Cancel</Button>
                 <Button
                   type="submit"
                   primary
-                  disabled={
-                    this.props.register.state === RegisterState.REGISTERING
-                      ? true
-                      : false
-                  }
+                  disabled={this.props.register.sendingRequest}
                   onClick={this.OnSubmit}
                 >
                   SUBMIT
@@ -132,7 +132,7 @@ class RegisterDialog extends React.Component {
               </section>
             </DialogControlDiv>
           </StyledDialogContentDiv>
-        </form>
+        </DialogForm>
       </StyledModal>
     );
   }

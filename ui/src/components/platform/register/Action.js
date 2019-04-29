@@ -1,8 +1,6 @@
 import { ActionType } from './ConstValue';
 import axios from 'axios';
 
-const FAILURE_WAIT_TIME = 3000;
-
 /**
  * Register process started, the submit button should be disabled.
  */
@@ -24,20 +22,20 @@ function registerFailure(response) {
 }
 
 /**
- * Register process timeout.
- */
-function registerFailureTimeout() {
-  return {
-    type: ActionType.REGISTER_FAILURE_TIMEOUT
-  };
-}
-
-/**
  * Register process success.
  */
 function registerSuccess() {
   return {
     type: ActionType.REGISTER_SUCCESS
+  };
+}
+
+/**
+ * When the user press the confirm button when telling him the account created.
+ */
+function onSuccessConfirm() {
+  return {
+    type: ActionType.REGISTER_SUCCESS_CONFIRM
   };
 }
 
@@ -64,17 +62,30 @@ function register({ username, password, email }) {
           validateStatus: status => status === 201
         }
       )
-      .then(response => {
+      .then(operation => {
         dispatch(registerSuccess());
         return;
       })
-      .catch(response => {
-        setTimeout(() => {
-          dispatch(registerFailureTimeout());
-        }, FAILURE_WAIT_TIME);
-        dispatch(registerFailure(response));
+      .catch(operation => {
+        if (operation.code === 'ECONNABORTED') {
+          // This indicate the axios request timeout, we need mock the error message.
+          operation.response = {
+            status: 408,
+            statusText: 'Request Timeout',
+            message: 'Request timeout.'
+          };
+        }
+        if (operation.response === undefined) {
+          // For any unknown error from axios, we mock error.
+          operation.response = {
+            status: 500,
+            statusText: 'Internal error',
+            message: 'Internal request error in web.'
+          };
+        }
+        dispatch(registerFailure(operation.response));
       });
   };
 }
 
-export { register };
+export { register, onSuccessConfirm };

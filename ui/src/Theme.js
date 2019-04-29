@@ -18,8 +18,8 @@ const defaultTheme = {
     }
   },
   dialog: {
-    maxWidthPer: 80,
-    maxHeightPer: 80,
+    maxContentWidthPer: 70,
+    maxContentHeightPer: 80,
     title: {
       heightPx: 40,
       backgroundColor: 'black',

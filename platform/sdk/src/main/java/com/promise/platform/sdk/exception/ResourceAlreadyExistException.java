@@ -13,13 +13,14 @@ public class ResourceAlreadyExistException extends RuntimeException implements E
      */
     private static final long serialVersionUID = 6042526327078612687L;
 
-    private static final String errorCode = "api.error.message.common.ResourceAlreadyExist";
+    public static final String errorCode = "api.error.message.common.ResourceAlreadyExist";
 
     @Override
     public ErrorMessageResponseV1 convertToErrorResponse()
     {
         var ret = new ErrorMessageResponseV1();
         ret.errorCode = errorCode;
+        ret.message = "Resource already exist.";
         ret.messageArgs = new ArrayList<String>();
         return ret;
     }

@@ -7,13 +7,13 @@ import RegisterDialog from './RegisterDialog';
 class RegisterContainer extends React.Component {
   render() {
     switch (this.props.register.state) {
-      case RegisterState.INPUTTING:
       case RegisterState.REGISTERING:
         return <RegisterDialog />;
       case RegisterState.SUCCESS:
         return <RegisterSuccessDialog />;
       default:
-        break;
+        console.info('Reach unexpected code.');
+        return <RegisterDialog />;
     }
   }
 }

@@ -1,8 +1,9 @@
 import { ActionType, RegisterState } from './ConstValue';
 
 const defaultState = {
-  hostname: null,
-  state: RegisterState.INPUTTING
+  message: null,
+  state: RegisterState.REGISTERING,
+  sendingRequest: false
 };
 
 const register = (state = defaultState, action) => {
@@ -10,19 +11,23 @@ const register = (state = defaultState, action) => {
     case ActionType.REGISTER_START:
       return {
         ...state,
-        state: RegisterState.REGISTERING
+        message: null,
+        sendingRequest: true
       };
     case ActionType.REGISTER_SUCCESS:
       return {
         ...state,
+        sendingRequest: false,
         state: RegisterState.SUCCESS
       };
     case ActionType.REGISTER_FAILURE:
       return {
         ...state,
-        state: RegisterState.ERROR,
-        error: action.info
+        sendingRequest: false,
+        message: action.info.data.message
       };
+    case ActionType.REGISTER_SUCCESS_CONFIRM:
+      return defaultState;
     default:
       return state;
   }

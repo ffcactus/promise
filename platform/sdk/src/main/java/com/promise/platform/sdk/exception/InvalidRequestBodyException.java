@@ -1,16 +1,26 @@
 package com.promise.platform.sdk.exception;
 
-public class InvalidRequestBodyException extends RestApiException {
+import java.util.ArrayList;
+
+import com.promise.platform.sdk.dto.ErrorMessageResponseV1;
+import com.promise.platform.sdk.model.ErrorResponseConverter;
+
+public class InvalidRequestBodyException extends RuntimeException implements ErrorResponseConverter {
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 5963705519885587624L;
 	
-	private static final String errorCode = "api.error.message.common.InvalidRequestBody";
+	public static final String errorCode = "api.error.message.common.InvalidRequestBody";
 
-	public InvalidRequestBodyException() {
-		super(errorCode, "Invalid request body.", "Fix the request body and try again.");
-	}
-
+    @Override
+    public ErrorMessageResponseV1 convertToErrorResponse()
+    {
+        var ret = new ErrorMessageResponseV1();
+        ret.errorCode = errorCode;
+        ret.message = "Invalid request body.";
+        ret.messageArgs = new ArrayList<String>();
+        return ret;
+    }
 }

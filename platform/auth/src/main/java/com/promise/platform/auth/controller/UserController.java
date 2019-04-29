@@ -3,19 +3,27 @@ package com.promise.platform.auth.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.promise.platform.auth.exception.EmailExistException;
+import com.promise.platform.auth.exception.UsernameExistException;
 import com.promise.platform.auth.service.UserService;
+import com.promise.platform.sdk.controller.ExceptionController;
+import com.promise.platform.sdk.dto.ErrorMessageResponseV1;
 import com.promise.platform.sdk.dto.auth.AddUserToCompanyRequestV1;
-import com.promise.platform.sdk.dto.auth.RegisterUserRequestV1;
 import com.promise.platform.sdk.dto.auth.GetUserResponseV1;
+import com.promise.platform.sdk.dto.auth.RegisterUserRequestV1;
+import com.promise.platform.sdk.model.ErrorResponseConverter;
 
 @RestController
 @RequestMapping("/api/v1/users")
-public class UserController
+public class UserController extends ExceptionController
 {
     @Autowired
     UserService userService;
@@ -46,5 +54,13 @@ public class UserController
     {
         // TODO
         return null;
+    }    
+    
+    @ResponseStatus(HttpStatus.CONFLICT)
+    @ExceptionHandler({UsernameExistException.class, EmailExistException.class})
+    @ResponseBody
+    ErrorMessageResponseV1 handleRegisterException(Exception e) {
+    	var converter = (ErrorResponseConverter) e;
+    	return converter.convertToErrorResponse();    	
     }
 }
