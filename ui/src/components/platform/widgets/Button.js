@@ -4,10 +4,10 @@ const Button = styled.button`
   min-width: 64px;
   background-color: ${p => {
     if (p.primary) {
-      return p.theme.button.primary.backgroundcolor;
+      return p.theme.button.primary.backgroundColor;
     }
     if (p.secondary) {
-      return p.theme.button.secondary.backgroundcolor;
+      return p.theme.button.secondary.backgroundColor;
     }
     return 'transparent';
   }};

@@ -6,11 +6,11 @@ const defaultTheme = {
   button: {
     default: {
       color: 'rgba(0, 0, 0, 0.87)',
-      backgroundcolor: '#2196f3'
+      backgroundColor: '#2196f3'
     },
     primary: {
       color: 'white',
-      backgroundcolor: '#2196f3'
+      backgroundColor: '#2196f3'
     },
     secondary: {
       color: 'white',
@@ -18,13 +18,21 @@ const defaultTheme = {
     }
   },
   dialog: {
-    maxContentWidthPer: 70,
-    maxContentHeightPer: 80,
+    maxWidthPer: 80,
+    maxHeightPer: 80,
+    backgroundColor: 'whitesmoke',
     title: {
       heightPx: 40,
       backgroundColor: 'black',
-      color: 'whitesmoke',
+      color: 'silver',
       fontSizePx: 21
+    },
+    control: {
+      backgroundColor: '#c0c0c06e',
+      heightPx: 40
+    },
+    message: {
+      heightPx: 80
     }
   }
 };

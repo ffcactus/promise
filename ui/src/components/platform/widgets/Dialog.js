@@ -13,6 +13,18 @@ function ReactModalAdapter({ className, modalClassName, ...props }) {
   );
 }
 
+/**
+ * Suppose the max height of a dialog should only occupy 80% of the screen view, and the header, message, control area have fixed height.
+ * A dialog's layout, and sizing are demonstrated like this:
+ * <StyledModal>               --- max-height: 80%
+ *   <DialogHeaderDiv/>        --- height: --headerHeight
+ *   <DialogContentDiv>        --- max-height: calc(100% - var(--headerHeight) - var(--controlHeight))
+ *     <DialogInputDiv>        --- max-height: calc(100% - var(--messageHeight))
+ *     <DialogMessageDiv>      --- max-height: --messageHeight
+ *   </DialogContentDiv>
+ *   <DialogControlDiv/>       --- height: --controlHeight
+ * </StyledModal>
+ */
 const StyledModal = styled(ReactModalAdapter).attrs({
   overlayClassName: 'Overlay',
   modalClassName: 'Modal'
@@ -35,23 +47,15 @@ const StyledModal = styled(ReactModalAdapter).attrs({
     bottom: auto;
     margin-right: -50%;
     transform: translate(-50%, -50%);
+    box-sizing: border-box;
     position: absolute;
-    overflow: hidden;
-    max-height: ${p => p.theme.dialog.maxContentHeightPer}%;
-    max-width: ${p => p.theme.dialog.maxContentWidthPer}%;
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+    max-height: ${p => p.theme.dialog.maxHeightPer}%;
+    max-width: ${p => p.theme.dialog.maxWidthPer}%;
     outline: none;
-    background-repeat: no-repeat;
-    background-image: linear-gradient(
-        to right,
-        ${p => p.theme.dialog.title.backgroundColor},
-        ${p => p.theme.dialog.title.backgroundColor}
-      ),
-      linear-gradient(
-        to right,
-        ${p => p.theme.dialog.title.color},
-        ${p => p.theme.dialog.title.color}
-      );
-    background-size: 100% ${p => p.theme.dialog.title.heightPx}px, 100%;
+    background-color: ${p => p.theme.dialog.backgroundColor};
     border: 0px;
     border-radius: ${p => p.theme.boxRadiusPx}px;
     font-size: 17px;
@@ -60,54 +64,79 @@ const StyledModal = styled(ReactModalAdapter).attrs({
     font-weight: normal;
     font-family: 'SF Pro Text', 'SF Pro Icons', 'Helvetica Neue', 'Helvetica',
       'Arial', sans-serif;
+
+    #dialog-input-div {
+      background-color: lightgreen;
+      box-sizing: border-box;
+      max-height: var(--dialogInputMaxHeight);
+    }
+    #dialog-message-div {
+      box-sizing: border-box;
+      max-height: var(--dialogMessageMaxHeight);
+    }
   }
 `;
 
 const DialogHeaderDiv = styled.div`
-  text-align: center;
-  max-height: ${p => p.theme.dialog.title.heightPx - 2 * p.theme.boxRadiusPx}px;
+  flex-grow: 0;
+  flex-shrink: 0;
+  flex-basis: auto;
+  box-sizing: border-box;
+  height: ${p => p.theme.dialog.title.heightPx}px;
   margin: 0px;
   padding: ${p => p.theme.boxRadiusPx}px;
+  background-color: ${p => p.theme.dialog.title.backgroundColor};
+  color: ${p => p.theme.dialog.title.color};
+  text-align: center;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: silver;
   font-size: ${p => p.theme.dialog.title.fontSizePx}px;
 `;
 
-const DialogForm = styled.form``;
-
 const DialogContentDiv = styled.div`
-  min-height: 0px;
-  max-height: 80%;
+  flex-grow: auto;
+  flex-shrink: 1;
+  flex-basis: auto;
+  box-sizing: border-box;
   overflow: auto;
   margin: 0px;
   padding: ${p => p.theme.outMostGapPx}px;
 `;
 
-const DialogMessageDiv = styled.div`
-  max-height: 10%;
-  min-height: 10%;
+const DialogInputDiv = styled.div.attrs({
+  id: 'dialog-input-div'
+})`
+  margin: 0px;
+  padding: ${p => p.theme.outMostGapPx}px;
+`;
+
+const DialogMessageDiv = styled.div.attrs({
+  id: 'dialog-message-div'
+})`
   color: red;
-  overflow: auto;
   margin: 0px;
   padding: ${p => p.theme.outMostGapPx}px;
 `;
 
 const DialogControlDiv = styled.div`
-  max-height: 10%;
+  flex-grow: 0;
+  flex-shrink: 0;
+  box-sizing: border-box;
+  height: ${p => p.theme.dialog.control.heightPx}px;
+  margin: 0px;
+  padding: ${p => p.theme.outMostGapPx}px;
+  background-color: ${p => p.theme.dialog.control.backgroundColor};
   display: flex;
   flex-direction: row-reverse;
   align-items: center;
-  margin: 0px;
-  padding: ${p => p.theme.outMostGapPx}px;
 `;
 
 export {
   StyledModal,
-  DialogForm,
   DialogHeaderDiv,
   DialogContentDiv,
+  DialogInputDiv,
   DialogMessageDiv,
   DialogControlDiv
 };

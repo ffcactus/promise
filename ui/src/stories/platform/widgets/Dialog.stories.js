@@ -4,10 +4,10 @@ import Wallpaper from '../../../components/platform/home/Wallpaper';
 import {
   StyledModal,
   DialogHeaderDiv,
-  DialogForm,
   DialogContentDiv,
   DialogMessageDiv,
-  DialogControlDiv
+  DialogControlDiv,
+  DialogInputDiv
 } from '../../../components/platform/widgets/Dialog';
 import Button from '../../../components/platform/widgets/Button';
 
@@ -21,18 +21,18 @@ storiesOf('Platform/widgets/Dialog', module)
           shouldCloseOnEsc={false}
         >
           <DialogHeaderDiv>Default Dialog</DialogHeaderDiv>
-          <DialogForm>
-            <DialogContentDiv>
+          <DialogContentDiv>
+            <DialogInputDiv>
               <p>The dialog content.</p>
-            </DialogContentDiv>
+            </DialogInputDiv>
             <DialogMessageDiv />
-            <DialogControlDiv>
-              <section>
-                <Button>Cancel</Button>
-                <Button primary>Submit</Button>
-              </section>
-            </DialogControlDiv>
-          </DialogForm>
+          </DialogContentDiv>
+          <DialogControlDiv>
+            <section>
+              <Button>Cancel</Button>
+              <Button primary>Submit</Button>
+            </section>
+          </DialogControlDiv>
         </StyledModal>
       </Wallpaper>
     );
@@ -46,18 +46,18 @@ storiesOf('Platform/widgets/Dialog', module)
           shouldCloseOnEsc={false}
         >
           <DialogHeaderDiv>Default Dialog</DialogHeaderDiv>
-          <DialogForm>
-            <DialogContentDiv>
+          <DialogContentDiv>
+            <DialogInputDiv>
               <p>The dialog content.</p>
-            </DialogContentDiv>
+            </DialogInputDiv>
             <DialogMessageDiv>Some error happend.</DialogMessageDiv>
-            <DialogControlDiv>
-              <section>
-                <Button>Cancel</Button>
-                <Button primary>Submit</Button>
-              </section>
-            </DialogControlDiv>
-          </DialogForm>
+          </DialogContentDiv>
+          <DialogControlDiv>
+            <section>
+              <Button>Cancel</Button>
+              <Button primary>Submit</Button>
+            </section>
+          </DialogControlDiv>
         </StyledModal>
       </Wallpaper>
     );
@@ -71,138 +71,138 @@ storiesOf('Platform/widgets/Dialog', module)
           shouldCloseOnEsc={false}
         >
           <DialogHeaderDiv>Oversized Dialog</DialogHeaderDiv>
-          <DialogForm>
-            <DialogContentDiv>
-              <p>
-                This is the oversized dialog, please check if the width and
-                height are suitable. This is the oversized dialog, please check
-                if the width and height are suitable. This is the oversized
-                dialog, please check if the width and height are suitable. This
-                is the oversized dialog, please check if the width and height
-                are suitable.{' '}
-              </p>
-              <p>
-                This is the oversized dialog, please check if the width and
-                height are suitable. This is the oversized dialog, please check
-                if the width and height are suitable. This is the oversized
-                dialog, please check if the width and height are suitable. This
-                is the oversized dialog, please check if the width and height
-                are suitable.{' '}
-              </p>
-              <p>
-                This is the oversized dialog, please check if the width and
-                height are suitable. This is the oversized dialog, please check
-                if the width and height are suitable. This is the oversized
-                dialog, please check if the width and height are suitable. This
-                is the oversized dialog, please check if the width and height
-                are suitable.{' '}
-              </p>
-              <p>
-                This is the oversized dialog, please check if the width and
-                height are suitable. This is the oversized dialog, please check
-                if the width and height are suitable. This is the oversized
-                dialog, please check if the width and height are suitable. This
-                is the oversized dialog, please check if the width and height
-                are suitable.{' '}
-              </p>
-              <p>
-                This is the oversized dialog, please check if the width and
-                height are suitable. This is the oversized dialog, please check
-                if the width and height are suitable. This is the oversized
-                dialog, please check if the width and height are suitable. This
-                is the oversized dialog, please check if the width and height
-                are suitable.{' '}
-              </p>
-              <p>
-                This is the oversized dialog, please check if the width and
-                height are suitable. This is the oversized dialog, please check
-                if the width and height are suitable. This is the oversized
-                dialog, please check if the width and height are suitable. This
-                is the oversized dialog, please check if the width and height
-                are suitable.{' '}
-              </p>
-              <p>
-                This is the oversized dialog, please check if the width and
-                height are suitable. This is the oversized dialog, please check
-                if the width and height are suitable. This is the oversized
-                dialog, please check if the width and height are suitable. This
-                is the oversized dialog, please check if the width and height
-                are suitable.{' '}
-              </p>
-              <p>
-                This is the oversized dialog, please check if the width and
-                height are suitable. This is the oversized dialog, please check
-                if the width and height are suitable. This is the oversized
-                dialog, please check if the width and height are suitable. This
-                is the oversized dialog, please check if the width and height
-                are suitable.{' '}
-              </p>
-              <p>
-                This is the oversized dialog, please check if the width and
-                height are suitable. This is the oversized dialog, please check
-                if the width and height are suitable. This is the oversized
-                dialog, please check if the width and height are suitable. This
-                is the oversized dialog, please check if the width and height
-                are suitable.{' '}
-              </p>
-              <p>
-                This is the oversized dialog, please check if the width and
-                height are suitable. This is the oversized dialog, please check
-                if the width and height are suitable. This is the oversized
-                dialog, please check if the width and height are suitable. This
-                is the oversized dialog, please check if the width and height
-                are suitable.{' '}
-              </p>
-              <p>
-                This is the oversized dialog, please check if the width and
-                height are suitable. This is the oversized dialog, please check
-                if the width and height are suitable. This is the oversized
-                dialog, please check if the width and height are suitable. This
-                is the oversized dialog, please check if the width and height
-                are suitable.{' '}
-              </p>
-              <p>
-                This is the oversized dialog, please check if the width and
-                height are suitable. This is the oversized dialog, please check
-                if the width and height are suitable. This is the oversized
-                dialog, please check if the width and height are suitable. This
-                is the oversized dialog, please check if the width and height
-                are suitable.{' '}
-              </p>
-              <p>
-                This is the oversized dialog, please check if the width and
-                height are suitable. This is the oversized dialog, please check
-                if the width and height are suitable. This is the oversized
-                dialog, please check if the width and height are suitable. This
-                is the oversized dialog, please check if the width and height
-                are suitable.{' '}
-              </p>
-              <p>
-                This is the oversized dialog, please check if the width and
-                height are suitable. This is the oversized dialog, please check
-                if the width and height are suitable. This is the oversized
-                dialog, please check if the width and height are suitable. This
-                is the oversized dialog, please check if the width and height
-                are suitable.{' '}
-              </p>
-              <p>
-                This is the oversized dialog, please check if the width and
-                height are suitable. This is the oversized dialog, please check
-                if the width and height are suitable. This is the oversized
-                dialog, please check if the width and height are suitable. This
-                is the oversized dialog, please check if the width and height
-                are suitable.{' '}
-              </p>
-              <p>
-                This is the oversized dialog, please check if the width and
-                height are suitable. This is the oversized dialog, please check
-                if the width and height are suitable. This is the oversized
-                dialog, please check if the width and height are suitable. This
-                is the oversized dialog, please check if the width and height
-                are suitable.{' '}
-              </p>
-            </DialogContentDiv>
-            <DialogMessageDiv>
+          <DialogContentDiv>
+            {/* <DialogInputDiv> */}
+            <p>
+              This is the oversized dialog, please check if the width and height
+              are suitable. This is the oversized dialog, please check if the
+              width and height are suitable. This is the oversized dialog,
+              please check if the width and height are suitable. This is the
+              oversized dialog, please check if the width and height are
+              suitable.{' '}
+            </p>
+            <p>
+              This is the oversized dialog, please check if the width and height
+              are suitable. This is the oversized dialog, please check if the
+              width and height are suitable. This is the oversized dialog,
+              please check if the width and height are suitable. This is the
+              oversized dialog, please check if the width and height are
+              suitable.{' '}
+            </p>
+            <p>
+              This is the oversized dialog, please check if the width and height
+              are suitable. This is the oversized dialog, please check if the
+              width and height are suitable. This is the oversized dialog,
+              please check if the width and height are suitable. This is the
+              oversized dialog, please check if the width and height are
+              suitable.{' '}
+            </p>
+            <p>
+              This is the oversized dialog, please check if the width and height
+              are suitable. This is the oversized dialog, please check if the
+              width and height are suitable. This is the oversized dialog,
+              please check if the width and height are suitable. This is the
+              oversized dialog, please check if the width and height are
+              suitable.{' '}
+            </p>
+            <p>
+              This is the oversized dialog, please check if the width and height
+              are suitable. This is the oversized dialog, please check if the
+              width and height are suitable. This is the oversized dialog,
+              please check if the width and height are suitable. This is the
+              oversized dialog, please check if the width and height are
+              suitable.{' '}
+            </p>
+            <p>
+              This is the oversized dialog, please check if the width and height
+              are suitable. This is the oversized dialog, please check if the
+              width and height are suitable. This is the oversized dialog,
+              please check if the width and height are suitable. This is the
+              oversized dialog, please check if the width and height are
+              suitable.{' '}
+            </p>
+            <p>
+              This is the oversized dialog, please check if the width and height
+              are suitable. This is the oversized dialog, please check if the
+              width and height are suitable. This is the oversized dialog,
+              please check if the width and height are suitable. This is the
+              oversized dialog, please check if the width and height are
+              suitable.{' '}
+            </p>
+            <p>
+              This is the oversized dialog, please check if the width and height
+              are suitable. This is the oversized dialog, please check if the
+              width and height are suitable. This is the oversized dialog,
+              please check if the width and height are suitable. This is the
+              oversized dialog, please check if the width and height are
+              suitable.{' '}
+            </p>
+            <p>
+              This is the oversized dialog, please check if the width and height
+              are suitable. This is the oversized dialog, please check if the
+              width and height are suitable. This is the oversized dialog,
+              please check if the width and height are suitable. This is the
+              oversized dialog, please check if the width and height are
+              suitable.{' '}
+            </p>
+            <p>
+              This is the oversized dialog, please check if the width and height
+              are suitable. This is the oversized dialog, please check if the
+              width and height are suitable. This is the oversized dialog,
+              please check if the width and height are suitable. This is the
+              oversized dialog, please check if the width and height are
+              suitable.{' '}
+            </p>
+            <p>
+              This is the oversized dialog, please check if the width and height
+              are suitable. This is the oversized dialog, please check if the
+              width and height are suitable. This is the oversized dialog,
+              please check if the width and height are suitable. This is the
+              oversized dialog, please check if the width and height are
+              suitable.{' '}
+            </p>
+            <p>
+              This is the oversized dialog, please check if the width and height
+              are suitable. This is the oversized dialog, please check if the
+              width and height are suitable. This is the oversized dialog,
+              please check if the width and height are suitable. This is the
+              oversized dialog, please check if the width and height are
+              suitable.{' '}
+            </p>
+            <p>
+              This is the oversized dialog, please check if the width and height
+              are suitable. This is the oversized dialog, please check if the
+              width and height are suitable. This is the oversized dialog,
+              please check if the width and height are suitable. This is the
+              oversized dialog, please check if the width and height are
+              suitable.{' '}
+            </p>
+            <p>
+              This is the oversized dialog, please check if the width and height
+              are suitable. This is the oversized dialog, please check if the
+              width and height are suitable. This is the oversized dialog,
+              please check if the width and height are suitable. This is the
+              oversized dialog, please check if the width and height are
+              suitable.{' '}
+            </p>
+            <p>
+              This is the oversized dialog, please check if the width and height
+              are suitable. This is the oversized dialog, please check if the
+              width and height are suitable. This is the oversized dialog,
+              please check if the width and height are suitable. This is the
+              oversized dialog, please check if the width and height are
+              suitable.{' '}
+            </p>
+            <p>
+              This is the oversized dialog, please check if the width and height
+              are suitable. This is the oversized dialog, please check if the
+              width and height are suitable. This is the oversized dialog,
+              please check if the width and height are suitable. This is the
+              oversized dialog, please check if the width and height are
+              suitable.{' '}
+            </p>
+            {/* </DialogInputDiv> */}
+            {/* <DialogMessageDiv>
               Some error happend. Some error happend. Some error happend. Some
               error happend. Some error happend. Some error happend. Some error
               happend. Some error happend. Some error happend. Some error
@@ -210,14 +210,14 @@ storiesOf('Platform/widgets/Dialog', module)
               happend. Some error happend. Some error happend. Some error
               happend. Some error happend. Some error happend. Some error
               happend.
-            </DialogMessageDiv>
-            <DialogControlDiv>
-              <section>
-                <Button>Cancel</Button>
-                <Button primary>Submit</Button>
-              </section>
-            </DialogControlDiv>
-          </DialogForm>
+            </DialogMessageDiv> */}
+          </DialogContentDiv>
+          <DialogControlDiv>
+            <section>
+              <Button>Cancel</Button>
+              <Button primary>Submit</Button>
+            </section>
+          </DialogControlDiv>
         </StyledModal>
       </Wallpaper>
     );

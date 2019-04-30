@@ -84,55 +84,53 @@ class RegisterDialog extends React.Component {
         contentLabel="Register to Promise"
       >
         <DialogHeaderDiv>Register to Promise</DialogHeaderDiv>
-        <DialogForm>
-          <StyledDialogContentDiv>
+        <StyledDialogContentDiv>
+          <section>
+            <p>Login info</p>
+            <label htmlFor="username">Username</label>
+            <Input id="username" required onChange={this.OnUsernameChange} />
+            <label htmlFor="password">Password</label>
+            <Input
+              id="password"
+              required
+              type="password"
+              onChange={this.OnPasswordChange}
+            />
+            <label htmlFor="confirm-password">Confirm password</label>
+            <Input
+              id="confirm-password"
+              required
+              type="password"
+              onChange={this.OnPasswordConfirmChange}
+            />
+          </section>
+          <section>
+            <p>Additional information for account recovery</p>
+            <label htmlFor="email">Email</label>
+            <Input
+              id="email"
+              required
+              type="email"
+              onChange={this.OnEmailChange}
+            />
+          </section>
+          <DialogMessageDiv>
+            <p>{this.props.register.message}</p>
+          </DialogMessageDiv>
+          <DialogControlDiv>
             <section>
-              <p>Login info</p>
-              <label htmlFor="username">Username</label>
-              <Input id="username" required onChange={this.OnUsernameChange} />
-              <label htmlFor="password">Password</label>
-              <Input
-                id="password"
-                required
-                type="password"
-                onChange={this.OnPasswordChange}
-              />
-              <label htmlFor="confirm-password">Confirm password</label>
-              <Input
-                id="confirm-password"
-                required
-                type="password"
-                onChange={this.OnPasswordConfirmChange}
-              />
+              <Button>Cancel</Button>
+              <Button
+                type="submit"
+                primary
+                disabled={this.props.register.sendingRequest}
+                onClick={this.OnSubmit}
+              >
+                SUBMIT
+              </Button>
             </section>
-            <section>
-              <p>Additional information for account recovery</p>
-              <label htmlFor="email">Email</label>
-              <Input
-                id="email"
-                required
-                type="email"
-                onChange={this.OnEmailChange}
-              />
-            </section>
-            <DialogMessageDiv>
-              <p>{this.props.register.message}</p>
-            </DialogMessageDiv>
-            <DialogControlDiv>
-              <section>
-                <Button>Cancel</Button>
-                <Button
-                  type="submit"
-                  primary
-                  disabled={this.props.register.sendingRequest}
-                  onClick={this.OnSubmit}
-                >
-                  SUBMIT
-                </Button>
-              </section>
-            </DialogControlDiv>
-          </StyledDialogContentDiv>
-        </DialogForm>
+          </DialogControlDiv>
+        </StyledDialogContentDiv>
       </StyledModal>
     );
   }
