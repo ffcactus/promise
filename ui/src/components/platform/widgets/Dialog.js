@@ -64,16 +64,6 @@ const StyledModal = styled(ReactModalAdapter).attrs({
     font-weight: normal;
     font-family: 'SF Pro Text', 'SF Pro Icons', 'Helvetica Neue', 'Helvetica',
       'Arial', sans-serif;
-
-    #dialog-input-div {
-      background-color: lightgreen;
-      box-sizing: border-box;
-      max-height: var(--dialogInputMaxHeight);
-    }
-    #dialog-message-div {
-      box-sizing: border-box;
-      max-height: var(--dialogMessageMaxHeight);
-    }
   }
 `;
 
@@ -99,14 +89,23 @@ const DialogContentDiv = styled.div`
   flex-shrink: 1;
   flex-basis: auto;
   box-sizing: border-box;
-  overflow: auto;
+  overflow: hidden;
   margin: 0px;
   padding: ${p => p.theme.outMostGapPx}px;
+  /* Use flex for the input and message div */
+  display: flex;
+  flex-direction: column;
 `;
 
 const DialogInputDiv = styled.div.attrs({
   id: 'dialog-input-div'
 })`
+  /* Input div in the content div take the rest space other than message div. */
+  flex-grow: auto;
+  flex-shrink: 1;
+  flex-basis: auto;
+  box-sizing: border-box;
+  overflow: auto;
   margin: 0px;
   padding: ${p => p.theme.outMostGapPx}px;
 `;
@@ -114,6 +113,12 @@ const DialogInputDiv = styled.div.attrs({
 const DialogMessageDiv = styled.div.attrs({
   id: 'dialog-message-div'
 })`
+  flex-grow: 0;
+  flex-shrink: 0;
+  flex-basis: auto;
+  box-sizing: border-box;
+  overflow: auto;
+  max-height: ${p => p.theme.dialog.message.maxHeightPx}px;
   color: red;
   margin: 0px;
   padding: ${p => p.theme.outMostGapPx}px;

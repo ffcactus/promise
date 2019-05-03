@@ -32,7 +32,7 @@ const defaultTheme = {
       heightPx: 40
     },
     message: {
-      heightPx: 80
+      maxHeightPx: 80
     }
   }
 };
