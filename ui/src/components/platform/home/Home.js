@@ -30,18 +30,98 @@ const Background = styled.div`
   );
 `;
 
+const EmptyIconDiv = styled.div`
+  height: 0px;
+  width: 160px;
+`;
+
+class AppCollectionProxy extends React.Component {
+  constructor(props) {
+    super(props);
+    this.unknownWidthDiv = React.createRef();
+    this.state = {
+      needEmptyIconDiv: false
+    };
+  }
+
+  componentDidMount() {
+    const totalWidth = this.unknownWidthDiv.current.offsetWidth;
+    if (totalWidth < 160 * this.props.children.length) {
+      this.setState({ needEmptyIconDiv: true });
+    }
+  }
+
+  render() {
+    if (this.state.needEmptyIconDiv) {
+      return (
+        <div ref={this.unknownWidthDiv} className={this.props.className}>
+          {this.props.children}
+          <EmptyIconDiv />
+          <EmptyIconDiv />
+          <EmptyIconDiv />
+          <EmptyIconDiv />
+          <EmptyIconDiv />
+          <EmptyIconDiv />
+          <EmptyIconDiv />
+          <EmptyIconDiv />
+          <EmptyIconDiv />
+          <EmptyIconDiv />
+        </div>
+      );
+    } else {
+      return (
+        <div ref={this.unknownWidthDiv} className={this.props.className}>
+          {this.props.children}
+        </div>
+      );
+    }
+  }
+}
+
+/**
+ * Represents the area that shows all the application icons.
+ */
+const AppCollectionDiv = styled(AppCollectionProxy)`
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  right: auto;
+  bottom: auto;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-items: center;
+  justify-content: space-between;
+  max-height: 80%;
+  max-width: 80%;
+`;
+
+const IconDiv = styled.div`
+  height: 180px;
+  width: 160px;
+  align-self: center;
+`;
+
 export default class Home extends React.Component {
   render() {
     return (
       <Background>
-        <div>
-          <nav>
+        <AppCollectionDiv>
+          <IconDiv>
             <Link to="/event">Event</Link>
+          </IconDiv>
+          <IconDiv>
             <Link to="/settings">Settings</Link>
+          </IconDiv>
+          <IconDiv>
             <Link to="/logout">Logout</Link>
-          </nav>
-        </div>
+          </IconDiv>
+        </AppCollectionDiv>
       </Background>
     );
   }
 }
+
+export { AppCollectionDiv, IconDiv };
