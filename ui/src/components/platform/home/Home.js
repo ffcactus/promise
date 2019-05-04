@@ -1,41 +1,15 @@
 import React from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-
-const Background = styled.div`
-  position: absolute;
-  top: 0px;
-  right: 0px;
-  bottom: 0px;
-  left: 0px;
-  background: linear-gradient(
-    to bottom,
-    rgba(7, 42, 78, 1) 0%,
-    rgba(10, 48, 85, 1) 6%,
-    rgba(19, 66, 106, 1) 15%,
-    rgba(35, 94, 137, 1) 24%,
-    rgba(60, 127, 166, 1) 33%,
-    rgba(80, 146, 178, 1) 39%,
-    rgba(100, 163, 184, 1) 44%,
-    rgba(128, 180, 182, 1) 51%,
-    rgba(151, 192, 177, 1) 56%,
-    rgba(178, 201, 166, 1) 62%,
-    rgba(194, 202, 155, 1) 66%,
-    rgba(213, 199, 137, 1) 71%,
-    rgba(228, 189, 118, 1) 76%,
-    rgba(238, 168, 92, 1) 84%,
-    rgba(240, 150, 75, 1) 92%,
-    rgba(236, 126, 57, 1) 98%,
-    rgba(235, 120, 53, 1) 100%
-  );
-`;
+import Wallpaper from './Wallpaper';
 
 const EmptyIconDiv = styled.div`
   height: 0px;
   width: 160px;
 `;
 
-class AppCollectionProxy extends React.Component {
+class AppCollection extends React.Component {
   constructor(props) {
     super(props);
     this.unknownWidthDiv = React.createRef();
@@ -81,7 +55,7 @@ class AppCollectionProxy extends React.Component {
 /**
  * Represents the area that shows all the application icons.
  */
-const AppCollectionDiv = styled(AppCollectionProxy)`
+const StyledAppCollection = styled(AppCollection)`
   position: absolute;
   top: 50%;
   left: 50%;
@@ -98,30 +72,109 @@ const AppCollectionDiv = styled(AppCollectionProxy)`
   max-width: 80%;
 `;
 
-const IconDiv = styled.div`
-  height: 180px;
-  width: 160px;
-  align-self: center;
-`;
-
-export default class Home extends React.Component {
+/**
+ * Represents the App icon and name.
+ */
+class AppComponent extends React.Component {
   render() {
     return (
-      <Background>
-        <AppCollectionDiv>
-          <IconDiv>
-            <Link to="/event">Event</Link>
-          </IconDiv>
-          <IconDiv>
-            <Link to="/settings">Settings</Link>
-          </IconDiv>
-          <IconDiv>
-            <Link to="/logout">Logout</Link>
-          </IconDiv>
-        </AppCollectionDiv>
-      </Background>
+      <div className={this.props.className}>
+        <div id="app-icon">
+          <Link to={this.props.uri}>
+            <img src={this.props.img} alt={this.props.appName} />
+          </Link>
+        </div>
+        <div id="app-name">
+          <span>{this.props.appName}</span>
+        </div>
+      </div>
     );
   }
 }
 
-export { AppCollectionDiv, IconDiv };
+AppComponent.PropTypes = {
+  uri: PropTypes.string,
+  img: PropTypes.string,
+  appName: PropTypes.string
+};
+
+const StyledAppComponent = styled(AppComponent)`
+  height: 180px;
+  width: 160px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-self: center;
+  color: white;
+
+  & img {
+    width: 120px;
+  }
+`;
+
+const contactsIcon = require('./images/contacts_icon@2x.png');
+const dateIcon = require('./images/date_icon@2x.png');
+const findIcon = require('./images/find_icon@2x.png');
+const friendsIcon = require('./images/fmf_icon@2x.png');
+const driveIcon = require('./images/icloud_drive_icon@2x.png');
+const keynoteIcon = require('./images/keynote_icon@2x.png');
+const mailIcon = require('./images/mail_icon@2x.png');
+const notesIcon = require('./images/notes_icon@2x.png');
+const numbersIcon = require('./images/numbers_icon@2x.png');
+const pagesIcon = require('./images/pages_icon@2x.png');
+const photosIcon = require('./images/photos_icon@2x.png');
+const remindersIcon = require('./images/reminders_icon@2x.png');
+const settingsIcon = require('./images/settings_icon@2x.png');
+
+/**
+ * Represents the whole home area.
+ */
+export default class Home extends React.Component {
+  render() {
+    return (
+      <Wallpaper>
+        <StyledAppCollection>
+          <StyledAppComponent
+            uri="/event"
+            img={contactsIcon}
+            appName="Contacts"
+          />
+          <StyledAppComponent uri="/event" img={dateIcon} appName="Data" />
+          <StyledAppComponent uri="/event" img={findIcon} appName="Find" />
+          <StyledAppComponent
+            uri="/event"
+            img={friendsIcon}
+            appName="Friends"
+          />
+          <StyledAppComponent uri="/event" img={driveIcon} appName="Drive" />
+          <StyledAppComponent
+            uri="/event"
+            img={keynoteIcon}
+            appName="Keynote"
+          />
+          <StyledAppComponent uri="/event" img={mailIcon} appName="Mail" />
+          <StyledAppComponent uri="/event" img={notesIcon} appName="Notes" />
+          <StyledAppComponent
+            uri="/event"
+            img={numbersIcon}
+            appName="Numbers"
+          />
+          <StyledAppComponent uri="/event" img={pagesIcon} appName="Pages" />
+          <StyledAppComponent uri="/event" img={photosIcon} appName="Photos" />
+          <StyledAppComponent
+            uri="/event"
+            img={remindersIcon}
+            appName="Reminders"
+          />
+          <StyledAppComponent
+            uri="/event"
+            img={settingsIcon}
+            appName="Settings"
+          />
+        </StyledAppCollection>
+      </Wallpaper>
+    );
+  }
+}
+
+export { StyledAppCollection, StyledAppComponent };

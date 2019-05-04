@@ -24,7 +24,7 @@ const register = (state = defaultState, action) => {
       return {
         ...state,
         sendingRequest: false,
-        message: action.info.data.message
+        message: action.info.message
       };
     case ActionType.REGISTER_SUCCESS_CONFIRM:
       return defaultState;

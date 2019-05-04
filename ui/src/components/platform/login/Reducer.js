@@ -7,7 +7,7 @@ const defaultSessionState = {
       : window.location.hostname,
   state: LoginState.LOGOUT,
   token: null,
-  loginFailureInfo: null
+  message: null
 };
 
 const session = (state = defaultSessionState, action) => {
@@ -16,7 +16,8 @@ const session = (state = defaultSessionState, action) => {
       return {
         ...state,
         state: LoginState.LOGGING,
-        token: null
+        token: null,
+        message: null
       };
     case ActionType.LOGIN_SUCCESS:
       return {
@@ -28,15 +29,9 @@ const session = (state = defaultSessionState, action) => {
     case ActionType.LOGIN_FAILURE:
       return {
         ...state,
-        state: LoginState.LOGIN_FAILURE_WAIT,
-        token: null,
-        loginFailureInfo: action.info
-      };
-    case ActionType.LOGIN_FAILURE_TIMEOUT:
-      return {
-        ...state,
         state: LoginState.LOGOUT,
-        token: null
+        token: null,
+        message: action.info.message
       };
     case ActionType.LOGOUT_START:
       return state;
