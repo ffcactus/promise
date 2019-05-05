@@ -12,7 +12,7 @@ import {
 } from '../widgets/Dialog';
 import Button from '../widgets/Button';
 import Input from '../widgets/Input';
-import { register } from './Action';
+import { register, onCancel } from './Action';
 
 const StyledDialogContentDiv = styled(DialogContentDiv)`
   display: block;
@@ -36,34 +36,35 @@ class RegisterDialog extends React.Component {
       passwordConfirm: '',
       email: ''
     };
-    this.OnUsernameChange = this.OnUsernameChange.bind(this);
-    this.OnPasswordChange = this.OnPasswordChange.bind(this);
-    this.OnPasswordConfirmChange = this.OnPasswordConfirmChange.bind(this);
-    this.OnEmailChange = this.OnEmailChange.bind(this);
-    this.OnSubmit = this.OnSubmit.bind(this);
+    this.onUsernameChange = this.onUsernameChange.bind(this);
+    this.onPasswordChange = this.onPasswordChange.bind(this);
+    this.onPasswordConfirmChange = this.onPasswordConfirmChange.bind(this);
+    this.onEmailChange = this.onEmailChange.bind(this);
+    this.onSubmit = this.onSubmit.bind(this);
+    this.onCancel = this.onCancel.bind(this);
   }
 
-  OnUsernameChange(e) {
+  onUsernameChange(e) {
     e.preventDefault();
     this.setState({ username: e.target.value });
   }
 
-  OnPasswordChange(e) {
+  onPasswordChange(e) {
     e.preventDefault();
     this.setState({ password: e.target.value });
   }
 
-  OnPasswordConfirmChange(e) {
+  onPasswordConfirmChange(e) {
     e.preventDefault();
     this.setState({ passwordConfirm: e.target.value });
   }
 
-  OnEmailChange(e) {
+  onEmailChange(e) {
     e.preventDefault();
     this.setState({ email: e.target.value });
   }
 
-  OnSubmit(e) {
+  onSubmit(e) {
     e.preventDefault();
     this.props.dispatch(
       register({
@@ -72,6 +73,15 @@ class RegisterDialog extends React.Component {
         email: this.state.email
       })
     );
+  }
+
+  onCancel(e) {
+    e.preventDefault();
+    // If we can't find a next path after login, we go to login.
+    const from = this.props.location.state
+      ? this.props.location.state.from
+      : '/login';
+    this.props.dispatch(onCancel(from));
   }
 
   render() {
@@ -89,20 +99,20 @@ class RegisterDialog extends React.Component {
             <section>
               <p>Login info</p>
               <label htmlFor="username">Username</label>
-              <Input id="username" required onChange={this.OnUsernameChange} />
+              <Input id="username" required onChange={this.onUsernameChange} />
               <label htmlFor="password">Password</label>
               <Input
                 id="password"
                 required
                 type="password"
-                onChange={this.OnPasswordChange}
+                onChange={this.onPasswordChange}
               />
               <label htmlFor="confirm-password">Confirm password</label>
               <Input
                 id="confirm-password"
                 required
                 type="password"
-                onChange={this.OnPasswordConfirmChange}
+                onChange={this.onPasswordConfirmChange}
               />
             </section>
             <section>
@@ -112,7 +122,7 @@ class RegisterDialog extends React.Component {
                 id="email"
                 required
                 type="email"
-                onChange={this.OnEmailChange}
+                onChange={this.onEmailChange}
               />
             </section>
           </DialogInputDiv>
@@ -122,12 +132,12 @@ class RegisterDialog extends React.Component {
         </StyledDialogContentDiv>
         <DialogControlDiv>
           <section>
-            <Button>Cancel</Button>
+            <Button onClick={this.onCancel}>Cancel</Button>
             <Button
               type="submit"
               primary
               disabled={this.props.register.sendingRequest}
-              onClick={this.OnSubmit}
+              onClick={this.onSubmit}
             >
               SUBMIT
             </Button>

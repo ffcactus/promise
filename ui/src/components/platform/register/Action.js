@@ -1,4 +1,5 @@
 import { ActionType } from './ConstValue';
+import { push } from 'connected-react-router';
 import axios from 'axios';
 
 /**
@@ -36,6 +37,18 @@ function registerSuccess() {
 function onSuccessConfirm() {
   return {
     type: ActionType.REGISTER_SUCCESS_CONFIRM
+  };
+}
+
+/**
+ * When cancel the registration.
+ */
+function onCancel(from) {
+  return dispatch => {
+    dispatch({
+      type: ActionType.REGISTER_CANCEL
+    });
+    dispatch(push(from));
   };
 }
 
@@ -88,4 +101,4 @@ function register({ username, password, email }) {
   };
 }
 
-export { register, onSuccessConfirm };
+export { register, onSuccessConfirm, onCancel };

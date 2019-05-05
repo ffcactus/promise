@@ -8,7 +8,7 @@ class RegisterContainer extends React.Component {
   render() {
     switch (this.props.register.state) {
       case RegisterState.REGISTERING:
-        return <RegisterDialog />;
+        return <RegisterDialog {...this.props} />;
       case RegisterState.SUCCESS:
         return <RegisterSuccessDialog />;
       default:

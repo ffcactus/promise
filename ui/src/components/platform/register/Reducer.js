@@ -8,6 +8,8 @@ const defaultState = {
 
 const register = (state = defaultState, action) => {
   switch (action.type) {
+    case ActionType.REGISTER_CANCEL:
+      return defaultState;
     case ActionType.REGISTER_START:
       return {
         ...state,

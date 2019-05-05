@@ -4,6 +4,7 @@ export const RegisterState = Object.freeze({
 });
 
 export const ActionType = Object.freeze({
+  REGISTER_CANCEL: 'REGISTER_CANCEL',
   REGISTER_START: 'REGISTER_START',
   REGISTER_FAILURE: 'REGISTER_FAILURE',
   REGISTER_SUCCESS: 'REGISTER_SUCCESS',
