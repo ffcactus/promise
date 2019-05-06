@@ -92,7 +92,7 @@ class AppComponent extends React.Component {
   }
 }
 
-AppComponent.PropTypes = {
+AppComponent.propTypes = {
   uri: PropTypes.string,
   img: PropTypes.string,
   appName: PropTypes.string

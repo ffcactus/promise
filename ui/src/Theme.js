@@ -1,5 +1,5 @@
 const defaultTheme = {
-  backgroundColor: 'red',
+  backgroundColor: 'black',
   color: 'green',
   boxRadiusPx: 6,
   outMostGapPx: 12,
