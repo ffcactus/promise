@@ -183,7 +183,9 @@ public class ArraySetTest {
 		var set = new ArraySet<String>();
 		set.add("a");
 		set.add("b");
-		var array = set.toArray(new String[0]);
+		var inputArray = new String[0];
+		var array = set.toArray(inputArray);
+		assertFalse(inputArray == array);
 		assertEquals(3, array.length);
 		assertEquals(null, array[2]);		
 	}
@@ -227,6 +229,18 @@ public class ArraySetTest {
 		assertTrue(set.add("2"));
 		assertFalse(set.add("2"));
 		assertEquals(2, set.size());
+	}
+	
+	void TestAddWithDifferentTypes() {
+		var s1 = new ArraySet<People>();
+		assertTrue(s1.add(new People("1")));
+		assertTrue(s1.add(new Me("2")));
+		assertEquals(2, s1.size());
+		
+		var s2 = new ArraySet<Printer>();
+		assertTrue(s2.add(new People("1")));
+		assertTrue(s2.add(new Me("2")));
+		assertEquals(2, s2.size());
 	}
 
 	@Test
@@ -371,11 +385,12 @@ public class ArraySetTest {
 		set.add("1");
 		set.add("2");
 		var c1 = new ArrayList<String>();
+		c1.add("1");
 		c1.add("2");
-		c1.add("3");
+		assertFalse(set.addAll(c1));
 		var c2 = new ArrayList<String>();
-		c1.add("3");
-		c1.add("4");
+		c2.add("3");
+		c2.add("4");
 		assertTrue(set.addAll(c2));
 	}
 
@@ -436,19 +451,6 @@ public class ArraySetTest {
 		assertThrows(NullPointerException.class, () -> {
 			set.removeAll(collection);
 		});
-	}
-
-	@Test
-	void TestRemoveAllFailedWithoutSizeChange() {
-		var set = new ArraySet<String>();
-		set.add("1");
-		set.add("2");
-		set.add("3");
-		var collection = new ArrayList<String>();
-		collection.add("1");
-		collection.add("4");
-		assertFalse(set.removeAll(collection));
-		assertEquals(3, set.size());
 	}
 
 	@Test

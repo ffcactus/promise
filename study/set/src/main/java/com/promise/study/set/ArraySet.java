@@ -7,15 +7,13 @@ import java.util.NoSuchElementException;
 import java.util.Set;
 
 /**
- * Set that is implemented by array. It is checked, concurrent unsafe, no null elememt.
- * 
- * @author b00392874
+ * Set that is implemented by array. It is checked, concurrent unsafe, no null element.
  *
  * @param <E> The type of the element.
  */
 public class ArraySet<E> implements Set<E> {
 
-	private E[] array;
+	private Object[] array;
 	// The real size of this set.
 	private long size;
 	// set's class used by equals().
@@ -23,9 +21,6 @@ public class ArraySet<E> implements Set<E> {
 
 	@SuppressWarnings("unchecked")
 	public ArraySet(int capacity) {
-//		if (capacity < 1) {
-//			capacity = 1;
-//		}
 		// decrement n (to handle cases when n itself
 		// is a power of 2)
 		capacity = capacity - 1;
@@ -90,12 +85,13 @@ public class ArraySet<E> implements Set<E> {
 				return index != size;
 			}
 
+			@SuppressWarnings("unchecked")
 			@Override
 			public E next() {
 				if (index == size) {
 					throw new NoSuchElementException();
 				}
-				return array[index++];
+				return (E) array[index++];
 			}
 		};
 	}
@@ -147,7 +143,7 @@ public class ArraySet<E> implements Set<E> {
 				throw new IllegalStateException();
 			}
 
-			var newArray = (E[]) new Object[(int) (this.size * 2)];
+			var newArray = new Object[(int) (this.size * 2)];
 			for (int i = 0; i < size; i++) {
 				newArray[i] = this.array[i];
 			}
@@ -171,11 +167,11 @@ public class ArraySet<E> implements Set<E> {
 			return true;
 		}
 		// Check if we need shrink the internal array.
-		E[] newArray;
+		Object[] newArray;
 		if (this.size - 1 <= this.array.length / 2) {
-			newArray = (E[]) new Object[this.array.length / 2];
+			newArray = new Object[this.array.length / 2];
 		} else {
-			newArray = (E[]) new Object[this.array.length];
+			newArray = new Object[this.array.length];
 		}
 		for (int i = 0, j = 0; i < this.size;) {
 			if (this.array[i].equals(o)) {
@@ -192,6 +188,8 @@ public class ArraySet<E> implements Set<E> {
 
 	/**
 	 * If the target collection is null, return false.
+	 * 
+	 * {@inheritDoc}
 	 */
 	@Override
 	public boolean containsAll(Collection<?> c) {
@@ -208,54 +206,46 @@ public class ArraySet<E> implements Set<E> {
 
 	@Override
 	public boolean addAll(Collection<? extends E> c) {
+		var changed = false;
 		if (c == null) {
 			return false;
 		}
-		// we need check the existence first.
 		for (var each : c) {
-			if (contains(each)) {
-				return false;
+			if (add(each)) {
+				changed = true;
 			}
 		}
-		for (var each : c) {
-			add(each);
-		}
-		return true;
+		return changed;
 	}
 
-	/**
-	 * The specific collection can contain the elements that is not contained in this set.
-	 * <br/>
-	 * {@inheritDoc}
-	 */
 	@Override
 	public boolean retainAll(Collection<?> c) {
+		var changed = false;
 		if (c == null) {
 			throw new NullPointerException();
 		}
 		for (var each : this) {
 			if (c.contains(each)) {
-				this.remove(each);
+				if (remove(each)) {
+					changed = true;
+				}
 			}
 		}
-		return true;
+		return changed;
 	}
 
 	@Override
 	public boolean removeAll(Collection<?> c) {
+		var changed = false;
 		if (c == null) {
 			return false;
 		}
-		// we need check the existence first.
 		for (var each : c) {
-			if (!contains(each)) {
-				return false;
+			if (remove(each)) {
+				changed = true;
 			}
 		}
-		for (var each : c) {
-			remove(each);
-		}
-		return true;
+		return changed;
 	}
 
 	@SuppressWarnings("unchecked")
