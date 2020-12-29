@@ -8,9 +8,9 @@ import lombok.ToString;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@ToString(exclude = { "password" })
+@ToString(exclude = {"password"})
 public class RegisterUserRequestV1 {
-	public String username;
-	public String password;
-	public String email;
+    public String username;
+    public String password;
+    public String email;
 }

@@ -5,11 +5,9 @@ import lombok.NoArgsConstructor;
 
 /**
  * The summary of {@link StorageResourceV1}
- *
  */
 @Data
 @NoArgsConstructor
-public class StorageSummaryV1
-{
+public class StorageSummaryV1 {
     public Integer driveCount;
 }

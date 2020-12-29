@@ -4,13 +4,13 @@ import lombok.Data;
 
 /**
  * Represents the response body of User.
- *
  */
 @Data
-public class GetUserResponseV1
-{
-    public String id;
-    public String username;
-    public String email;
-    public String companyUri;
+public class GetUserResponseV1 {
+    private Long id;
+    private String username;
+    private String email;
+    private String companyUri;
+    private String description;
+    private String role;
 }

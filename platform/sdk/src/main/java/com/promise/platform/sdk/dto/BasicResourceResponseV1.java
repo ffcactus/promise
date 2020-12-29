@@ -1,19 +1,18 @@
 package com.promise.platform.sdk.dto;
 
-import java.util.Date;
-
+import com.promise.platform.sdk.model.BasicResource;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.Date;
+
 /**
  * Represents the GET response to the
- * {@link com.promise.platform.sdk.model.BasicResource}
- *
+ * {@link BasicResource}
  */
 @Data
 @NoArgsConstructor
-public class BasicResourceResponseV1
-{
+public class BasicResourceResponseV1 {
     public String id;
     public String uri;
     public String category;

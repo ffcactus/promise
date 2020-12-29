@@ -1,7 +1,6 @@
 package com.promise.platform.sdk.dto.task;
 
-public enum ExecutionResultStateV1
-{
+public enum ExecutionResultStateV1 {
     /**
      * The execution result is unknown yet.
      */

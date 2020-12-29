@@ -2,10 +2,8 @@ package com.promise.platform.sdk.dto.task;
 
 /**
  * Represents a execution state.
- *
  */
-public enum ExecutionStateV1
-{
+public enum ExecutionStateV1 {
     /**
      * The execution is ready but haven't run yet.
      */

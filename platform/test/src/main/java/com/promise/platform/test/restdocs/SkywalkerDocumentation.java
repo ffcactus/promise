@@ -1,17 +1,14 @@
 package com.promise.platform.test.restdocs;
 
-import static org.springframework.restdocs.payload.PayloadDocumentation.fieldWithPath;
-import static org.springframework.restdocs.payload.PayloadDocumentation.responseFields;
-import static org.springframework.restdocs.payload.PayloadDocumentation.subsectionWithPath;
+import org.springframework.restdocs.payload.FieldDescriptor;
+import org.springframework.restdocs.payload.ResponseFieldsSnippet;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 
-import org.springframework.restdocs.payload.FieldDescriptor;
-import org.springframework.restdocs.payload.ResponseFieldsSnippet;
+import static org.springframework.restdocs.payload.PayloadDocumentation.*;
 
-public class SkywalkerDocumentation
-{
+public class SkywalkerDocumentation {
     public static final ArrayList<FieldDescriptor> basicResourceResponseSnippet = new ArrayList<FieldDescriptor>(
             Arrays.asList(
                     fieldWithPath("id").description("The ID of this resource."),

@@ -4,8 +4,7 @@ import com.promise.platform.sdk.dto.task.CreateTaskStepRequestV1;
 import com.promise.platform.sdk.dto.task.ExecutionStateV1;
 import com.promise.platform.sdk.dto.task.GetTaskStepResponseV1;
 
-public class TaskStep
-{
+public class TaskStep {
     public String messageId;
     public String name;
     public String description;
@@ -13,16 +12,14 @@ public class TaskStep
     public ExecutionStateV1 state;
     public ExecutionResult result;
 
-    public TaskStep()
-    {
+    public TaskStep() {
         result = new ExecutionResult();
     }
 
     /**
      * Default constructor.
      */
-    public TaskStep(CreateTaskStepRequestV1 request)
-    {
+    public TaskStep(CreateTaskStepRequestV1 request) {
         this.messageId = request.messageId;
         this.name = request.name;
         this.description = request.description;
@@ -33,11 +30,10 @@ public class TaskStep
 
     /**
      * Convert to response DTO.
-     * 
+     *
      * @return response DTO.
      */
-    public GetTaskStepResponseV1 toResponseV1()
-    {
+    public GetTaskStepResponseV1 toResponseV1() {
         var ret = new GetTaskStepResponseV1();
         ret.messageId = this.messageId;
         ret.name = this.name;

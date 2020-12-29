@@ -7,10 +7,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * The application of company.
  */
 @SpringBootApplication
-public class CompanyApplication
-{
-    public static void main(String[] args)
-    {
+public class CompanyApplication {
+    public static void main(String[] args) {
         SpringApplication.run(CompanyApplication.class, args);
     }
 }

@@ -23,6 +23,6 @@ services:
   promise-platform-task:
     image: promise-platform-task:1.0.0
     ports:
-      - 9001:9001    
+      - 9001:9001
     restart: always
  

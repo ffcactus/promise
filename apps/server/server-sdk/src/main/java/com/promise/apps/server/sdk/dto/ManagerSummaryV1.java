@@ -5,10 +5,9 @@ import lombok.NoArgsConstructor;
 
 /**
  * The summary of {@link ManagerResourceV1}
- *
  */
 @Data
 @NoArgsConstructor
 public class ManagerSummaryV1 {
-    
+
 }

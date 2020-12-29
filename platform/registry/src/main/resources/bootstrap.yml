@@ -5,7 +5,10 @@ spring:
     config:
       uri: ${CONFIG_SERVICE_URL:http://localhost:8888}
       fail-fast: true
-      
+    loadbalancer:
+      ribbon:
+        enabled: false
+
 eureka:
   instance:
     prefer-ip-address: true

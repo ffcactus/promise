@@ -8,18 +8,17 @@ import org.springframework.context.annotation.Configuration;
 /**
  * The user application in platform. The user application is designed for
  * Promise platform administrator to manage the registered users.
- *
  */
 @SpringBootApplication
 @Configuration
 public class UserApplication implements CommandLineRunner {
-	    
-	public static void main(String[] args) {
-		SpringApplication.run(UserApplication.class, args);
-	}
 
-	@Override
-	public void run(String... args) throws Exception {
+    public static void main(String[] args) {
+        SpringApplication.run(UserApplication.class, args);
+    }
+
+    @Override
+    public void run(String... args) throws Exception {
 //		var host = "xxxxx";
 //	    JavaMailSenderImpl mailSender = new JavaMailSenderImpl();
 //	    mailSender.setHost(host);
@@ -50,5 +49,5 @@ public class UserApplication implements CommandLineRunner {
 //	    msg.setSubject("A Test email.");
 //	    msg.setText("Hello World!");
 //	    mailSender.send(msg);		
-	}
+    }
 }

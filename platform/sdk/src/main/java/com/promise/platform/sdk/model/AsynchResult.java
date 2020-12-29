@@ -13,11 +13,10 @@ import lombok.NoArgsConstructor;
  */
 @Data
 @NoArgsConstructor
-public class AsynchResult<R>
-{
+public class AsynchResult<R> {
     public String taskUri;
     public R result;
-    
+
     public AsynchResult(String taskUri, R result) {
         this.taskUri = taskUri;
         this.result = result;

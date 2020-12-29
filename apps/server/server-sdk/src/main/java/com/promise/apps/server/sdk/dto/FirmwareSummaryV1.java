@@ -5,10 +5,8 @@ import lombok.NoArgsConstructor;
 
 /**
  * The summary of {@link FirmwareResourceV1}
- *
  */
 @Data
 @NoArgsConstructor
-public class FirmwareSummaryV1
-{
+public class FirmwareSummaryV1 {
 }

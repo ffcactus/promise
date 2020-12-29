@@ -5,3 +5,23 @@ spring:
     config:
       uri: ${CONFIG_SERVICE_URL:http://localhost:8888}
       fail-fast: true
+  autoconfigure:
+    exclude[0]: org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration
+    exclude[1]: org.springframework.boot.actuate.autoconfigure.security.servlet.ManagementWebSecurityAutoConfiguration
+
+swagger:
+  host:
+    url: localhost:8081
+
+  # security:
+ #   user:
+ #     name: u
+ #     password: u
+ #     roles: manager
+
+logging:
+  level:
+    org:
+      springframework:
+        web: INFO
+      hibernate: INFO

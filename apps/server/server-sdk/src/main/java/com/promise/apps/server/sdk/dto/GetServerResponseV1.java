@@ -2,20 +2,17 @@ package com.promise.apps.server.sdk.dto;
 
 import com.promise.platform.sdk.dto.AssetInfoV1;
 import com.promise.platform.sdk.dto.ScopedResourceResponseV1;
-
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 /**
  * Represents the GET response of a server.
- *
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
 @NoArgsConstructor
-public class GetServerResponseV1 extends ScopedResourceResponseV1
-{
+public class GetServerResponseV1 extends ScopedResourceResponseV1 {
     public String description;
     public String type;
     public ServerStateV1 state;

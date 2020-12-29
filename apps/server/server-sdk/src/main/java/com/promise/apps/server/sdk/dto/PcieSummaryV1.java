@@ -5,10 +5,8 @@ import lombok.NoArgsConstructor;
 
 /**
  * The summary of {@link PcieResourceV1}
- *
  */
 @Data
 @NoArgsConstructor
-public class PcieSummaryV1
-{
+public class PcieSummaryV1 {
 }

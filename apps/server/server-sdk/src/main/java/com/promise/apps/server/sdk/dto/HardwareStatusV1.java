@@ -5,8 +5,7 @@ import lombok.NoArgsConstructor;
 
 @Data
 @NoArgsConstructor
-public class HardwareStatusV1
-{
+public class HardwareStatusV1 {
     public String state;
     public String severity;
     public String health;

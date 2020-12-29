@@ -1,0 +1,21 @@
+logging:
+  level:
+    root: INFO
+
+server:
+  port: 8080
+
+spring:
+  datasource:
+    url: jdbc:mariadb://121.36.207.10:3306/promise
+    # url: jdbc:mariadb://172.16.5.30:3306/promise
+    username: root
+    password: dcmp12#$
+    driver-class-name: org.mariadb.jdbc.Driver
+    testWhileIdle: true
+  jpa:
+    show-sql: false
+    database: mysql
+    hibernate:
+      dialect: org.hibernate.dialect.MariaDB103Dialect
+      ddl-auto: update

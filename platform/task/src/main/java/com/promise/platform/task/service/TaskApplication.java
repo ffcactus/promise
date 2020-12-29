@@ -12,10 +12,8 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 @EnableCircuitBreaker
 @EnableFeignClients
 @EnableHystrixDashboard
-public class TaskApplication
-{
-    public static void main(String[] args)
-    {
+public class TaskApplication {
+    public static void main(String[] args) {
         SpringApplication.run(TaskApplication.class, args);
     }
 }

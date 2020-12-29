@@ -5,3 +5,7 @@ spring:
     config:
       uri: ${CONFIG_SERVICE_URL:http://localhost:8888}
       fail-fast: true
+
+self:
+  jwt:
+    secret: Yn2kjibddFAWtnPJ2AFlL8WXmohJMCvigQggaEypa5E=

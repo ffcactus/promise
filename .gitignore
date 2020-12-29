@@ -6,6 +6,10 @@
 .vscode/
 .recommenders/
 .project
-
+.idea
+*.imp
+*.iml
+*.class
 dist/
 target/
+bin/

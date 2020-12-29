@@ -5,10 +5,8 @@ import lombok.NoArgsConstructor;
 
 /**
  * The summary of {@link ThermalResourceV1}
- *
  */
 @Data
 @NoArgsConstructor
-public class ThermalSummaryV1
-{
+public class ThermalSummaryV1 {
 }

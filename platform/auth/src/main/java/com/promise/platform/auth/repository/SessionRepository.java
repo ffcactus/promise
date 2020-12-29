@@ -1,9 +1,10 @@
 package com.promise.platform.auth.repository;
 
-import org.springframework.data.mongodb.repository.MongoRepository;
-
 import com.promise.platform.auth.model.SessionInfo;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface SessionRepository extends MongoRepository<SessionInfo, String> {
+public interface SessionRepository extends JpaRepository<SessionInfo, String> {
+
+    void deleteByUserId(Long userId);
 
 }

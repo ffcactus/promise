@@ -1,11 +1,10 @@
 package com.promise.platform.sdk.dto;
 
-import java.util.List;
-
-import org.springframework.data.domain.Sort.Direction;
-
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.data.domain.Sort.Direction;
+
+import java.util.List;
 
 /**
  * Represents the common collection response.
@@ -14,8 +13,7 @@ import lombok.NoArgsConstructor;
  */
 @Data
 @NoArgsConstructor
-public class CollectionResponseV1<T>
-{
+public class CollectionResponseV1<T> {
     public long pageIndex;
     public long pageSize;
     public Boolean hasNext;

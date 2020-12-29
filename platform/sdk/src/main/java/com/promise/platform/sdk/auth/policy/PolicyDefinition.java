@@ -1,9 +1,9 @@
 package com.promise.platform.sdk.auth.policy;
 
-import java.util.List;
-
 import com.promise.platform.sdk.auth.PolicyRule;
 
+import java.util.List;
+
 public interface PolicyDefinition {
-	public List<PolicyRule> getAllPolicyRules();
+    public List<PolicyRule> getAllPolicyRules();
 }

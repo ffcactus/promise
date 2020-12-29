@@ -8,14 +8,14 @@ import org.springframework.security.config.annotation.method.configuration.Globa
 
 @EnableGlobalMethodSecurity(prePostEnabled = true, securedEnabled = true)
 public class PromiseMethodSecurityConfig extends GlobalMethodSecurityConfiguration {
-	@Autowired
-	AbacPermissionEvaluator permissionEvaluator;
+    @Autowired
+    AbacPermissionEvaluator permissionEvaluator;
 
-	@Override
-	protected MethodSecurityExpressionHandler createExpressionHandler() {
-		final DefaultMethodSecurityExpressionHandler result = new DefaultMethodSecurityExpressionHandler();
-		result.setPermissionEvaluator(permissionEvaluator);
-		return result;
-	}
+    @Override
+    protected MethodSecurityExpressionHandler createExpressionHandler() {
+        final DefaultMethodSecurityExpressionHandler result = new DefaultMethodSecurityExpressionHandler();
+        result.setPermissionEvaluator(permissionEvaluator);
+        return result;
+    }
 
 }

@@ -8,8 +8,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class SecurityAccessContext {
-	private Object subject;
-	private Object resource;
-	private Object action;
-	private Object environment;
+    private Object subject;
+    private Object resource;
+    private Object action;
+    private Object environment;
 }

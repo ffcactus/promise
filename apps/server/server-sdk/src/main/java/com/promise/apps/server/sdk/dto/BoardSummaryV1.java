@@ -5,10 +5,8 @@ import lombok.NoArgsConstructor;
 
 /**
  * The summary of {@link BoardResourceV1}
- *
  */
 @Data
 @NoArgsConstructor
-public class BoardSummaryV1
-{
+public class BoardSummaryV1 {
 }

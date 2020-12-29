@@ -8,7 +8,6 @@ import lombok.NoArgsConstructor;
  */
 @Data
 @NoArgsConstructor
-public class CreateCompanyRequestV1
-{
+public class CreateCompanyRequestV1 {
     public String name;
 }

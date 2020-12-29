@@ -5,11 +5,9 @@ import lombok.NoArgsConstructor;
 
 /**
  * Represents the Ethernet interfaces of the OS on the server.
- *
  */
 @Data
 @NoArgsConstructor
-public class EthernetInterfaceV1
-{
+public class EthernetInterfaceV1 {
 
 }

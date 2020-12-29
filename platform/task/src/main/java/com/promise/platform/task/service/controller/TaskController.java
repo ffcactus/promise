@@ -1,17 +1,5 @@
 package com.promise.platform.task.service.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-
-import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import com.promise.platform.sdk.controller.ExceptionController;
 import com.promise.platform.sdk.dto.task.CreateTaskRequestV1;
 import com.promise.platform.sdk.dto.task.GetTaskResponseV1;
@@ -19,15 +7,18 @@ import com.promise.platform.sdk.dto.task.UpdateTaskRequestV1;
 import com.promise.platform.sdk.dto.task.UpdateTaskStepRequestV1;
 import com.promise.platform.task.service.exception.TaskStepNotFoundException;
 import com.promise.platform.task.service.service.TaskService;
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * The controller for Task service.
- *
  */
 @RestController
 @RequestMapping("/api/v1/tasks")
-public class TaskController extends ExceptionController
-{
+public class TaskController extends ExceptionController {
     @Autowired
     TaskService service;
 
@@ -39,15 +30,13 @@ public class TaskController extends ExceptionController
      */
     @PostMapping
     @HystrixCommand(fallbackMethod = "createTaskFallback")
-    public ResponseEntity<GetTaskResponseV1> createTask(@RequestBody CreateTaskRequestV1 request)
-    {
+    public ResponseEntity<GetTaskResponseV1> createTask(@RequestBody CreateTaskRequestV1 request) {
         return new ResponseEntity<>(
                 service.createTask(request).toResponseV1(),
                 HttpStatus.OK);
     }
 
-    public String createTaskFallback()
-    {
+    public String createTaskFallback() {
         return "createTaskFallback().";
     }
 
@@ -58,8 +47,7 @@ public class TaskController extends ExceptionController
      * @return The HTTP response with the task.
      */
     @GetMapping(path = "/{id}")
-    public ResponseEntity<GetTaskResponseV1> getTaskById(@PathVariable String id)
-    {
+    public ResponseEntity<GetTaskResponseV1> getTaskById(@PathVariable String id) {
         return new ResponseEntity<>(
                 service.getTaskById(id).toResponseV1(),
                 HttpStatus.OK);
@@ -72,8 +60,7 @@ public class TaskController extends ExceptionController
      * @return The HTTP response with the deleted task.
      */
     @DeleteMapping(path = "/{id}")
-    public ResponseEntity<GetTaskResponseV1> deleteTaskById(@PathVariable String id)
-    {
+    public ResponseEntity<GetTaskResponseV1> deleteTaskById(@PathVariable String id) {
         return new ResponseEntity<>(
                 service.deleteTaskById(id).toResponseV1(),
                 HttpStatus.OK);
@@ -86,8 +73,7 @@ public class TaskController extends ExceptionController
      * @return The HTTP response with the task updated.
      */
     @PostMapping(path = "/{id}/actions/update-task")
-    public ResponseEntity<GetTaskResponseV1> updateTask(@PathVariable String id, @RequestBody UpdateTaskRequestV1 request)
-    {
+    public ResponseEntity<GetTaskResponseV1> updateTask(@PathVariable String id, @RequestBody UpdateTaskRequestV1 request) {
         return new ResponseEntity<>(
                 service.updateTask(id, request).toResponseV1(),
                 HttpStatus.OK);
@@ -102,8 +88,7 @@ public class TaskController extends ExceptionController
      */
     @PostMapping(path = "/{id}/actions/update-task-step")
     public ResponseEntity<GetTaskResponseV1> updateTaskStep(@PathVariable String id, @RequestBody UpdateTaskStepRequestV1 request)
-            throws TaskStepNotFoundException
-    {
+            throws TaskStepNotFoundException {
         return new ResponseEntity<>(
                 service.updateTaskStep(id, request).toResponseV1(),
                 HttpStatus.OK);

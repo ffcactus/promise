@@ -5,9 +5,7 @@ import java.util.Set;
 /**
  * Represents the GET response to the
  * {@link com.huawei.skywalker.com.model.SocpeResource}
- *
  */
-public class ScopedResourceResponseV1 extends BasicResourceResponseV1
-{
+public class ScopedResourceResponseV1 extends BasicResourceResponseV1 {
     public Set<Scope> scopes;
 }

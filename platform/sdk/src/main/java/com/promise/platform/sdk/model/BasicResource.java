@@ -1,23 +1,19 @@
 package com.promise.platform.sdk.model;
 
+import com.promise.platform.sdk.dto.BasicResourceResponseV1;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import org.springframework.data.annotation.Id;
+
 import java.util.Date;
 import java.util.UUID;
 
-import org.springframework.data.annotation.Id;
-
-import com.promise.platform.sdk.dto.BasicResourceResponseV1;
-
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
 /**
  * Represents the resource that can be retrieve by it's <tt>id</tt> property.
- *
  */
 @Data
 @NoArgsConstructor
-public class BasicResource
-{
+public class BasicResource {
     @Id
     public String id;
     public String uri;
@@ -28,23 +24,23 @@ public class BasicResource
 
     /**
      * Initialize the properties of
-     * {@link com.promise.platform.sdk.model.BasicResource}
-     * 
-     * @param target The <tt>BasicResource</tt> to be initialized.
+     * {@link BasicResource}
+     *
+     * @param target  The <tt>BasicResource</tt> to be initialized.
      * @param baseUri Base URI of the resource.
-     * @param name The name of the resource.
+     * @param name    The name of the resource.
      */
-    public static void Init(BasicResource target, String baseUri, String name)
-    {
+    public static void Init(BasicResource target, String baseUri, String name) {
         target.id = UUID.randomUUID().toString();
         target.uri = baseUri + "/" + target.id;
         target.name = name;
         target.createdAt = new Date();
         target.updatedAt = target.createdAt;
     }
-    
+
     /**
      * Copy the BasicResource from the source to target.
+     *
      * @param target The target object.
      * @param source The source object.
      */
@@ -54,6 +50,6 @@ public class BasicResource
         target.category = source.category;
         target.name = source.name;
         target.createdAt = source.createdAt;
-        target.updatedAt = source.updatedAt;        
+        target.updatedAt = source.updatedAt;
     }
 }

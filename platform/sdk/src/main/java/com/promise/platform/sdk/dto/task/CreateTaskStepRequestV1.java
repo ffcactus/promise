@@ -6,13 +6,11 @@ import lombok.NoArgsConstructor;
 
 /**
  * The request body to create a task step.
- *
  */
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class CreateTaskStepRequestV1
-{
+public class CreateTaskStepRequestV1 {
     public String messageId;
     public String name;
     public String description;

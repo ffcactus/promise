@@ -8,7 +8,6 @@ import lombok.NoArgsConstructor;
  */
 @Data
 @NoArgsConstructor
-public class AddUserToCompanyRequestV1
-{
+public class AddUserToCompanyRequestV1 {
     public String companyUri;
 }

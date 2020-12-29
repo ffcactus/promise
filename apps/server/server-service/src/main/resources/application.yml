@@ -5,7 +5,7 @@ spring:
     name: promise-apps-server
   jackson:
     mapper:
-      ACCEPT_CASE_INSENSITIVE_PROPERTIES: true     
+      ACCEPT_CASE_INSENSITIVE_PROPERTIES: true
     serialization:
       FAIL_ON_EMPTY_BEANS: false
   data:
@@ -13,15 +13,15 @@ spring:
       host: ${MONGODB_HOST}
       port: ${MONGODB_PORT}
       database: promise-apps-server
-      
+
 logging:
   level:
     com.promise.platform.sdk.client.TaskServiceClient: DEBUG
-    
-#eureka:
-#  client:
-#    shouldFetchRegistry: true  
-    
+
+    #eureka:
+    #  client:
+    #    shouldFetchRegistry: true
+
 self:
   db:
     recreate: true

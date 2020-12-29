@@ -5,7 +5,6 @@ import lombok.NoArgsConstructor;
 
 @Data
 @NoArgsConstructor
-public class NetworkInterfaceV1
-{
+public class NetworkInterfaceV1 {
 
 }

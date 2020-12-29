@@ -1,13 +1,12 @@
 package com.promise.apps.server.sdk.dto;
 
-import java.util.List;
-
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 /**
  * The summary of {@link BiosResourceV1}
- *
  */
 @Data
 @NoArgsConstructor

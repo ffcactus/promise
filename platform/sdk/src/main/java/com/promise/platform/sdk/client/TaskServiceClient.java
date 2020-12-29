@@ -1,27 +1,20 @@
 package com.promise.platform.sdk.client;
 
-import org.springframework.cloud.openfeign.FeignClient;
-import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-
 import com.promise.platform.sdk.dto.task.CreateTaskRequestV1;
 import com.promise.platform.sdk.dto.task.GetTaskResponseV1;
 import com.promise.platform.sdk.dto.task.UpdateTaskRequestV1;
 import com.promise.platform.sdk.dto.task.UpdateTaskStepRequestV1;
+import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 @FeignClient(name = "promise-platform-task")
 @RequestMapping("/api/v1/tasks")
-public interface TaskServiceClient
-{
+public interface TaskServiceClient {
     /**
      * Create a task.
-     * 
+     *
      * @param request The create task request body.
      * @return The HTTP response with the created task.
      */
@@ -34,7 +27,7 @@ public interface TaskServiceClient
 
     /**
      * Get a task by it's ID.
-     * 
+     *
      * @param id The ID of the task.
      * @return The HTTP response with the task.
      */
@@ -45,7 +38,7 @@ public interface TaskServiceClient
 
     /**
      * Delete a task by it's ID.
-     * 
+     *
      * @param id The ID of the task.
      * @return The HTTP response with the deleted task.
      */
@@ -56,7 +49,7 @@ public interface TaskServiceClient
 
     /**
      * Update a task by it's ID.
-     * 
+     *
      * @param id The ID of the task.
      * @return The HTTP response with the task updated.
      */
@@ -67,7 +60,7 @@ public interface TaskServiceClient
 
     /**
      * Update a task step by task ID. This will impact on the task.
-     * 
+     *
      * @param id The ID of the task.
      * @return The HTTP response with the task updated.
      */

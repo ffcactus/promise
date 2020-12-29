@@ -5,11 +5,9 @@ import lombok.NoArgsConstructor;
 
 /**
  * The apply server profile request.
- *
  */
 @Data
 @NoArgsConstructor
-public class ApplyServerProfileRequest
-{
+public class ApplyServerProfileRequest {
     private String profileUri;
 }
