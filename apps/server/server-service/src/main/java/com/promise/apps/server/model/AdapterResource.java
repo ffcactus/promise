@@ -5,7 +5,7 @@ import com.promise.apps.server.sdk.dto.AdapterResourceV1.NetworkAdapterV1;
 import com.promise.apps.server.sdk.dto.AdapterResourceV1.NetworkAdapterV1.NetworkAdapterControllerV1;
 import com.promise.apps.server.sdk.dto.AdapterResourceV1.NetworkAdapterV1.NetworkAdapterControllerV1.NetworkPortV1;
 import com.promise.apps.server.sdk.dto.HardwareStatusV1;
-import com.promise.platform.sdk.model.BasicResource;
+import com.promise.platform.common.model.BasicResource;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;

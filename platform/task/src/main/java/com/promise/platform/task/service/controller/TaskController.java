@@ -2,10 +2,10 @@ package com.promise.platform.task.service.controller;
 
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import com.promise.platform.common.controller.CommonExceptionController;
-import com.promise.platform.sdk.dto.task.CreateTaskRequestV1;
-import com.promise.platform.sdk.dto.task.GetTaskResponseV1;
-import com.promise.platform.sdk.dto.task.UpdateTaskRequestV1;
-import com.promise.platform.sdk.dto.task.UpdateTaskStepRequestV1;
+import com.promise.platform.task.sdk.dto.CreateTaskRequestV1;
+import com.promise.platform.task.sdk.dto.GetTaskResponseV1;
+import com.promise.platform.task.sdk.dto.UpdateTaskRequestV1;
+import com.promise.platform.task.sdk.dto.UpdateTaskStepRequestV1;
 import com.promise.platform.task.service.exception.TaskStepNotFoundException;
 import com.promise.platform.task.service.service.TaskService;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,7 +1,7 @@
 package com.promise.platform.task.service.service;
 
-import com.promise.platform.sdk.dto.task.*;
-import com.promise.platform.sdk.model.BasicResource;
+import com.promise.platform.common.model.BasicResource;
+import com.promise.platform.task.sdk.dto.*;
 import com.promise.platform.task.service.TaskApplicationConfig;
 import com.promise.platform.task.service.exception.TaskStepNotFoundException;
 import com.promise.platform.task.service.model.Task;

@@ -2,7 +2,7 @@ package com.promise.apps.server.model;
 
 import com.promise.apps.server.sdk.dto.FirmwareResourceV1;
 import com.promise.apps.server.sdk.dto.FirmwareResourceV1.FirmwareV1;
-import com.promise.platform.sdk.model.BasicResource;
+import com.promise.platform.common.model.BasicResource;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;

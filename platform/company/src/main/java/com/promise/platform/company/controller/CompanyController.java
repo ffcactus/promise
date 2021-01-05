@@ -1,11 +1,11 @@
 package com.promise.platform.company.controller;
 
+import com.promise.platform.common.dto.UpdateErrorMessageRequestV1;
 import com.promise.platform.company.model.Company;
+import com.promise.platform.company.sdk.dto.CreateCompanyRequestV1;
+import com.promise.platform.company.sdk.dto.GetCompanyResponseV1;
+import com.promise.platform.company.sdk.dto.PatchCompanyRequestV1;
 import com.promise.platform.company.service.CompanyService;
-import com.promise.platform.sdk.dto.CollectionResponseV1;
-import com.promise.platform.sdk.dto.company.CreateCompanyRequestV1;
-import com.promise.platform.sdk.dto.company.GetCompanyResponseV1;
-import com.promise.platform.sdk.dto.company.PatchCompanyRequestV1;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort.Direction;
 import org.springframework.http.HttpStatus;
@@ -47,14 +47,14 @@ public class CompanyController {
      * @return The HTTP response that includes the listed companies.
      */
     @GetMapping
-    public ResponseEntity<CollectionResponseV1<GetCompanyResponseV1>> getCompanies(
+    public ResponseEntity<UpdateErrorMessageRequestV1.CollectionResponseV1<GetCompanyResponseV1>> getCompanies(
             @RequestParam(name = "pageIndex", required = false, defaultValue = "0") Integer pageIndex,
             @RequestParam(name = "pageSize", required = false, defaultValue = "20") Integer pageSize,
             @RequestParam(name = "order", required = false, defaultValue = "ASC") Direction order,
             @RequestParam(name = "orderBy", required = false, defaultValue = "name") String orderBy) {
         final var page = service.getCompanies(pageIndex, pageSize, order, orderBy);
         if (page != null) {
-            final var body = new CollectionResponseV1<GetCompanyResponseV1>();
+            final var body = new UpdateErrorMessageRequestV1.CollectionResponseV1<GetCompanyResponseV1>();
             body.pageIndex = pageIndex;
             body.pageSize = pageSize;
             body.order = order;

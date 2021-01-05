@@ -1,7 +1,6 @@
 package com.promise.apps.server.sdk.dto;
 
-import com.promise.platform.sdk.dto.AssetInfoV1;
-import com.promise.platform.sdk.dto.ScopedResourceResponseV1;
+import com.promise.platform.common.dto.ScopedResourceResponseV1;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;

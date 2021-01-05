@@ -1,7 +1,7 @@
 package com.promise.apps.server.context;
 
 import com.promise.apps.server.model.Server;
-import com.promise.platform.sdk.model.AsynchResult;
+import com.promise.platform.common.model.AsynchResult;
 
 /**
  * Represents the context of a server operation.

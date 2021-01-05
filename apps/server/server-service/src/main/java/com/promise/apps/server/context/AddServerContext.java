@@ -6,9 +6,9 @@ import com.promise.apps.server.sdk.dto.ServerStateV1;
 import com.promise.apps.server.strategy.BasicServerStrategy;
 import com.promise.apps.server.strategy.DefaultRackServerAddStrategy;
 import com.promise.apps.server.task.ServerTask;
-import com.promise.platform.sdk.client.TaskServiceClient;
-import com.promise.platform.sdk.dto.task.*;
-import com.promise.platform.sdk.model.AsynchResult;
+import com.promise.platform.common.model.AsynchResult;
+import com.promise.platform.task.sdk.client.TaskServiceClient;
+import com.promise.platform.task.sdk.dto.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Async;
 
@@ -41,7 +41,7 @@ public class AddServerContext implements ServerOperationContext {
      * The asynchronous process of adding a server.
      */
     @Async
-    private void asyncAdd() {
+    public void asyncAdd() {
         setStepRunning(ServerTask.updateBasicInfo.name);
         addStrategy.refreshServer(id);
         setStepFinished(ServerTask.updateBasicInfo.name);

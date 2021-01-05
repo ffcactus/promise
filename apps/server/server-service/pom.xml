@@ -24,6 +24,11 @@
             <version>${project.version}</version>
         </dependency>
         <dependency>
+            <groupId>com.promise.platform</groupId>
+            <artifactId>promise-platform-task-sdk</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
             <groupId>com.promise.apps.server</groupId>
             <artifactId>promise-apps-server-sdk</artifactId>
             <version>${project.version}</version>
@@ -125,7 +130,6 @@
             <artifactId>mockito-core</artifactId>
             <scope>test</scope>
         </dependency>
-
     </dependencies>
 
     <build>

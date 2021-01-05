@@ -1,8 +1,8 @@
 package com.promise.platform.task.service.model;
 
-import com.promise.platform.sdk.dto.task.CreateTaskStepRequestV1;
-import com.promise.platform.sdk.dto.task.ExecutionStateV1;
-import com.promise.platform.sdk.dto.task.GetTaskStepResponseV1;
+import com.promise.platform.task.sdk.dto.CreateTaskStepRequestV1;
+import com.promise.platform.task.sdk.dto.ExecutionStateV1;
+import com.promise.platform.task.sdk.dto.GetTaskStepResponseV1;
 
 public class TaskStep {
     public String messageId;

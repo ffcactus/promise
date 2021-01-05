@@ -5,7 +5,7 @@ import com.promise.apps.server.sdk.dto.ManagerResourceV1.ManagerSettingsV1;
 import com.promise.apps.server.sdk.dto.ManagerResourceV1.ManagerSettingsV1.NtpSettingsV1;
 import com.promise.apps.server.sdk.dto.ManagerResourceV1.ManagerSettingsV1.SecuritySettingsV1;
 import com.promise.apps.server.sdk.dto.ManagerResourceV1.ManagerSettingsV1.SnmpSettingsV1;
-import com.promise.platform.sdk.model.BasicResource;
+import com.promise.platform.common.model.BasicResource;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;

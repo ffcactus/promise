@@ -1,8 +1,8 @@
 package com.promise.platform.company.model;
 
-import com.promise.platform.sdk.dto.company.CreateCompanyRequestV1;
-import com.promise.platform.sdk.dto.company.GetCompanyResponseV1;
-import com.promise.platform.sdk.model.BasicResource;
+import com.promise.platform.common.model.BasicResource;
+import com.promise.platform.company.sdk.dto.CreateCompanyRequestV1;
+import com.promise.platform.company.sdk.dto.GetCompanyResponseV1;
 
 /**
  * Represents the company.

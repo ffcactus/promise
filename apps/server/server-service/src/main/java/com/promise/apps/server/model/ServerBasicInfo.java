@@ -1,6 +1,5 @@
 package com.promise.apps.server.model;
 
-import com.promise.platform.sdk.model.AssetInfo;
 import lombok.Data;
 
 /**

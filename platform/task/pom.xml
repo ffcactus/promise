@@ -17,7 +17,7 @@
         <!-- Promise -->
         <dependency>
             <groupId>com.promise.platform</groupId>
-            <artifactId>promise-platform-sdk</artifactId>
+            <artifactId>promise-platform-task-sdk</artifactId>
             <version>${project.version}</version>
         </dependency>
         <!-- Non Spring -->

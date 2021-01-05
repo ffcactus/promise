@@ -3,7 +3,7 @@ package com.promise.platform.company.service;
 import com.promise.platform.common.exception.ResourceAlreadyExistException;
 import com.promise.platform.company.model.Company;
 import com.promise.platform.company.repository.CompanyRepository;
-import com.promise.platform.sdk.dto.company.CreateCompanyRequestV1;
+import com.promise.platform.company.sdk.dto.CreateCompanyRequestV1;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;

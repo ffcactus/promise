@@ -1,7 +1,7 @@
 package com.promise.apps.server;
 
 import com.promise.apps.server.repository.ServerRepository;
-import com.promise.platform.sdk.client.TaskServiceClient;
+import com.promise.platform.task.sdk.client.TaskServiceClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.CommandLineRunner;

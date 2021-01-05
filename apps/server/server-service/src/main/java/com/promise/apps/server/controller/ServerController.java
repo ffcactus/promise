@@ -4,7 +4,7 @@ import com.promise.apps.server.model.*;
 import com.promise.apps.server.sdk.dto.*;
 import com.promise.apps.server.service.ServerService;
 import com.promise.platform.common.controller.CommonExceptionController;
-import com.promise.platform.sdk.dto.CollectionResponseV1;
+import com.promise.platform.common.dto.UpdateErrorMessageRequestV1;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort.Direction;
 import org.springframework.http.HttpHeaders;
@@ -240,14 +240,14 @@ public class ServerController extends CommonExceptionController {
     @GetMapping(produces = {
             "application/json"
     })
-    public ResponseEntity<CollectionResponseV1<GetServerResponseV1>> getServerCollection(
+    public ResponseEntity<UpdateErrorMessageRequestV1.CollectionResponseV1<GetServerResponseV1>> getServerCollection(
             @RequestParam(name = "pageIndex", required = false, defaultValue = "0") int pageIndex,
             @RequestParam(name = "pageSize", required = false, defaultValue = "20") int pageSize,
             @RequestParam(name = "order", required = false, defaultValue = "ASC") Direction order,
             @RequestParam(name = "orderBy", required = false, defaultValue = "name") String orderBy) {
         var page = service.getServerCollection(pageIndex, pageSize, order, orderBy);
         if (page != null) {
-            var body = new CollectionResponseV1<GetServerResponseV1>();
+            var body = new UpdateErrorMessageRequestV1.CollectionResponseV1<GetServerResponseV1>();
             body.pageIndex = pageIndex;
             body.pageSize = pageSize;
             body.order = order;
@@ -262,7 +262,7 @@ public class ServerController extends CommonExceptionController {
                     .format("%s?pageIndex=%d&pageSize=%d&order=%S&orderBy=%s", baseUri, pageIndex - 1, pageSize, order, orderBy);
             var members = page.getContent().stream().map(Server::toResponse).collect(Collectors.toList());
             body.members = members;
-            return new ResponseEntity<CollectionResponseV1<GetServerResponseV1>>(body, HttpStatus.OK);
+            return new ResponseEntity<UpdateErrorMessageRequestV1.CollectionResponseV1<GetServerResponseV1>>(body, HttpStatus.OK);
         }
         return null;
     }

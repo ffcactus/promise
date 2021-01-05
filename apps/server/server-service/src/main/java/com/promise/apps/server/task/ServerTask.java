@@ -1,7 +1,7 @@
 package com.promise.apps.server.task;
 
-import com.promise.platform.sdk.dto.task.CreateTaskRequestV1;
-import com.promise.platform.sdk.dto.task.CreateTaskStepRequestV1;
+import com.promise.platform.task.sdk.dto.CreateTaskRequestV1;
+import com.promise.platform.task.sdk.dto.CreateTaskStepRequestV1;
 
 import java.util.Arrays;
 
