@@ -1,5 +1,6 @@
 package com.promise.platform.devicebasic.executor;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.promise.platform.common.ApplicationContextUtils;
 import com.promise.platform.devicebasic.entity.EntityConverter;
 import com.promise.platform.devicebasic.exception.CollectorIdentityException;
@@ -8,7 +9,6 @@ import com.promise.platform.devicebasic.sdk.message.GenericMessage;
 import com.promise.platform.devicebasic.sdk.message.Message;
 import com.promise.platform.devicebasic.sdk.ws.CollectorRegisterRequestV1;
 import com.promise.platform.devicebasic.service.CollectorService;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.socket.TextMessage;

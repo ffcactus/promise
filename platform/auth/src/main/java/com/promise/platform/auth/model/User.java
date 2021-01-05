@@ -1,7 +1,7 @@
 package com.promise.platform.auth.model;
 
-import com.promise.platform.sdk.dto.auth.GetUserResponseV1;
-import com.promise.platform.sdk.model.PromiseUserDetails;
+import com.promise.platform.auth.sdk.dto.GetUserResponseV1;
+import com.promise.platform.auth.sdk.jwt.PromiseUserDetails;
 import com.sun.istack.NotNull;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

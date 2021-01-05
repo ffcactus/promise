@@ -2,7 +2,8 @@
 
 ## When dealing with nested HTML elements, should I use multiple styled components or the CSS selector?
 
-My current understanding is it depends on if those nested children components can be used independently in other places. Take this form for example:
+My current understanding is it depends on if those nested children components can be used independently in other places.
+Take this form for example:
 
 ```javascript
 <div id="dialog">

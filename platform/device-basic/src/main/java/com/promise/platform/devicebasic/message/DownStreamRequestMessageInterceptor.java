@@ -18,7 +18,6 @@ import java.util.concurrent.Executors;
  * The collector request message interceptor.
  * <p/>
  * This interceptor should be the last interceptor in the chain.
- *
  */
 @Component
 public class DownStreamRequestMessageInterceptor implements MessageInterceptor {

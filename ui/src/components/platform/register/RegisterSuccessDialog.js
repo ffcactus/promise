@@ -1,16 +1,11 @@
 import React from 'react';
-import { connect } from 'react-redux';
+import {connect} from 'react-redux';
 import styled from 'styled-components';
 import ReactModal from 'react-modal';
-import { Link } from 'react-router-dom';
-import { onSuccessConfirm } from './Action';
+import {Link} from 'react-router-dom';
+import {onSuccessConfirm} from './Action';
 
-import {
-  StyledModal,
-  DialogHeaderDiv,
-  DialogContentDiv,
-  DialogControlDiv
-} from '../widgets/Dialog';
+import {DialogContentDiv, DialogControlDiv, DialogHeaderDiv, StyledModal} from '../widgets/Dialog';
 import Button from '../widgets/Button';
 
 const StyledDialogContentDiv = styled(DialogContentDiv)`
@@ -27,39 +22,39 @@ const StyledDialogContentDiv = styled(DialogContentDiv)`
 `;
 
 class RegisterSuccessDialog extends React.Component {
-  render() {
-    ReactModal.setAppElement('#root');
-    return (
-      <StyledModal
-        isOpen={true}
-        shouldReturnFocusAfterClose={false}
-        shouldCloseOnEsc={false}
-        contentLabel="Your account is created"
-      >
-        <DialogHeaderDiv>Register to Promise</DialogHeaderDiv>
-        <StyledDialogContentDiv>
-          <section>
-            <p>
-              Your account is created, you can login to Promise from login page
-              now.
-            </p>
-          </section>
-        </StyledDialogContentDiv>
-        <DialogControlDiv>
-          <section>
-            <Button
-              as={Link}
-              to="/login"
-              primary
-              onClick={this.props.dispatch(onSuccessConfirm)}
+    render() {
+        ReactModal.setAppElement('#root');
+        return (
+            <StyledModal
+                isOpen={true}
+                shouldReturnFocusAfterClose={false}
+                shouldCloseOnEsc={false}
+                contentLabel="Your account is created"
             >
-              OK
-            </Button>
-          </section>
-        </DialogControlDiv>
-      </StyledModal>
-    );
-  }
+                <DialogHeaderDiv>Register to Promise</DialogHeaderDiv>
+                <StyledDialogContentDiv>
+                    <section>
+                        <p>
+                            Your account is created, you can login to Promise from login page
+                            now.
+                        </p>
+                    </section>
+                </StyledDialogContentDiv>
+                <DialogControlDiv>
+                    <section>
+                        <Button
+                            as={Link}
+                            to="/login"
+                            primary
+                            onClick={this.props.dispatch(onSuccessConfirm)}
+                        >
+                            OK
+                        </Button>
+                    </section>
+                </DialogControlDiv>
+            </StyledModal>
+        );
+    }
 }
 
 export default connect()(RegisterSuccessDialog);

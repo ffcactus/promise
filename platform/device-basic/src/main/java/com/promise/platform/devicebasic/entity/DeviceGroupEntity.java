@@ -18,6 +18,7 @@ import javax.persistence.Enumerated;
 public class DeviceGroupEntity extends ResourceEntity {
     @Enumerated(EnumType.STRING)
     private DeviceGroupType type;
+
     public String getUri() {
         return URIs.DeviceGroupBaseUri + "/" + super.getId();
     }

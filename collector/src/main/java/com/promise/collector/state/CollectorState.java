@@ -2,7 +2,6 @@ package com.promise.collector.state;
 
 /**
  * The possible state of a collector.
- *
  */
 public enum CollectorState {
 

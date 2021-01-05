@@ -1,5 +1,6 @@
 package com.promise.collector.executor;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.promise.collector.CollectorIdentity;
 import com.promise.collector.state.StatePublisher;
 import com.promise.platform.common.ApplicationContextUtils;
@@ -8,7 +9,6 @@ import com.promise.platform.devicebasic.sdk.message.Exchanger;
 import com.promise.platform.devicebasic.sdk.message.GenericMessage;
 import com.promise.platform.devicebasic.sdk.message.RequestIdGenerator;
 import com.promise.platform.devicebasic.sdk.ws.CollectorRegisterRequestV1;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -36,7 +36,7 @@ public class RegisterAction implements Callable<Void> {
     }
 
     @Override
-    public Void call () {
+    public Void call() {
         log.info("action started.");
         var message = new GenericMessage<CollectorRegisterRequestV1>();
         var payload = new CollectorRegisterRequestV1();

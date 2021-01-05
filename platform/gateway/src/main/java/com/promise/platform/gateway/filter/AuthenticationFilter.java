@@ -1,10 +1,10 @@
 package com.promise.platform.gateway.filter;
 
+import com.promise.platform.auth.sdk.dto.GetUserResponseV1;
+import com.promise.platform.auth.sdk.exception.UnauthorizedException;
+import com.promise.platform.auth.sdk.jwt.JwtTokenValidator;
+import com.promise.platform.auth.sdk.jwt.JwtUser;
 import com.promise.platform.gateway.client.AuthServiceClient;
-import com.promise.platform.sdk.dto.auth.GetUserResponseV1;
-import com.promise.platform.sdk.exception.UnauthorizedException;
-import com.promise.platform.sdk.model.JwtUser;
-import com.promise.platform.sdk.util.JwtTokenValidator;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.gateway.filter.GatewayFilterChain;

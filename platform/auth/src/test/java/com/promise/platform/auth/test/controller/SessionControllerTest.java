@@ -1,10 +1,10 @@
 package com.promise.platform.auth.test.controller;
 
-import com.promise.platform.auth.controller.SessionController;
-import com.promise.platform.auth.service.SessionService;
-import com.promise.platform.sdk.dto.auth.LoginRequestV1;
-import com.promise.platform.sdk.exception.UnauthorizedException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.promise.platform.auth.controller.SessionController;
+import com.promise.platform.auth.sdk.dto.LoginRequestV1;
+import com.promise.platform.auth.sdk.exception.UnauthorizedException;
+import com.promise.platform.auth.service.SessionService;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -31,9 +31,9 @@ public class SessionControllerTest {
     @MockBean
     private SessionService loginService;
 
-    private static ObjectMapper mapper;
-    private static LoginRequestV1 notExistLoginRequest;
-    private static LoginRequestV1 platformManagerLoginRequest;
+    private static final ObjectMapper mapper;
+    private static final LoginRequestV1 notExistLoginRequest;
+    private static final LoginRequestV1 platformManagerLoginRequest;
 
     static {
         mapper = new ObjectMapper();

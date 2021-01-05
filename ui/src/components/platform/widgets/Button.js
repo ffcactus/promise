@@ -4,24 +4,24 @@ const Button = styled.button`
   min-width: 64px;
   background-color: ${p => {
     if (p.primary) {
-      return p.theme.button.primary.backgroundColor;
+        return p.theme.button.primary.backgroundColor;
     }
     if (p.secondary) {
-      return p.theme.button.secondary.backgroundColor;
+        return p.theme.button.secondary.backgroundColor;
     }
     return 'transparent';
-  }};
+}};
   border-radius: ${p => p.theme.boxRadiusPx}px;
   border: 0px;
   color: ${p => {
     if (p.primary) {
-      return p.theme.button.primary.color;
+        return p.theme.button.primary.color;
     }
     if (p.secondary) {
-      return p.theme.button.secondary.color;
+        return p.theme.button.secondary.color;
     }
     return p.theme.button.default.color;
-  }};
+}};
   margin: 8px;
   padding: 0.25em 1em;
   box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.2),

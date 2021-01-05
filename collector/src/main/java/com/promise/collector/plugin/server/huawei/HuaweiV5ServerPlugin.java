@@ -12,7 +12,6 @@ import com.promise.platform.devicebasic.sdk.model.DeviceHardwareType;
 import com.promise.platform.devicemonitor.sdk.dto.ComponentType;
 import com.promise.platform.devicemonitor.sdk.message.ComponentStateMessageV1;
 import com.promise.platform.devicemonitor.sdk.message.DeviceStateMessageV1;
-import com.promise.collector.plugin.server.redfish.dto.*;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

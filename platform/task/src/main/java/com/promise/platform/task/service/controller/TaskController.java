@@ -1,13 +1,13 @@
 package com.promise.platform.task.service.controller;
 
-import com.promise.platform.sdk.controller.ExceptionController;
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
+import com.promise.platform.common.controller.CommonExceptionController;
 import com.promise.platform.sdk.dto.task.CreateTaskRequestV1;
 import com.promise.platform.sdk.dto.task.GetTaskResponseV1;
 import com.promise.platform.sdk.dto.task.UpdateTaskRequestV1;
 import com.promise.platform.sdk.dto.task.UpdateTaskStepRequestV1;
 import com.promise.platform.task.service.exception.TaskStepNotFoundException;
 import com.promise.platform.task.service.service.TaskService;
-import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.*;
  */
 @RestController
 @RequestMapping("/api/v1/tasks")
-public class TaskController extends ExceptionController {
+public class TaskController extends CommonExceptionController {
     @Autowired
     TaskService service;
 

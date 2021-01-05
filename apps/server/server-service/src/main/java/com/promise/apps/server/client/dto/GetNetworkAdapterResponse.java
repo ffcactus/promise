@@ -1,8 +1,8 @@
 package com.promise.apps.server.client.dto;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.promise.apps.server.model.AdapterResource;
 import com.promise.apps.server.sdk.dto.HardwareStatusV1;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 

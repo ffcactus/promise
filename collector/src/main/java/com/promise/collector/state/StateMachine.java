@@ -13,7 +13,6 @@ import java.util.concurrent.Executors;
 
 /**
  * The state machine that listen on the {@link CollectorStateEvent} and do both state change and operation accordingly.
- *
  */
 @Component
 public class StateMachine {

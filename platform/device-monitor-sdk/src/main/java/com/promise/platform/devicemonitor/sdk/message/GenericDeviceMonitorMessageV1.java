@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 
 /**
  * The monitor message sending to device monitor.
+ *
  * @param <T> the payload type.
  */
 @Data

@@ -7,7 +7,6 @@ import javax.persistence.*;
 
 /**
  * A common entity that represents a mapping.
- *
  */
 @Data
 @NoArgsConstructor

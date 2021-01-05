@@ -1,12 +1,12 @@
 package com.promise.platform.integrationtest.usercase;
 
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.promise.platform.common.dto.ListResponseV1;
 import com.promise.platform.devicebasic.sdk.dto.collector.GetCollectorListItemV1;
 import com.promise.platform.devicebasic.sdk.dto.collectorgroup.CreateCollectorGroupRequestV1;
 import com.promise.platform.devicebasic.sdk.dto.collectorgroup.GetCollectorGroupResponseV1;
 import com.promise.platform.integrationtest.common.utility.ClientUtility;
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.entity.ContentType;
@@ -33,7 +33,8 @@ public class AddServersTest {
 
         final var httpGet = new HttpGet(serverAddress + CollectorBaseUri);
         var httpResponse = client.execute(httpGet);
-        var collectors = ClientUtility.getObjectFromResponse(httpResponse, new TypeReference<ListResponseV1<GetCollectorListItemV1>>() {});
+        var collectors = ClientUtility.getObjectFromResponse(httpResponse, new TypeReference<ListResponseV1<GetCollectorListItemV1>>() {
+        });
         // assertEquals(4, collectors.getTotal());
 
         // 3. Create 2 collector group.
@@ -44,7 +45,8 @@ public class AddServersTest {
         var httpPost = new HttpPost(serverAddress + CollectorGroupBaseUri);
         httpPost.setEntity(new StringEntity(mapper.writeValueAsString(collectorGroupRequest1), ContentType.APPLICATION_JSON));
         httpResponse = client.execute(httpPost);
-        var collectorGroup1 = ClientUtility.getObjectFromResponse(httpResponse, GetCollectorGroupResponseV1.class);        httpPost.setEntity(new StringEntity(mapper.writeValueAsString(collectorGroupRequest2), ContentType.APPLICATION_JSON));
+        var collectorGroup1 = ClientUtility.getObjectFromResponse(httpResponse, GetCollectorGroupResponseV1.class);
+        httpPost.setEntity(new StringEntity(mapper.writeValueAsString(collectorGroupRequest2), ContentType.APPLICATION_JSON));
         httpResponse = client.execute(httpPost);
         httpResponse = client.execute(httpPost);
         var collectorGroup2 = ClientUtility.getObjectFromResponse(httpResponse, GetCollectorGroupResponseV1.class);

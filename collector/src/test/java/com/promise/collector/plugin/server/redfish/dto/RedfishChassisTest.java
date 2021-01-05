@@ -124,6 +124,7 @@ public class RedfishChassisTest {
             "        ]\n" +
             "    }\n" +
             "}";
+
     @Test
     public void testMapping() throws JsonProcessingException {
         var objectMapper = new ObjectMapper();

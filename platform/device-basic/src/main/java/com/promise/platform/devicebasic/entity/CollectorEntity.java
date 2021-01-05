@@ -20,6 +20,7 @@ public class CollectorEntity extends ResourceEntity {
     private boolean connected;
     private LocalDateTime lastConnectedAt;
     private LocalDateTime lastLostAt;
+
     public String getUri() {
         return URIs.CollectorBaseUri + "/" + super.getId();
     }

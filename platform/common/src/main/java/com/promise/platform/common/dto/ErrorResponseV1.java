@@ -12,7 +12,7 @@ import java.util.List;
 @AllArgsConstructor
 public class ErrorResponseV1 {
     private String errorCode;
-    private String reason;
+    private String message;
     private List<ErrorResponseArgumentV1> arguments;
 
     @JsonIgnore

@@ -7,7 +7,6 @@ import java.util.Map;
 
 /**
  * The common request for group member updates.
- *
  */
 @Data
 @NoArgsConstructor

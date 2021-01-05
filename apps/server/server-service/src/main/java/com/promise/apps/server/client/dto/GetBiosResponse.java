@@ -1,8 +1,8 @@
 package com.promise.apps.server.client.dto;
 
-import com.promise.apps.server.model.BiosResource;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.promise.apps.server.model.BiosResource;
 
 /**
  * Represents the response of BIOS from server's Redfish API.

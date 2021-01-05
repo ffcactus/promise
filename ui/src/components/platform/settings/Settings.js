@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
+import {Link} from 'react-router-dom';
 
 const Background = styled.div`
   position: absolute;
@@ -31,15 +31,15 @@ const Background = styled.div`
 `;
 
 export default class SettingsApp extends React.Component {
-  render() {
-    return (
-      <Background>
-        <div>
-          <nav>
-            <Link to="/">Home</Link>
-          </nav>
-        </div>
-      </Background>
-    );
-  }
+    render() {
+        return (
+            <Background>
+                <div>
+                    <nav>
+                        <Link to="/">Home</Link>
+                    </nav>
+                </div>
+            </Background>
+        );
+    }
 }

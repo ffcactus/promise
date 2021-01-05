@@ -48,6 +48,7 @@ public class DeviceScheduler {
 
     /**
      * Schedule a device monitor task to a collector.
+     *
      * @param device
      */
     private void schedule(DeviceEntity device) {

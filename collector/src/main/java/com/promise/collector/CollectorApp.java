@@ -1,7 +1,7 @@
 package com.promise.collector;
 
-import com.promise.collector.state.StatePublisher;
 import com.promise.collector.state.CollectorStateEvent;
+import com.promise.collector.state.StatePublisher;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +12,7 @@ import org.springframework.context.ApplicationListener;
 import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
-@ComponentScan(basePackages={"com.promise"})
+@ComponentScan(basePackages = {"com.promise"})
 public class CollectorApp implements ApplicationListener<ApplicationReadyEvent> {
     private static final Logger log = LoggerFactory.getLogger(CollectorApp.class);
 

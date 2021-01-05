@@ -22,6 +22,7 @@ public class DeviceGroupService {
 
     /**
      * Create device group.
+     *
      * @param request create device group request.
      * @return the device group created.
      */

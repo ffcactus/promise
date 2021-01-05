@@ -1,6 +1,6 @@
 package com.promise.platform.task.service.exception;
 
-import com.promise.platform.sdk.exception.RestApiException;
+import com.promise.platform.common.exception.RestApiException;
 
 public class TaskStepNotFoundException extends RestApiException {
     /**

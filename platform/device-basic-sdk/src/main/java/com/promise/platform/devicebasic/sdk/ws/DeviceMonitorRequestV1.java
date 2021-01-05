@@ -2,8 +2,8 @@ package com.promise.platform.devicebasic.sdk.ws;
 
 import com.promise.platform.devicebasic.sdk.dto.device.DeviceType;
 import com.promise.platform.devicebasic.sdk.dto.device.DiscoverDeviceRequestV1;
-import com.promise.platform.devicebasic.sdk.model.DeviceHardwareType;
 import com.promise.platform.devicebasic.sdk.message.MessageCommand;
+import com.promise.platform.devicebasic.sdk.model.DeviceHardwareType;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 

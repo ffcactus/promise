@@ -1,5 +1,6 @@
 package com.promise.platform.devicebasic.service;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.promise.platform.common.dto.ErrorResponseV1;
 import com.promise.platform.common.dto.ListRequestV1;
 import com.promise.platform.common.dto.ListResponseV1;
@@ -18,7 +19,6 @@ import com.promise.platform.devicebasic.sdk.message.Exchanger;
 import com.promise.platform.devicebasic.sdk.message.GenericMessage;
 import com.promise.platform.devicebasic.sdk.message.MessageCommand;
 import com.promise.platform.task.sdk.dto.TaskResponse;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -58,7 +58,7 @@ public class DeviceService {
         var exchangeResp = exchanger.exchange(msg);
         if (exchangeResp.getCommand() == MessageCommand.Failure) {
             var errResp = objectMapper.convertValue(exchangeResp.getPayload(), ErrorResponseV1.class);
-            log.warn("Discover failure, {}", errResp.getReason());
+            log.warn("Discover failure, {}", errResp.getMessage());
             throw new Exception();
         }
         // If the discovery success, save the device
@@ -89,6 +89,7 @@ public class DeviceService {
      * <p/>
      * This operation need duplication checking. Device should also by put into the device group. These operations should
      * be wrapped in a serialized transaction.
+     *
      * @param device the device to save.
      * @return the saved device.
      * @throws DeviceAlreadyExistException in case the device already exist.

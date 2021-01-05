@@ -1,9 +1,9 @@
 package com.promise.platform.auth.entity;
 
 import com.promise.platform.auth.model.User;
+import com.promise.platform.auth.sdk.dto.GetUserResponseV1;
+import com.promise.platform.auth.sdk.dto.RegisterUserRequestV1;
 import com.promise.platform.common.entity.ResourceEntity;
-import com.promise.platform.sdk.dto.auth.GetUserResponseV1;
-import com.promise.platform.sdk.dto.auth.RegisterUserRequestV1;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -30,12 +30,10 @@ public class UserEntity extends ResourceEntity {
         user.setId(this.getId());
         user.setUsername(this.getName());
 
-        List<String> roles  = new ArrayList<>();
+        List<String> roles = new ArrayList<>();
         roles.add(this.getRole());
         user.setRoles(roles);
-
         user.setEmail(this.getEmail());
-
         return user;
     }
 

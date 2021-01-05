@@ -2,8 +2,8 @@ package com.promise.platform.auth;
 
 import com.promise.platform.auth.entity.UserEntity;
 import com.promise.platform.auth.repository.UserRepository;
+import com.promise.platform.auth.sdk.dto.RegisterUserRequestV1;
 import com.promise.platform.auth.util.PasswordUtil;
-import com.promise.platform.sdk.dto.auth.RegisterUserRequestV1;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.context.ApplicationListener;

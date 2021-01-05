@@ -4,7 +4,8 @@ import com.fasterxml.jackson.databind.JsonNode;
 
 public class OemUtils {
 
-    private OemUtils() {}
+    private OemUtils() {
+    }
 
     public static String getOemPropertyAsString(JsonNode node, String vendor, String property) {
         var vendorNode = node.get(vendor);

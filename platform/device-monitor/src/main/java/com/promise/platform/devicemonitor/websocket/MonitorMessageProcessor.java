@@ -1,5 +1,7 @@
 package com.promise.platform.devicemonitor.websocket;
 
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.promise.platform.devicemonitor.entity.ComponentStateRecord;
 import com.promise.platform.devicemonitor.entity.DeviceStateRecord;
 import com.promise.platform.devicemonitor.repository.ComponentStateRecordRepository;
@@ -7,8 +9,6 @@ import com.promise.platform.devicemonitor.repository.DeviceStateRecordRepository
 import com.promise.platform.devicemonitor.sdk.message.ComponentStateMessageV1;
 import com.promise.platform.devicemonitor.sdk.message.DeviceMonitorMessageV1;
 import com.promise.platform.devicemonitor.sdk.message.DeviceStateMessageV1;
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

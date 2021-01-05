@@ -3,7 +3,7 @@ package com.promise.apps.server.strategy;
 import com.promise.apps.server.client.ServerHardwareClient;
 import com.promise.apps.server.model.*;
 import com.promise.apps.server.repository.*;
-import com.promise.platform.sdk.exception.ResourceNotFoundException;
+import com.promise.platform.common.exception.ResourceNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Isolation;

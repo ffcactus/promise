@@ -7,7 +7,7 @@ const Box = styled.div`
 `;
 
 export default class Server extends React.Component {
-  render() {
-    return <Box>Hello Theme!</Box>;
-  }
+    render() {
+        return <Box>Hello Theme!</Box>;
+    }
 }

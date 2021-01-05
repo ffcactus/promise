@@ -1,9 +1,9 @@
 package com.promise.collector.plugin.server.redfish.dto;
 
-import com.promise.platform.devicebasic.sdk.dto.device.PowerSupplyV1;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.promise.platform.devicebasic.sdk.dto.device.PowerSupplyV1;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 

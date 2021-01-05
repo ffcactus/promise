@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import Wallpaper from './Wallpaper';
 
 const EmptyIconDiv = styled.div`
@@ -10,46 +10,46 @@ const EmptyIconDiv = styled.div`
 `;
 
 class AppCollection extends React.Component {
-  constructor(props) {
-    super(props);
-    this.unknownWidthDiv = React.createRef();
-    this.state = {
-      needEmptyIconDiv: false
-    };
-  }
-
-  componentDidMount() {
-    const totalWidth = this.unknownWidthDiv.current.offsetWidth;
-    if (totalWidth < 160 * this.props.children.length) {
-      this.setState({ needEmptyIconDiv: true });
+    constructor(props) {
+        super(props);
+        this.unknownWidthDiv = React.createRef();
+        this.state = {
+            needEmptyIconDiv: false
+        };
     }
-  }
 
-  render() {
-    if (this.state.needEmptyIconDiv) {
-      return (
-        <div ref={this.unknownWidthDiv} className={this.props.className}>
-          {this.props.children}
-          <EmptyIconDiv />
-          <EmptyIconDiv />
-          <EmptyIconDiv />
-          <EmptyIconDiv />
-          <EmptyIconDiv />
-          <EmptyIconDiv />
-          <EmptyIconDiv />
-          <EmptyIconDiv />
-          <EmptyIconDiv />
-          <EmptyIconDiv />
-        </div>
-      );
-    } else {
-      return (
-        <div ref={this.unknownWidthDiv} className={this.props.className}>
-          {this.props.children}
-        </div>
-      );
+    componentDidMount() {
+        const totalWidth = this.unknownWidthDiv.current.offsetWidth;
+        if (totalWidth < 160 * this.props.children.length) {
+            this.setState({needEmptyIconDiv: true});
+        }
     }
-  }
+
+    render() {
+        if (this.state.needEmptyIconDiv) {
+            return (
+                <div ref={this.unknownWidthDiv} className={this.props.className}>
+                    {this.props.children}
+                    <EmptyIconDiv/>
+                    <EmptyIconDiv/>
+                    <EmptyIconDiv/>
+                    <EmptyIconDiv/>
+                    <EmptyIconDiv/>
+                    <EmptyIconDiv/>
+                    <EmptyIconDiv/>
+                    <EmptyIconDiv/>
+                    <EmptyIconDiv/>
+                    <EmptyIconDiv/>
+                </div>
+            );
+        } else {
+            return (
+                <div ref={this.unknownWidthDiv} className={this.props.className}>
+                    {this.props.children}
+                </div>
+            );
+        }
+    }
 }
 
 /**
@@ -76,26 +76,26 @@ const StyledAppCollection = styled(AppCollection)`
  * Represents the App icon and name.
  */
 class AppComponent extends React.Component {
-  render() {
-    return (
-      <div className={this.props.className}>
-        <div id="app-icon">
-          <Link to={this.props.uri}>
-            <img src={this.props.img} alt={this.props.appName} />
-          </Link>
-        </div>
-        <div id="app-name">
-          <span>{this.props.appName}</span>
-        </div>
-      </div>
-    );
-  }
+    render() {
+        return (
+            <div className={this.props.className}>
+                <div id="app-icon">
+                    <Link to={this.props.uri}>
+                        <img src={this.props.img} alt={this.props.appName}/>
+                    </Link>
+                </div>
+                <div id="app-name">
+                    <span>{this.props.appName}</span>
+                </div>
+            </div>
+        );
+    }
 }
 
 AppComponent.propTypes = {
-  uri: PropTypes.string,
-  img: PropTypes.string,
-  appName: PropTypes.string
+    uri: PropTypes.string,
+    img: PropTypes.string,
+    appName: PropTypes.string
 };
 
 const StyledAppComponent = styled(AppComponent)`
@@ -130,51 +130,51 @@ const settingsIcon = require('./images/settings_icon@2x.png');
  * Represents the whole home area.
  */
 export default class Home extends React.Component {
-  render() {
-    return (
-      <Wallpaper>
-        <StyledAppCollection>
-          <StyledAppComponent
-            uri="/event"
-            img={contactsIcon}
-            appName="Contacts"
-          />
-          <StyledAppComponent uri="/event" img={dateIcon} appName="Data" />
-          <StyledAppComponent uri="/event" img={findIcon} appName="Find" />
-          <StyledAppComponent
-            uri="/event"
-            img={friendsIcon}
-            appName="Friends"
-          />
-          <StyledAppComponent uri="/event" img={driveIcon} appName="Drive" />
-          <StyledAppComponent
-            uri="/event"
-            img={keynoteIcon}
-            appName="Keynote"
-          />
-          <StyledAppComponent uri="/event" img={mailIcon} appName="Mail" />
-          <StyledAppComponent uri="/event" img={notesIcon} appName="Notes" />
-          <StyledAppComponent
-            uri="/event"
-            img={numbersIcon}
-            appName="Numbers"
-          />
-          <StyledAppComponent uri="/event" img={pagesIcon} appName="Pages" />
-          <StyledAppComponent uri="/event" img={photosIcon} appName="Photos" />
-          <StyledAppComponent
-            uri="/event"
-            img={remindersIcon}
-            appName="Reminders"
-          />
-          <StyledAppComponent
-            uri="/event"
-            img={settingsIcon}
-            appName="Settings"
-          />
-        </StyledAppCollection>
-      </Wallpaper>
-    );
-  }
+    render() {
+        return (
+            <Wallpaper>
+                <StyledAppCollection>
+                    <StyledAppComponent
+                        uri="/event"
+                        img={contactsIcon}
+                        appName="Contacts"
+                    />
+                    <StyledAppComponent uri="/event" img={dateIcon} appName="Data"/>
+                    <StyledAppComponent uri="/event" img={findIcon} appName="Find"/>
+                    <StyledAppComponent
+                        uri="/event"
+                        img={friendsIcon}
+                        appName="Friends"
+                    />
+                    <StyledAppComponent uri="/event" img={driveIcon} appName="Drive"/>
+                    <StyledAppComponent
+                        uri="/event"
+                        img={keynoteIcon}
+                        appName="Keynote"
+                    />
+                    <StyledAppComponent uri="/event" img={mailIcon} appName="Mail"/>
+                    <StyledAppComponent uri="/event" img={notesIcon} appName="Notes"/>
+                    <StyledAppComponent
+                        uri="/event"
+                        img={numbersIcon}
+                        appName="Numbers"
+                    />
+                    <StyledAppComponent uri="/event" img={pagesIcon} appName="Pages"/>
+                    <StyledAppComponent uri="/event" img={photosIcon} appName="Photos"/>
+                    <StyledAppComponent
+                        uri="/event"
+                        img={remindersIcon}
+                        appName="Reminders"
+                    />
+                    <StyledAppComponent
+                        uri="/event"
+                        img={settingsIcon}
+                        appName="Settings"
+                    />
+                </StyledAppCollection>
+            </Wallpaper>
+        );
+    }
 }
 
-export { StyledAppCollection, StyledAppComponent };
+export {StyledAppCollection, StyledAppComponent};

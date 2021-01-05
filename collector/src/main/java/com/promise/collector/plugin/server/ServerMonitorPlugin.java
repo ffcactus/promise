@@ -13,6 +13,7 @@ import java.util.Map;
 public interface ServerMonitorPlugin {
     /**
      * Get device's state.
+     *
      * @param request the original discover request.
      * @return The device's state.
      */
@@ -22,7 +23,8 @@ public interface ServerMonitorPlugin {
      * Get the state of a specific component.
      * <p/>
      * Note that a type of component may have many instances.
-     * @param request the original discover request.
+     *
+     * @param request       the original discover request.
      * @param componentType the specific component type.
      * @return the component's state map, the key is the location of the component.
      */

@@ -1,9 +1,9 @@
 package com.promise.collector.message;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.promise.collector.state.StatePublisher;
 import com.promise.platform.devicebasic.sdk.message.Message;
 import com.promise.platform.devicebasic.sdk.message.MessageInterceptorChain;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

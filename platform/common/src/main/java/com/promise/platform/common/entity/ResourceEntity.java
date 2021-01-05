@@ -8,7 +8,6 @@ import java.time.LocalDateTime;
 
 /**
  * A common entity that represents a resource.
- *
  */
 @Data
 @NoArgsConstructor

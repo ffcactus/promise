@@ -1,6 +1,6 @@
 package com.promise.apps.server.exception;
 
-import com.promise.platform.sdk.exception.RestApiException;
+import com.promise.platform.common.exception.RestApiException;
 
 public class ServerStateException extends RestApiException {
     /**

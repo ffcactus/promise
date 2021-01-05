@@ -1,10 +1,10 @@
 server:
   port: 8081
-#spring:
-  #profiles:
+    #spring:
+    #profiles:
     #include: db
-  #data:
+    #data:
     #mongodb:
-     # host: ${MONGODB_HOST}
-      #port: ${MONGODB_PORT}
-      #database: auth
+    # host: ${MONGODB_HOST}
+    #port: ${MONGODB_PORT}
+  #database: auth

@@ -39,6 +39,7 @@ public class CollectorService {
      * Handler collector register.
      * <p/>
      * If the register is registered before, just update it's state to online. Otherwise create a new one.
+     *
      * @param request collector register request.
      * @param session the websocket session associated to this request.
      * @return the collector object.

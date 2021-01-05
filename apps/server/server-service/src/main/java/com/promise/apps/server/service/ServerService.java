@@ -6,7 +6,7 @@ import com.promise.apps.server.model.*;
 import com.promise.apps.server.repository.*;
 import com.promise.apps.server.sdk.dto.AddServerRequestV1;
 import com.promise.apps.server.sdk.dto.InitServerRequestV1;
-import com.promise.platform.sdk.exception.ResourceAlreadyExistException;
+import com.promise.platform.common.exception.ResourceAlreadyExistException;
 import com.promise.platform.sdk.model.AsynchResult;
 import com.sun.istack.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;

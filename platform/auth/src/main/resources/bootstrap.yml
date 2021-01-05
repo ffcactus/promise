@@ -14,10 +14,10 @@ swagger:
     url: localhost:8081
 
   # security:
- #   user:
- #     name: u
- #     password: u
- #     roles: manager
+  #   user:
+  #     name: u
+  #     password: u
+  #     roles: manager
 
 logging:
   level:

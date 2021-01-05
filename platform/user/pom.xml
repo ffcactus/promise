@@ -16,6 +16,11 @@
     <dependencies>
         <!-- Promise -->
         <dependency>
+            <groupId>com.dcmp.promise.platform</groupId>
+            <artifactId>promise-platform-sdk</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
             <groupId>com.promise.platform</groupId>
             <artifactId>promise-platform-sdk</artifactId>
             <version>${project.version}</version>
@@ -82,6 +87,7 @@
                 </exclusion>
             </exclusions>
         </dependency>
+
     </dependencies>
 
     <build>

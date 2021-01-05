@@ -18,6 +18,7 @@
         <module>task-sdk</module>
         <module>device-basic-sdk</module>
         <module>device-monitor-sdk</module>
+        <module>auth-sdk</module>
         <module>common</module>
         <module>sdk</module>
         <module>test</module>

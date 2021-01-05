@@ -32,7 +32,7 @@ public class ExecutionResult {
     /**
      * Update result according to update result request.
      *
-     * @param result
+     * @param request
      */
     public void update(UpdateExecutionResultRequestV1 request) {
         if (request.state != null) {

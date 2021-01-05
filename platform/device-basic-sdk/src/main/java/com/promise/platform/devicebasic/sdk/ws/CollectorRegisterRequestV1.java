@@ -5,7 +5,6 @@ import lombok.NoArgsConstructor;
 
 /**
  * The request for collector registration.
- *
  */
 @Data
 @NoArgsConstructor

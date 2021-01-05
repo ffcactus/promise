@@ -30,6 +30,7 @@ public class MonitorRunnable implements Runnable {
 
     /**
      * Create a {@link MonitorRunnable} from a {@link Device}.
+     *
      * @param device the device to monitor.
      */
     public MonitorRunnable(Device device, UpperStreamMessageExchanger exchanger) {
@@ -61,7 +62,7 @@ public class MonitorRunnable implements Runnable {
 
     private void checkDeviceStateMessage() {
         var deviceMonitorConfig = device.getMonitorConfiguration().getDeviceState();
-        if ( deviceStateStart > deviceMonitorConfig.getInterval() * 1000) {
+        if (deviceStateStart > deviceMonitorConfig.getInterval() * 1000) {
             var current = device.getServerMonitorPlugin().getDeviceState(device.getDiscoverRequest());
             if (!current.equals(deviceStateMessage)) {
                 var message = new GenericMessage<DeviceStateMessageV1>();

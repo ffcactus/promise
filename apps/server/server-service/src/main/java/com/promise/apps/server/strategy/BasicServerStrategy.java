@@ -4,7 +4,7 @@ import com.promise.apps.server.exception.ServerStateException;
 import com.promise.apps.server.model.Server;
 import com.promise.apps.server.repository.ServerRepository;
 import com.promise.apps.server.sdk.dto.ServerStateV1;
-import com.promise.platform.sdk.exception.ResourceNotFoundException;
+import com.promise.platform.common.exception.ResourceNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Transactional;

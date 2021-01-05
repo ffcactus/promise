@@ -1,10 +1,10 @@
 package com.promise.platform.auth.controller;
 
+import com.promise.platform.auth.sdk.dto.LoginRequestV1;
+import com.promise.platform.auth.sdk.exception.UnauthorizedException;
+import com.promise.platform.auth.sdk.jwt.JwtUser;
 import com.promise.platform.auth.service.SessionService;
-import com.promise.platform.sdk.controller.ExceptionController;
-import com.promise.platform.sdk.dto.auth.LoginRequestV1;
-import com.promise.platform.sdk.exception.UnauthorizedException;
-import com.promise.platform.sdk.model.JwtUser;
+import com.promise.platform.common.controller.CommonExceptionController;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
@@ -17,8 +17,8 @@ import org.springframework.web.bind.annotation.*;
  * The controller for login and logout.
  */
 @RestController
-@RequestMapping("/api/v1/session")
-public class SessionController extends ExceptionController {
+@RequestMapping("/api/v1/rest/session")
+public class SessionController extends CommonExceptionController {
     @Autowired
     private SessionService service;
 
@@ -30,7 +30,7 @@ public class SessionController extends ExceptionController {
      * access token information in the response body.
      */
     @PostMapping("/login")
-    public ResponseEntity<Void> login(@Nullable @RequestBody final LoginRequestV1 request) {
+    public ResponseEntity<Void> login(@RequestBody final LoginRequestV1 request) {
         String token = service.Login(request);
 
         return ResponseEntity.noContent().headers(tokenHeaders(token)).build();
@@ -42,12 +42,13 @@ public class SessionController extends ExceptionController {
     }
 
     @PostMapping("/refresh-token")
-    public ResponseEntity<Void> refreshToken(@Nullable @RequestHeader("Authorization") String token) {
+    public ResponseEntity<Void> refreshToken(@RequestHeader("Authorization") String token) {
         String newToken = service.refreshToken(removeBearer(token));
 
         return ResponseEntity.noContent().headers(tokenHeaders(newToken)).build();
     }
 
+    // TODO remove this interface?
     @GetMapping
     public JwtUser parseToken(@Nullable @RequestHeader("Authorization") String token) {
         return service.parseToken(removeBearer(token));

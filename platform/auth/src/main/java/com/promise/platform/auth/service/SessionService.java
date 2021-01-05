@@ -5,12 +5,12 @@ import com.promise.platform.auth.exception.UserNotExistException;
 import com.promise.platform.auth.model.SessionInfo;
 import com.promise.platform.auth.repository.SessionRepository;
 import com.promise.platform.auth.repository.UserRepository;
+import com.promise.platform.auth.sdk.dto.LoginRequestV1;
+import com.promise.platform.auth.sdk.exception.UnauthorizedException;
+import com.promise.platform.auth.sdk.jwt.JwtTokenGenerator;
+import com.promise.platform.auth.sdk.jwt.JwtTokenValidator;
+import com.promise.platform.auth.sdk.jwt.JwtUser;
 import com.promise.platform.auth.util.PasswordUtil;
-import com.promise.platform.sdk.dto.auth.LoginRequestV1;
-import com.promise.platform.sdk.exception.UnauthorizedException;
-import com.promise.platform.sdk.model.JwtUser;
-import com.promise.platform.sdk.util.JwtTokenGenerator;
-import com.promise.platform.sdk.util.JwtTokenValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -45,7 +45,7 @@ public class SessionService {
             throw new UnauthorizedException();
         }
         UserEntity savedUser = user.get();
-        if (!PasswordUtil.isPasswordCorrect(request.getPassword(), savedUser.getPassword())) {
+        if (PasswordUtil.mismatch(request.getPassword(), savedUser.getPassword())) {
             throw new UnauthorizedException();
         }
         // set token and update it in DB.

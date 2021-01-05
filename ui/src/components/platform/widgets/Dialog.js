@@ -2,15 +2,15 @@ import React from 'react';
 import ReactModal from 'react-modal';
 import styled from 'styled-components';
 
-function ReactModalAdapter({ className, modalClassName, ...props }) {
-  ReactModal.setAppElement('#root');
-  return (
-    <ReactModal
-      className={modalClassName}
-      portalClassName={className}
-      {...props}
-    />
-  );
+function ReactModalAdapter({className, modalClassName, ...props}) {
+    ReactModal.setAppElement('#root');
+    return (
+        <ReactModal
+            className={modalClassName}
+            portalClassName={className}
+            {...props}
+        />
+    );
 }
 
 /**
@@ -26,8 +26,8 @@ function ReactModalAdapter({ className, modalClassName, ...props }) {
  * </StyledModal>
  */
 const StyledModal = styled(ReactModalAdapter).attrs({
-  overlayClassName: 'Overlay',
-  modalClassName: 'Modal'
+    overlayClassName: 'Overlay',
+    modalClassName: 'Modal'
 })`
   /* Portal styles here (though usually you will have none) */
 
@@ -98,7 +98,7 @@ const DialogContentDiv = styled.div`
 `;
 
 const DialogInputDiv = styled.div.attrs({
-  id: 'dialog-input-div'
+    id: 'dialog-input-div'
 })`
   /* Input div in the content div take the rest space other than message div. */
   flex-grow: auto;
@@ -111,7 +111,7 @@ const DialogInputDiv = styled.div.attrs({
 `;
 
 const DialogMessageDiv = styled.div.attrs({
-  id: 'dialog-message-div'
+    id: 'dialog-message-div'
 })`
   flex-grow: 0;
   flex-shrink: 0;
@@ -138,10 +138,10 @@ const DialogControlDiv = styled.div`
 `;
 
 export {
-  StyledModal,
-  DialogHeaderDiv,
-  DialogContentDiv,
-  DialogInputDiv,
-  DialogMessageDiv,
-  DialogControlDiv
+    StyledModal,
+    DialogHeaderDiv,
+    DialogContentDiv,
+    DialogInputDiv,
+    DialogMessageDiv,
+    DialogControlDiv
 };

@@ -1,6 +1,6 @@
 package com.promise.platform.user.controller;
 
-import com.promise.platform.sdk.controller.ExceptionController;
+import com.promise.platform.common.controller.CommonExceptionController;
 import com.promise.platform.sdk.dto.auth.GetUserResponseV1;
 import com.promise.platform.sdk.dto.auth.PatchUserRequestV1;
 import com.promise.platform.sdk.dto.user.RegisterUserRequestV1;
@@ -22,7 +22,7 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 @RequestMapping("/api/v1/users")
-public class UserController extends ExceptionController {
+public class UserController extends CommonExceptionController {
 
     /**
      * Handle the user registration.

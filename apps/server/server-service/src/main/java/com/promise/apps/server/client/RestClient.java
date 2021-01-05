@@ -1,9 +1,9 @@
 package com.promise.apps.server.client;
 
-import com.promise.apps.server.client.dto.GetCollectionResponse;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.MapperFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.promise.apps.server.client.dto.GetCollectionResponse;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 

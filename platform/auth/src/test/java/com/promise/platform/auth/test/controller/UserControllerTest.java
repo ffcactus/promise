@@ -1,12 +1,12 @@
 package com.promise.platform.auth.test.controller;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.promise.platform.auth.controller.UserController;
 import com.promise.platform.auth.exception.EmailExistException;
 import com.promise.platform.auth.exception.UsernameExistException;
+import com.promise.platform.auth.sdk.dto.RegisterUserRequestV1;
 import com.promise.platform.auth.service.UserService;
-import com.promise.platform.sdk.dto.auth.RegisterUserRequestV1;
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mockito;

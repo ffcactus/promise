@@ -18,6 +18,7 @@ public class StatePublisher implements ApplicationEventPublisherAware {
 
     /**
      * Report the event so that the state machine can change the state accordingly.
+     *
      * @param event the event to report.
      */
     public synchronized void publish(CollectorStateEvent event) {

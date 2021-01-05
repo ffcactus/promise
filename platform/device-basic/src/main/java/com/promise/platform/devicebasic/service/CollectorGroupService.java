@@ -13,7 +13,6 @@ import com.promise.platform.devicebasic.sdk.dto.collectorgroup.CreateCollectorGr
 import com.promise.platform.devicebasic.sdk.dto.collectorgroup.GetCollectorGroupListItemV1;
 import com.promise.platform.devicebasic.sdk.dto.collectorgroup.GetCollectorGroupResponseV1;
 import com.promise.platform.devicebasic.sdk.dto.collectorgroup.UpdateCollectorGroupRequestV1;
-import com.promise.platform.devicebasic.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.util.Streamable;
 import org.springframework.stereotype.Service;
@@ -47,6 +46,7 @@ public class CollectorGroupService {
      * Create a collector group.
      * <p/>
      * Because a collector group always mapping to a device group, the device group and it's mapping will be created together.
+     *
      * @param request the create collector group request.
      * @return the collector group created.
      */

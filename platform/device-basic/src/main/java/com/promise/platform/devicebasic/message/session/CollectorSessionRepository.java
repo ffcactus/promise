@@ -35,8 +35,9 @@ public class CollectorSessionRepository {
 
     /**
      * Add a session.
+     *
      * @param collectorId the collector ID of this session.
-     * @param session the session itself.
+     * @param session     the session itself.
      */
     public void addSession(Long collectorId, WebSocketSession session) {
         sessionsByCollectorId.put(collectorId, session);
@@ -45,6 +46,7 @@ public class CollectorSessionRepository {
 
     /**
      * Remove the session.
+     *
      * @param session the session to remove.
      * @return the collector ID associated to this session. Return null if the session doesn't exist.
      */
@@ -64,6 +66,7 @@ public class CollectorSessionRepository {
 
     /**
      * Find out all the sessions that belongs to a collector group.
+     *
      * @param collectGroupId collector group ID.
      * @return the sessions.
      */
@@ -86,6 +89,7 @@ public class CollectorSessionRepository {
 
     /**
      * Find the session for a device.
+     *
      * @param id device ID.
      * @return the session.
      * @throws NoCollectorException in case no session for this device.

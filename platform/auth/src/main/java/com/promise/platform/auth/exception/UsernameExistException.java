@@ -1,7 +1,7 @@
 package com.promise.platform.auth.exception;
 
-import com.promise.platform.sdk.dto.ErrorMessageResponseV1;
-import com.promise.platform.sdk.model.ErrorResponseConverter;
+import com.promise.platform.common.dto.ErrorResponseConverter;
+import com.promise.platform.common.dto.ErrorResponseV1;
 
 import java.util.ArrayList;
 
@@ -15,11 +15,7 @@ public class UsernameExistException extends RuntimeException implements ErrorRes
     public static final String errorCode = "api.error.message.auth.UsernameExist";
 
     @Override
-    public ErrorMessageResponseV1 convertToErrorResponse() {
-        var ret = new ErrorMessageResponseV1();
-        ret.errorCode = errorCode;
-        ret.message = "This username has already registered.";
-        ret.messageArgs = new ArrayList<String>();
-        return ret;
+    public ErrorResponseV1 convertToErrorResponse() {
+        return new ErrorResponseV1(errorCode, "This username has already registered.", new ArrayList<>());
     }
 }

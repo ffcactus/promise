@@ -1,12 +1,12 @@
 package com.promise.collector.monitor;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.promise.collector.message.UpperStreamMessageExchanger;
 import com.promise.collector.model.Device;
 import com.promise.platform.devicebasic.sdk.message.Message;
 import com.promise.platform.devicebasic.sdk.model.DeviceHardwareType;
 import com.promise.platform.devicebasic.sdk.ws.DeviceMonitorRequestV1;
 import com.promise.platform.devicebasic.sdk.ws.MonitorConfigurationV1;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -51,6 +51,7 @@ public class MonitorService {
 
     /**
      * Add a device to the monitor list.
+     *
      * @param device the device to add.
      */
     public synchronized void addDevice(Device device) {

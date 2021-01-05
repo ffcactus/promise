@@ -8,7 +8,10 @@ import java.util.List;
 
 public interface CollectorGroupMemberRepository extends PagingAndSortingRepository<CollectorGroupMemberEntity, Long> {
     CollectorGroupMemberEntity findFirstByLeftIdAndRightId(Long left, Long right);
+
     List<CollectorGroupMemberEntity> findByLeftId(Long left, Pageable pageable);
+
     List<CollectorGroupMemberEntity> findByLeftId(Long left);
+
     void deleteByRightId(Long right);
 }

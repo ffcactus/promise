@@ -3,7 +3,7 @@ package com.promise.apps.server.controller;
 import com.promise.apps.server.model.*;
 import com.promise.apps.server.sdk.dto.*;
 import com.promise.apps.server.service.ServerService;
-import com.promise.platform.sdk.controller.ExceptionController;
+import com.promise.platform.common.controller.CommonExceptionController;
 import com.promise.platform.sdk.dto.CollectionResponseV1;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort.Direction;
@@ -19,7 +19,7 @@ import java.util.stream.Collectors;
 
 @Controller
 @RequestMapping("/api/v1/servers")
-public class ServerController extends ExceptionController {
+public class ServerController extends CommonExceptionController {
 
     @Autowired
     private ServerService service;

@@ -1,6 +1,7 @@
 package com.promise.platform.sdk.dto.company;
 
-import com.promise.platform.sdk.dto.JsonPatchOperationV1;
+
+import com.promise.platform.common.dto.JsonPatchOperationV1;
 
 import java.util.ArrayList;
 

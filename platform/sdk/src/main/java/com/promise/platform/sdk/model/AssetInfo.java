@@ -18,7 +18,7 @@ public class AssetInfo {
     /**
      * Convert the model to response DTO.
      *
-     * @param model.
+     * @param model model object.
      * @return The response DTO.
      */
     public static AssetInfoV1 toResponse(AssetInfo model) {

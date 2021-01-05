@@ -11,6 +11,7 @@ public interface MessageInterceptorChain extends Iterable<MessageInterceptor> {
 
     /**
      * Register a interceptor to this chain.
+     *
      * @param interceptor the one to register.
      */
     void register(MessageInterceptor interceptor);

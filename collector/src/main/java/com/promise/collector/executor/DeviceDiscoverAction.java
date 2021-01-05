@@ -1,11 +1,11 @@
 package com.promise.collector.executor;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.promise.collector.plugin.Plugin;
 import com.promise.collector.plugin.PluginManager;
 import com.promise.platform.common.dto.ErrorResponseV1;
 import com.promise.platform.devicebasic.sdk.dto.device.DiscoverDeviceRequestV1;
 import com.promise.platform.devicebasic.sdk.message.Message;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.socket.TextMessage;

@@ -1,5 +1,6 @@
 package com.promise.platform.devicemonitor.controller;
 
+import com.promise.platform.common.controller.CommonExceptionController;
 import com.promise.platform.devicemonitor.sdk.dto.GetDeviceStateRecordResponseV1;
 import com.promise.platform.devicemonitor.service.DeviceStateRecordService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/api/v1/rest/device-monitor/")
-public class MonitorController {
+public class MonitorController extends CommonExceptionController {
 
     @Autowired
     private DeviceStateRecordService deviceStateRecordService;

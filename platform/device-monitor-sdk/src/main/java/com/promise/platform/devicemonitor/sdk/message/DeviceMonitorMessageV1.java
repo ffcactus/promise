@@ -1,7 +1,7 @@
 package com.promise.platform.devicemonitor.sdk.message;
 
-import com.promise.platform.devicemonitor.sdk.dto.DeviceMonitorMessageType;
 import com.fasterxml.jackson.databind.JsonNode;
+import com.promise.platform.devicemonitor.sdk.dto.DeviceMonitorMessageType;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

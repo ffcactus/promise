@@ -35,8 +35,9 @@ public class Message {
 
     /**
      * Generate corresponding response message from this message.
+     *
      * @param payload The payload in the response message.
-     * @param <T> The payload type.
+     * @param <T>     The payload type.
      * @return The response message.
      */
     @JsonIgnore
@@ -51,8 +52,9 @@ public class Message {
 
     /**
      * Generate success response message from this message.
+     *
      * @param payload The payload in the response message.
-     * @param <T> The payload type.
+     * @param <T>     The payload type.
      * @return The response message.
      */
     @JsonIgnore
@@ -67,8 +69,9 @@ public class Message {
 
     /**
      * Generate a failure response message from this message.
+     *
      * @param payload The payload in the response message.
-     * @param <T> The payload type.
+     * @param <T>     The payload type.
      * @return The response message.
      */
     @JsonIgnore

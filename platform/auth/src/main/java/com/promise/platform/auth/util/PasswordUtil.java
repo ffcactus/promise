@@ -8,8 +8,8 @@ public class PasswordUtil {
         return DigestUtils.sha256Hex(input + DigestUtils.sha256Hex(input));
     }
 
-    public static boolean isPasswordCorrect(String rawPassword, String encryptedPassword) {
-        return encryptedPassword.equals(encrypt(rawPassword));
+    public static boolean mismatch(String rawPassword, String encryptedPassword) {
+        return !encryptedPassword.equals(encrypt(rawPassword));
     }
 
 }

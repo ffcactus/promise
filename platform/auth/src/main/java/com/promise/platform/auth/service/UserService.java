@@ -5,12 +5,12 @@ import com.promise.platform.auth.exception.EmailExistException;
 import com.promise.platform.auth.exception.UserNotExistException;
 import com.promise.platform.auth.exception.UsernameExistException;
 import com.promise.platform.auth.repository.UserRepository;
+import com.promise.platform.auth.sdk.dto.GetUserResponseV1;
+import com.promise.platform.auth.sdk.dto.RegisterUserRequestV1;
+import com.promise.platform.auth.sdk.dto.UpdateUserRequestV1;
+import com.promise.platform.auth.sdk.exception.UnauthorizedException;
 import com.promise.platform.auth.util.PasswordUtil;
-import com.promise.platform.sdk.dto.auth.GetUserResponseV1;
-import com.promise.platform.sdk.dto.auth.RegisterUserRequestV1;
-import com.promise.platform.sdk.dto.auth.UpdateUserRequestV1;
-import com.promise.platform.sdk.exception.InvalidRequestBodyException;
-import com.promise.platform.sdk.exception.UnauthorizedException;
+import com.promise.platform.common.exception.InvalidRequestBodyException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Isolation;
@@ -81,7 +81,7 @@ public class UserService {
         }
 
         var user = userOpt.get();
-        if (!PasswordUtil.isPasswordCorrect(oldPass, user.getPassword())) {
+        if (!PasswordUtil.mismatch(oldPass, user.getPassword())) {
             throw new UnauthorizedException();
         }
 
@@ -107,7 +107,7 @@ public class UserService {
         List<GetUserResponseV1> result = new ArrayList<>();
 
         List<UserEntity> userEntities = userRepository.findAll();
-        userEntities.forEach( ue -> result.add(ue.toResponseV1()));
+        userEntities.forEach(ue -> result.add(ue.toResponseV1()));
 
         return result;
     }

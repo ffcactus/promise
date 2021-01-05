@@ -12,6 +12,7 @@ import java.util.Base64;
 public class RedfishUtil {
     /**
      * Get {@link DevicePowerState} from Redfish string expression.
+     *
      * @param powerState Redfish string expression.
      * @return {@link DevicePowerState}
      */

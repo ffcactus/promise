@@ -15,7 +15,6 @@ import org.springframework.web.socket.WebSocketSession;
  * Device and collector are both grouped. There is a mapping from device group to the collector group.
  * This {@code SessionSelector} will selector the session according to this mapping, that is get the device's group
  * and find the collector group, then pick the right session.
- *
  */
 @Component("DefaultSessionSelector")
 public class DefaultSessionSelector implements SessionSelector {
@@ -58,5 +57,7 @@ public class DefaultSessionSelector implements SessionSelector {
         return request.getAddress().hashCode() & 0xfffffff;
     }
 
-    private int hashOf(Long id) {return id.hashCode() & 0xfffffff;}
+    private int hashOf(Long id) {
+        return id.hashCode() & 0xfffffff;
+    }
 }
