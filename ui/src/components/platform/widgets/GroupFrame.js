@@ -4,19 +4,19 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const StyledOutterSplitPane = styled(SplitPane).attrs(
-    ({groupDefaultSize, groupMinSize}) => ({
-        split: 'vertical',
-        minSize: groupMinSize || 50,
-        defaultSize: groupDefaultSize || '14.6%'
-        // resizerClassName: "Resizer"
-    })
+  ({ groupDefaultSize, groupMinSize }) => ({
+    split: 'vertical',
+    minSize: groupMinSize || 50,
+    defaultSize: groupDefaultSize || '14.6%'
+    // resizerClassName: "Resizer"
+  })
 )`
   background-color: white;
   position: absolute;
-  top: 0px;
-  right: 0px;
-  bottom: 0px;
-  left: 0px;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
 
   .Resizer {
     background-color: ${p => p.theme.backgroundColor};
@@ -72,12 +72,12 @@ const StyledOutterSplitPane = styled(SplitPane).attrs(
 `;
 
 const StyledInnerSplitPane = styled(SplitPane).attrs(
-    ({listMinSize, listDefaultSize}) => ({
-        split: 'vertical',
-        minSize: listMinSize || 50,
-        defaultSize: listDefaultSize || '27.6%'
-        // resizerClassName: "Resizer"
-    })
+  ({ listMinSize, listDefaultSize }) => ({
+    split: 'vertical',
+    minSize: listMinSize || 50,
+    defaultSize: listDefaultSize || '27.6%'
+    // resizerClassName: "Resizer"
+  })
 )``;
 
 /**
@@ -85,24 +85,24 @@ const StyledInnerSplitPane = styled(SplitPane).attrs(
  * You can resize each of the pane. It should always take the whole area of the parent.
  */
 class GroupFrame extends React.Component {
-    render() {
-        return (
-            <StyledOutterSplitPane {...this.props}>
-                {this.props.groupPane}
-                <StyledInnerSplitPane {...this.props}>
-                    {this.props.listPane}
-                    {this.props.detailPane}
-                </StyledInnerSplitPane>
-            </StyledOutterSplitPane>
-        );
-    }
+  render() {
+    return (
+      <StyledOutterSplitPane {...this.props}>
+        {this.props.groupPane}
+        <StyledInnerSplitPane {...this.props}>
+          {this.props.listPane}
+          {this.props.detailPane}
+        </StyledInnerSplitPane>
+      </StyledOutterSplitPane>
+    );
+  }
 }
 
 GroupFrame.propTypes = {
-    styles: PropTypes.object,
-    groupPane: PropTypes.object,
-    listPane: PropTypes.object,
-    detailPane: PropTypes.object
+  styles: PropTypes.object,
+  groupPane: PropTypes.object,
+  listPane: PropTypes.object,
+  detailPane: PropTypes.object
 };
 
 export default GroupFrame;
