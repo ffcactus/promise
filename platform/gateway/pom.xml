@@ -46,30 +46,6 @@
         </dependency>
         <dependency>
             <groupId>com.promise.platform</groupId>
-            <artifactId>promise-platform-sdk</artifactId>
-            <version>1.0.0</version>
-            <scope>compile</scope>
-            <exclusions>
-                <exclusion>
-                    <groupId>org.springframework</groupId>
-                    <artifactId>spring-webmvc</artifactId>
-                </exclusion>
-                <exclusion>
-                    <groupId>org.springframework.security</groupId>
-                    <artifactId>spring-security-web</artifactId>
-                </exclusion>
-                <exclusion>
-                    <groupId>org.springframework.security</groupId>
-                    <artifactId>spring-security-config</artifactId>
-                </exclusion>
-                <exclusion>
-                    <groupId>org.apache.tomcat.embed</groupId>
-                    <artifactId>tomcat-embed-core</artifactId>
-                </exclusion>
-            </exclusions>
-        </dependency>
-        <dependency>
-            <groupId>com.promise.platform</groupId>
             <artifactId>promise-platform-auth-sdk</artifactId>
             <version>1.0.0</version>
             <scope>compile</scope>

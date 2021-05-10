@@ -20,11 +20,6 @@
         <!-- Promise -->
         <dependency>
             <groupId>com.promise.platform</groupId>
-            <artifactId>promise-platform-sdk</artifactId>
-            <version>${project.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.promise.platform</groupId>
             <artifactId>promise-platform-task-sdk</artifactId>
             <version>${project.version}</version>
         </dependency>

@@ -17,5 +17,6 @@
 
     <modules>
         <module>server</module>
+        <module>study-ai</module>
     </modules>
 </project>
